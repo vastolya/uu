@@ -1,0 +1,40 @@
+/* styles/tokens.css */
+
+:root {
+  /* 🎨 Цвета */
+  --color-primary: #eeff29;
+  --color-black: #1d1d1b;
+  --color-white: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #1d1d1b;
+
+  /* 🖋 Шрифты */
+  --font-heading: "NeutralFace", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* 🔠 Типографика */
+  --text-h1: 100px;
+  --text-h2: 49px;
+  --text-h3: 28px;
+  --text-subtitle: 16px;
+  --text-subtitle-sm: 12px;
+
+  --lh-h1: 96%;
+  --lh-h2: 115%;
+  --lh-h3: 116%;
+  --lh-subtitle: 128%;
+  --lh-subtitle-sm: 133%;
+  --lh-button: 150%;
+
+  --ls-default: 0%;
+  --ls-h3: -2%;
+
+  /* 📏 Радиусы */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}
