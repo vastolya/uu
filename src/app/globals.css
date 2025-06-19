@@ -74,14 +74,5 @@ button {
   letter-spacing: var(--ls-default);
   font-family: var(--font-body);
   font-weight: var(--font-weight-medium);
-  background-color: var(--color-primary);
-  color: var(--color-black);
   border-radius: var(--radius-sm);
-  padding: 1.5rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-button:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
 }
