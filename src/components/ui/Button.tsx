@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
-import { useLayoutEffect, useRef, useState } from "react";
+import React, { useRef, useState, useLayoutEffect } from "react";
+import { animate, press } from "motion";
 import IconArrowRight from "../icons/IconArrowRight";
 
 interface ButtonProps {
@@ -14,7 +13,6 @@ interface ButtonProps {
 
 const baseStyles =
   "flex justify-center items-center gap-2 w-fit rounded-xl font-medium transition-colors duration-300";
-
 const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
     "p-20 bg-[var(--color-primary)] hover:bg-[var(--color-black)] text-[var(--color-black)] hover:text-[var(--color-white)]",
@@ -30,7 +28,7 @@ export const Button = ({
 }: ButtonProps) => {
   const arrowRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-
+  const containerRef = useRef<HTMLButtonElement>(null);
   const [arrowWidth, setArrowWidth] = useState(0);
   const [textWidth, setTextWidth] = useState(0);
 
@@ -39,35 +37,47 @@ export const Button = ({
     if (textRef.current) setTextWidth(textRef.current.offsetWidth);
   }, [text]);
 
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;
+  useLayoutEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const cleanup = press(el, () => {
+      // optional spring tap animation
+      animate(el, { scale: 0.95 }, { type: "spring", stiffness: 800 });
+      return () =>
+        animate(el, { scale: 1 }, { type: "spring", stiffness: 400 });
+    });
+
+    return cleanup;
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (arrowRef.current)
+      animate(arrowRef.current, { x: textWidth + 8 }, { duration: 0.3 });
+    if (textRef.current)
+      animate(textRef.current, { x: -(arrowWidth + 8) }, { duration: 0.3 });
+  };
+
+  const handleMouseLeave = () => {
+    if (arrowRef.current)
+      animate(arrowRef.current, { x: 0 }, { duration: 0.3 });
+    if (textRef.current) animate(textRef.current, { x: 0 }, { duration: 0.3 });
+  };
 
   return (
-    <motion.button
+    <button
+      ref={containerRef}
       onClick={onClick}
-      className={combinedClassName}
-      initial="initial"
-      whileHover="hover"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
     >
-      <motion.div
-        ref={arrowRef}
-        variants={{
-          initial: { x: 0 },
-          hover: { x: textWidth + 8, color: "#eeff29" }, // хардкод
-        }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
+      <div ref={arrowRef}>
         <IconArrowRight />
-      </motion.div>
-      <motion.div
-        ref={textRef}
-        variants={{
-          initial: { x: 0 },
-          hover: { x: -arrowWidth - 8 },
-        }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
+      </div>
+      <div ref={textRef}>
         <span>{text}</span>
-      </motion.div>
-    </motion.button>
+      </div>
+    </button>
   );
 };
