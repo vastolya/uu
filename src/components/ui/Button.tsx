@@ -42,7 +42,6 @@ export const Button = ({
     if (!el) return;
 
     const cleanup = press(el, () => {
-      // optional spring tap animation
       animate(el, { scale: 0.95 }, { type: "spring", stiffness: 800 });
       return () =>
         animate(el, { scale: 1 }, { type: "spring", stiffness: 400 });
@@ -53,14 +52,18 @@ export const Button = ({
 
   const handleMouseEnter = () => {
     if (arrowRef.current)
-      animate(arrowRef.current, { x: textWidth + 8 }, { duration: 0.3 });
+      animate(
+        arrowRef.current,
+        { x: textWidth + 8, color: "#eeff29" }, // хардкод цвета
+        { duration: 0.3 }
+      );
     if (textRef.current)
       animate(textRef.current, { x: -(arrowWidth + 8) }, { duration: 0.3 });
   };
 
   const handleMouseLeave = () => {
     if (arrowRef.current)
-      animate(arrowRef.current, { x: 0 }, { duration: 0.3 });
+      animate(arrowRef.current, { x: 0, color: "#1d1d1b" }, { duration: 0.3 }); // хардкод цвета
     if (textRef.current) animate(textRef.current, { x: 0 }, { duration: 0.3 });
   };
 
