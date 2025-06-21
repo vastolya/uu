@@ -29,7 +29,7 @@ export const Button = ({
 }: ButtonProps) => {
   const arrowRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLButtonElement>(null);
+
   const [arrowWidth, setArrowWidth] = useState(0);
   const [textWidth, setTextWidth] = useState(0);
 
@@ -50,39 +50,10 @@ export const Button = ({
     });
   }, [text]);
 
-  useLayoutEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const cleanup = press(el, () => {
-      animate(el, { scale: 0.95 }, { type: "spring", stiffness: 800 });
-      return () =>
-        animate(el, { scale: 1 }, { type: "spring", stiffness: 400 });
-    });
-
-    return cleanup;
-  }, []);
-
-  const handleMouseEnter = () => {
-    if (arrowRef.current)
-      animate(
-        arrowRef.current,
-        { x: textWidth + 8, color: "#eeff29" }, // хардкод цвета
-        { duration: 0.3 }
-      );
-    if (textRef.current)
-      animate(textRef.current, { x: -(arrowWidth + 8) }, { duration: 0.3 });
-  };
-
-  const handleMouseLeave = () => {
-    if (arrowRef.current)
-      animate(arrowRef.current, { x: 0, color: "#1d1d1b" }, { duration: 0.3 }); // хардкод цвета
-    if (textRef.current) animate(textRef.current, { x: 0 }, { duration: 0.3 });
-  };
+  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;
 
   return (
-    <button
-      ref={containerRef}
+    <motion.button
       onClick={onClick}
       className={combinedClassName}
       initial="initial"
@@ -107,7 +78,7 @@ export const Button = ({
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <span>{text}</span>
-      </div>
-    </button>
+      </motion.div>
+    </motion.button>
   );
 };
