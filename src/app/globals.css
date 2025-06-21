@@ -74,5 +74,4 @@ button {
   letter-spacing: var(--ls-default);
   font-family: var(--font-body);
   font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-sm);
 }

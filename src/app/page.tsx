@@ -84,7 +84,7 @@ export default function Home() {
         </div>
       </PageSection>
 
-      <h1 className="">H1 — NeutralFace / 100px / 400 / 96% / 0%</h1>
+      <h1>H1 — NeutralFace / 100px / 400 / 96% / 0%</h1>
       <h2>H2 — NeutralFace / 49px / 400 / 115% / 0%</h2>
       <h3>H3 — Inter / 28px / 700 / 116% / -2%</h3>
       <p className="subtitle">Subtitle — Inter / 16px / 500 / 128% / 0%</p>

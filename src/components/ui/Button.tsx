@@ -12,7 +12,7 @@ interface ButtonProps {
 }
 
 const baseStyles =
-  "flex justify-center items-center gap-2 w-fit rounded-xl font-medium transition-colors duration-300 cursor-pointer";
+  "flex justify-center items-center gap-2 w-fit rounded-[var(--radius-sm)] font-medium transition-colors duration-300 cursor-pointer";
 
 const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
