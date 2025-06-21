@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useLayoutEffect } from "react";
 import { motion } from "motion/react";
-import { useLayoutEffect, useRef, useState } from "react";
 import IconArrowRight from "../icons/IconArrowRight";
 
 interface ButtonProps {
@@ -13,11 +12,11 @@ interface ButtonProps {
 }
 
 const baseStyles =
-  "flex justify-center items-center gap-2 w-fit rounded-xl font-medium transition-colors duration-300";
+  "flex justify-center items-center gap-2 w-fit rounded-xl font-medium transition-colors duration-300 cursor-pointer";
 
 const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "p-20 bg-[var(--color-primary)] hover:bg-[var(--color-black)] text-[var(--color-black)] hover:text-[var(--color-white)]",
+    "py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] text-[var(--color-black)] hover:text-[var(--color-white)]",
   secondary:
     "p-4 box-border border-2 border-[var(--color-primary)] hover:border-[var(--color-black)] text-[var(--color-black)] hover:bg-[var(--color-black)] hover:text-[var(--color-white)]",
 };
@@ -35,8 +34,20 @@ export const Button = ({
   const [textWidth, setTextWidth] = useState(0);
 
   useLayoutEffect(() => {
-    if (arrowRef.current) setArrowWidth(arrowRef.current.offsetWidth);
-    if (textRef.current) setTextWidth(textRef.current.offsetWidth);
+    if (arrowRef.current) {
+      arrowRef.current.style.display = "none";
+    }
+
+    requestAnimationFrame(() => {
+      if (textRef.current) {
+        setTextWidth(textRef.current.offsetWidth);
+      }
+
+      if (arrowRef.current) {
+        arrowRef.current.style.display = "";
+        setArrowWidth(arrowRef.current.offsetWidth);
+      }
+    });
   }, [text]);
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;
@@ -52,7 +63,7 @@ export const Button = ({
         ref={arrowRef}
         variants={{
           initial: { x: 0 },
-          hover: { x: textWidth + 8, color: "#eeff29" }, // хардкод
+          hover: { x: textWidth + 8, color: "#eeff29" },
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
@@ -62,7 +73,7 @@ export const Button = ({
         ref={textRef}
         variants={{
           initial: { x: 0 },
-          hover: { x: -arrowWidth - 8 },
+          hover: { x: -(arrowWidth + 8) },
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
