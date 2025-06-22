@@ -1,6 +1,8 @@
 import { PageSection } from "@/components/layout/PageSection";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import LogoBigUU from "../../public/logoBigUU.png";
+import { Accordion } from "@/components/ui/Accordion";
 
 export default function Home() {
   return (
@@ -84,7 +86,41 @@ export default function Home() {
         </div>
       </PageSection>
 
-      <h1>H1 — NeutralFace / 100px / 400 / 96% / 0%</h1>
+      <PageSection>
+        <div className="col-span-3 relative my-11 h-[368px] flex justify-start items-start">
+          <Image
+            src={LogoBigUU}
+            alt=""
+            fill
+            sizes="auto"
+            className="object-contain object-left"
+          />
+          <h2 className="z-[1] pt-9">FAQ</h2>
+        </div>
+        <div className="col-start-5 col-span-4 my-auto">
+          <Accordion
+            items={[
+              {
+                title: "Сколько стоит проект «под ключ»?",
+                content:
+                  "Итоговая сумма может варьироваться от нескольких сотен тысяч до <br/> нескольких миллионов рублей в зависимости от объема и уровня отделки",
+              },
+              {
+                title: "Можно ли заказать только дизайн?",
+                content:
+                  "Да, мы предлагаем услугу только дизайна без реализации проекта.",
+              },
+              {
+                title: "Как вы гарантируете сроки?",
+                content:
+                  "Мы подписываем договор с четким таймлайном, который фиксирует этапы и дедлайны.",
+              },
+            ]}
+          />
+        </div>
+      </PageSection>
+
+      {/* <h1>H1 — NeutralFace / 100px / 400 / 96% / 0%</h1>
       <h2>H2 — NeutralFace / 49px / 400 / 115% / 0%</h2>
       <h3>H3 — Inter / 28px / 700 / 116% / -2%</h3>
       <p className="subtitle">Subtitle — Inter / 16px / 500 / 128% / 0%</p>
@@ -96,7 +132,7 @@ export default function Home() {
       </p>
       <button className="cursor-pointer">
         Button — Inter / 16px / 500 / 150% / 0%
-      </button>
+      </button> */}
     </>
   );
 }
