@@ -62,8 +62,8 @@ function AccordionRow({
         <h3>{item.title}</h3>
         <span className="flex justify-center items-center">
           <motion.span
-            animate={{ rotate: isOpen ? 0 : 180 }}
-            transition={{ duration: 0.3 }}
+            animate={{ rotate: isOpen ? 0 : -180 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="w-6 h-6 text-[var(--color-gray)]"
           >
             <IconChevron />
