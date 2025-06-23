@@ -7,6 +7,7 @@ import LogoBigUU from "../../public/logoBigUU.png";
 import { Accordion } from "@/components/ui/Accordion";
 
 import { WorkStages } from "@/components/sections/WorkStages";
+import LogoSlider from "@/components/sections/LogoSlider";
 
 export default function Home() {
   return (
@@ -89,6 +90,8 @@ export default function Home() {
           </span>
         </div>
       </PageSection>
+
+      <LogoSlider />
 
       <PageSection>
         <WorkStages />
