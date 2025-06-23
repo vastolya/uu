@@ -4,6 +4,10 @@ import { PageSection } from "@/components/layout/PageSection";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import LogoBigUU from "../../public/logoBigUU.png";
+import ImageArrow from "../../public/imageArrow.png";
+import ImageBlog1 from "../../public/imageBlog1.png";
+import ImageBlog2 from "../../public/imageBlog2.png";
+import ImageBlog3 from "../../public/imageBlog3.png";
 import { Accordion } from "@/components/ui/Accordion";
 
 import { WorkStages } from "@/components/sections/WorkStages";
@@ -91,11 +95,114 @@ export default function Home() {
         </div>
       </PageSection>
 
+      <PageSection className="px-5 py-20">
+        <div className="col-span-4 justify-between flex flex-col">
+          <h2>
+            Расскажите о вашем проекте —{" "}
+            <span className="text-[var(--color-primary)]">
+              мы любим сложные задачи!
+            </span>
+          </h2>
+          <Image src={ImageArrow} alt="" width={154} height={154} />
+        </div>
+        <form
+          className="col-span-4 flex flex-col gap-6 subtitle"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <label htmlFor="name" className="sr-only" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Имя"
+            className="py-3  placeholder:text-[var(--color-gray)] border-b-2 border-[var(--color-border-gray)] w-full"
+          />
+          <label htmlFor="phone" className="sr-only" />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Телефон"
+            className="py-3  placeholder:text-[var(--color-gray)] border-b-2 border-[var(--color-border-gray)] w-full"
+          />
+          <div className="flex flex-col">
+            <label htmlFor="comment" className="text-[var(--color-gray)] pb-1">
+              Краткое описание идеи
+            </label>
+            <textarea
+              name="comment"
+              id="comment"
+              className="border-2 border-[var(--color-border-gray)] placeholder:text-[#D2D2D0] py-4 px-3 text-[var(--color-black)] rounded-[var(--radius-sm)] min-h-20"
+              placeholder="Введите текст"
+            />
+          </div>
+          <div className="flex-col flex gap-2">
+            <label className="flex gap-2 cursor-pointer text-[var(--color-gray)]">
+              <input
+                type="checkbox"
+                className="h-4 w-4 accent-[var(--color-black)] rounded-[var(--radius-sm)]"
+              />
+
+              <span>
+                Я принимаю условия{" "}
+                <a href="/privacy-policy" target="_blank" className="underline">
+                  политики конфиденциальности
+                </a>
+              </span>
+            </label>
+
+            <Button text="Начать проект" />
+          </div>
+        </form>
+      </PageSection>
+
       <LogoSlider />
 
       <PageSection>
         <WorkStages />
       </PageSection>
+
+      <section className="bg-[var(--color-border-gray)]">
+        <PageSection className="py-20">
+          <p className="subtitle text-[var(--color-gray)] pb-2">
+            Новости и статьи
+          </p>
+          <h2 className="col-span-8 pb-10">Идеи, которые меняют города</h2>
+          <div className="col-span-4">
+            <Image
+              src={ImageBlog1}
+              alt=""
+              height={496}
+              width={688}
+              className="pb-2"
+            />
+            <p className="subtitle-bold">Архитектура без границ</p>
+            <p className="subtitle text-[var(--color-gray)]">События</p>
+          </div>
+          <div className="col-span-2">
+            <Image
+              src={ImageBlog2}
+              alt=""
+              height={332}
+              width={332}
+              className="pb-2"
+            />
+            <p className="subtitle-bold">
+              Как инклюзивный дизайн меняет общественные пространства?
+            </p>
+            <p className="subtitle text-[var(--color-gray)]">Иновации</p>
+          </div>
+          <div className="col-span-2">
+            <Image
+              src={ImageBlog3}
+              alt=""
+              height={476}
+              width={332}
+              className="pb-2"
+            />
+            <p className="subtitle-bold">Превращение промзоны в арт-кластер</p>
+            <p className="subtitle text-[var(--color-gray)]">Иновации</p>
+          </div>
+        </PageSection>
+      </section>
 
       <PageSection className="px-5 pt-20">
         <h2 className="col-span-4">Давайте создадим нечто уникальное</h2>

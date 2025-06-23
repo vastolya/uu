@@ -11,7 +11,7 @@ const logos = [
   { name: "Yandex", src: "/logoClient7.png" },
 ];
 
-export default function InfiniteMarquee() {
+export default function LogoSlider() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<number | null>(null);
