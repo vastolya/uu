@@ -21,7 +21,9 @@ const Header = () => {
           {["Портфолио", "О нас", "Новости", "Галерея", "Контакты"].map(
             (item, index) => (
               <Link key={index} href={"/"}>
-                <button className="cursor-pointer">{item}</button>
+                <button className="cursor-pointer hover:text-[var(--color-primary)]">
+                  {item}
+                </button>
               </Link>
             )
           )}

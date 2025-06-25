@@ -16,6 +16,7 @@ import ImageCase3 from "../../public/imageCase3.png";
 import { WorkStages } from "@/components/sections/WorkStages";
 import LogoSlider from "@/components/sections/LogoSlider";
 import IconArrowRight from "@/components/icons/IconArrowRight";
+import Directions from "@/components/sections/Directions";
 
 export default function Home() {
   return (
@@ -30,6 +31,8 @@ export default function Home() {
           историей
         </p>
       </PageSection>
+
+      {/* Картинка */}
       <section className="w-full h-[29.75rem] relative">
         <Image
           src="/imageHero.png"
@@ -40,6 +43,8 @@ export default function Home() {
           className="object-cover"
         />
       </section>
+
+      {/* О нас */}
       <PageSection className="px-5 py-20 ">
         <p className="subtitle text-[var(--color-gray)] pb-2 col-span-8">
           О нас
@@ -101,12 +106,9 @@ export default function Home() {
       <PageSection className="px-5 py-20 gap-y-10">
         <div className="col-span-8 flex justify-between">
           <p className="subtitle text-[var(--color-gray)] pb-2">Кейсы</p>
-          <button className="group flex items-center gap-2 relative overflow-hidden">
-            <span className="relative flex items-center gap-2">
-              <IconArrowRight />
-              <span>Все кейсы</span>
-              <span className="absolute left-0 -bottom-0.5 h-[1px] w-full scale-x-0 bg-[var(--color-black)] transition-transform duration-300 group-hover:scale-x-100 origin-left" />
-            </span>
+          <button className="flex items-center gap-2 hover:text-[var(--color-primary)]">
+            <IconArrowRight />
+            <span>Все кейсы</span>
           </button>
         </div>
 
@@ -137,6 +139,11 @@ export default function Home() {
           <Image src={ImageCase3} alt="" sizes="auto" height={476} />
         </div>
       </PageSection>
+
+      {/* Направления */}
+      <Directions />
+
+      {/* Форма */}
       <PageSection className="px-5 py-20">
         <div className="col-span-4 justify-between flex flex-col">
           <h2>
@@ -195,11 +202,16 @@ export default function Home() {
           </div>
         </form>
       </PageSection>
+
       <LogoSlider />
+
+      {/* Этапы */}
       <PageSection>
         <WorkStages />
       </PageSection>
-      <section className="bg-[var(--color-border-gray)]">
+
+      {/* Блог */}
+      <div className="bg-[var(--color-border-gray)]">
         <PageSection className="py-20">
           <p className="subtitle text-[var(--color-gray)] pb-2">
             Новости и статьи
@@ -241,7 +253,9 @@ export default function Home() {
             <p className="subtitle text-[var(--color-gray)]">Иновации</p>
           </div>
         </PageSection>
-      </section>
+      </div>
+
+      {/* Форма 2 */}
       <PageSection className="px-5 pt-20">
         <h2 className="col-span-4">Давайте создадим нечто уникальное</h2>
         <form
@@ -292,6 +306,8 @@ export default function Home() {
           </div>
         </form>
       </PageSection>
+
+      {/* ЭФ АЙ КЬЮ */}
       <PageSection>
         <div className="col-span-3 relative my-11 h-[368px] flex justify-start items-start">
           <Image
@@ -325,19 +341,6 @@ export default function Home() {
           />
         </div>
       </PageSection>
-      {/* <h1>H1 — NeutralFace / 100px / 400 / 96% / 0%</h1>
-      <h2>H2 — NeutralFace / 49px / 400 / 115% / 0%</h2>
-      <h3>H3 — Inter / 28px / 700 / 116% / -2%</h3>
-      <p className="subtitle">Subtitle — Inter / 16px / 500 / 128% / 0%</p>
-      <p className="subtitle-bold">
-        Subtitle Bold — Inter / 16px / 700 / 128% / 0%
-      </p>
-      <p className="subtitle-sm">
-        Subtitle Small — Inter / 12px / 400 / 133% / 0%
-      </p>
-      <button className="cursor-pointer">
-        Button — Inter / 16px / 500 / 150% / 0%
-      </button> */}
     </>
   );
 }

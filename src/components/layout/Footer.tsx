@@ -23,7 +23,9 @@ const Footer = () => {
           {["Портфолио", "О нас", "Новости", "Галерея", "Контакты"].map(
             (item, index) => (
               <Link key={index} href={"/"}>
-                <button className="cursor-pointer p-2">{item}</button>
+                <button className="cursor-pointer p-2 hover:text-[var(--color-primary)]">
+                  {item}
+                </button>
               </Link>
             )
           )}
