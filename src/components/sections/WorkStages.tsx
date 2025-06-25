@@ -47,7 +47,7 @@ export function WorkStages() {
       <div className="col-span-2 relative h-[49.75rem] w-[16.8125rem] my-10">
         <Image src={ImageStep} alt="" fill sizes="auto" className="-z-1" />
         <p className="subtitle text-[var(--color-gray)] pb-2 pt-10">
-          Этапы&nbsp;работ
+          Этапы работ
         </p>
         <h2 className="col-span-8 pb-10">Как&nbsp;мы&nbsp;работаем?</h2>
       </div>
@@ -69,7 +69,7 @@ export function WorkStages() {
             >
               <div className="box-border col-span-2 border-r-2 border-[var(--color-border-gray)]">
                 <h2
-                  className={`box-border border-b-2 border-[var(--color-border-gray)] text-[var(--color-border-gray)]  ${
+                  className={`box-border border-b-2 border-[var(--color-border-gray)] text-[var(--color-border-gray)] ${
                     index === 0 && "pt-[12.75rem]"
                   } `}
                 >

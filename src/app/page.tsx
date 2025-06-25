@@ -9,9 +9,13 @@ import ImageBlog1 from "../../public/imageBlog1.png";
 import ImageBlog2 from "../../public/imageBlog2.png";
 import ImageBlog3 from "../../public/imageBlog3.png";
 import { Accordion } from "@/components/ui/Accordion";
+import ImageCase1 from "../../public/imageCase1.png";
+import ImageCase2 from "../../public/imageCase2.png";
+import ImageCase3 from "../../public/imageCase3.png";
 
 import { WorkStages } from "@/components/sections/WorkStages";
 import LogoSlider from "@/components/sections/LogoSlider";
+import IconArrowRight from "@/components/icons/IconArrowRight";
 
 export default function Home() {
   return (
@@ -26,7 +30,6 @@ export default function Home() {
           историей
         </p>
       </PageSection>
-
       <section className="w-full h-[29.75rem] relative">
         <Image
           src="/imageHero.png"
@@ -37,8 +40,7 @@ export default function Home() {
           className="object-cover"
         />
       </section>
-
-      <PageSection className="px-5 py-20">
+      <PageSection className="px-5 py-20 ">
         <p className="subtitle text-[var(--color-gray)] pb-2 col-span-8">
           О нас
         </p>
@@ -95,6 +97,46 @@ export default function Home() {
         </div>
       </PageSection>
 
+      {/* Кейсы */}
+      <PageSection className="px-5 py-20 gap-y-10">
+        <div className="col-span-8 flex justify-between">
+          <p className="subtitle text-[var(--color-gray)] pb-2">Кейсы</p>
+          <button className="group flex items-center gap-2 relative overflow-hidden">
+            <span className="relative flex items-center gap-2">
+              <IconArrowRight />
+              <span>Все кейсы</span>
+              <span className="absolute left-0 -bottom-0.5 h-[1px] w-full scale-x-0 bg-[var(--color-black)] transition-transform duration-300 group-hover:scale-x-100 origin-left" />
+            </span>
+          </button>
+        </div>
+
+        <div className="col-span-4 row-span-2 relative">
+          <Image src={ImageCase1} alt="" height={920} sizes="auto" />
+        </div>
+
+        <div className="col-span-3 flex flex-col justify-between h-full">
+          <h3>
+            Не&nbsp;только&nbsp;проектирование,&nbsp;но&nbsp;и&nbsp;весь цикл —
+            от чертежа до запуска объекта
+          </h3>
+          <p className="subtitle">
+            Мы обеспечиваем и контролируем каждый этап, чтобы ваш проект стал
+            идеальным от концепции до последнего гвоздя
+          </p>
+        </div>
+
+        <div className="flex flex-col  items-end h-full gap-y-[324px]">
+          <p className="subtitle text-[var(--color-gray)]">1/4</p>
+          <Button text="Кейс" variant="secondary" />
+        </div>
+
+        <div className="col-span-2  h-full w-full relative">
+          <Image src={ImageCase2} alt="" height={476} sizes="auto />" />
+        </div>
+        <div className="col-span-2 h-full w-full relative">
+          <Image src={ImageCase3} alt="" sizes="auto" height={476} />
+        </div>
+      </PageSection>
       <PageSection className="px-5 py-20">
         <div className="col-span-4 justify-between flex flex-col">
           <h2>
@@ -153,13 +195,10 @@ export default function Home() {
           </div>
         </form>
       </PageSection>
-
       <LogoSlider />
-
       <PageSection>
         <WorkStages />
       </PageSection>
-
       <section className="bg-[var(--color-border-gray)]">
         <PageSection className="py-20">
           <p className="subtitle text-[var(--color-gray)] pb-2">
@@ -203,7 +242,6 @@ export default function Home() {
           </div>
         </PageSection>
       </section>
-
       <PageSection className="px-5 pt-20">
         <h2 className="col-span-4">Давайте создадим нечто уникальное</h2>
         <form
@@ -254,7 +292,6 @@ export default function Home() {
           </div>
         </form>
       </PageSection>
-
       <PageSection>
         <div className="col-span-3 relative my-11 h-[368px] flex justify-start items-start">
           <Image
@@ -288,7 +325,6 @@ export default function Home() {
           />
         </div>
       </PageSection>
-
       {/* <h1>H1 — NeutralFace / 100px / 400 / 96% / 0%</h1>
       <h2>H2 — NeutralFace / 49px / 400 / 115% / 0%</h2>
       <h3>H3 — Inter / 28px / 700 / 116% / -2%</h3>
