@@ -1,12 +1,41 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { PageSection } from "./PageSection";
 import LogoUU from "../../../public/logoUU.png";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Header = () => {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <div className="border-b-2 border-[var(--color-border-gray)]">
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{ y: show ? 0 : "-100%" }}
+      transition={{ duration: 0.175, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-[var(--color-border-gray)]"
+    >
       <PageSection>
         <div className="col-span-2 relative">
           <Image
@@ -28,11 +57,11 @@ const Header = () => {
             )
           )}
         </div>
-        <button className="col-span-2 py-7 w-full bg-[var(--color-primary)] ">
+        <button className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200">
           Бесплатная консультация
         </button>
       </PageSection>
-    </div>
+    </motion.div>
   );
 };
 

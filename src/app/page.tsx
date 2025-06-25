@@ -21,6 +21,8 @@ import Directions from "@/components/sections/Directions";
 export default function Home() {
   return (
     <>
+      <div className="h-20"></div>
+
       <PageSection className={`pt-20 pb-9`}>
         <h1 className="col-span-6">
           <span className="text-[var(--color-primary)]">Из замысла — </span>
