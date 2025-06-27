@@ -17,6 +17,8 @@ import { WorkStages } from "@/components/sections/WorkStages";
 import LogoSlider from "@/components/sections/LogoSlider";
 import IconArrowRight from "@/components/icons/IconArrowRight";
 import Directions from "@/components/sections/Directions";
+import Link from "next/link";
+import HeroParallax from "@/components/sections/HeroParallax";
 
 export default function Home() {
   return (
@@ -75,9 +77,9 @@ export default function Home() {
               пространствами
             </p>
           </span>
-          <span className="flex justify-end ">
+          <Link href="/about" className="flex justify-end ">
             <Button text="Подробнее" variant="secondary" />
-          </span>
+          </Link>
         </div>
         <div className="col-span-8 pt-20 flex">
           <span className="flex-1 flex-col">
@@ -109,7 +111,7 @@ export default function Home() {
           <p className="subtitle text-[var(--color-gray)] pb-2">Кейсы</p>
           <button className="flex items-center gap-2 hover:text-[var(--color-primary)]">
             <IconArrowRight />
-            <span>Все кейсы</span>
+            <Link href="/cases">Все кейсы </Link>
           </button>
         </div>
 
@@ -130,6 +132,7 @@ export default function Home() {
 
         <div className="flex flex-col  items-end h-full gap-y-[324px]">
           <p className="subtitle text-[var(--color-gray)]">1/4</p>
+
           <Button text="Кейс" variant="secondary" />
         </div>
 

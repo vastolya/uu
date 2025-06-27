@@ -3,7 +3,7 @@ import React from "react";
 interface PageSectionProps {
   children: React.ReactNode;
   id?: string;
-  className?: string; // добавили сюда
+  className?: string;
 }
 
 export function PageSection({

@@ -37,7 +37,7 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-[var(--color-border-gray)]"
     >
       <PageSection>
-        <div className="col-span-2 relative">
+        <Link href={"/"} className="col-span-2 relative">
           <Image
             src={LogoUU}
             alt="LogoUU"
@@ -45,17 +45,21 @@ const Header = () => {
             sizes="auto"
             className="py-5 object-contain"
           />
-        </div>
+        </Link>
         <div className="col-span-4 flex justify-center items-center gap-6">
-          {["Портфолио", "О нас", "Новости", "Галерея", "Контакты"].map(
-            (item, index) => (
-              <Link key={index} href={"/"}>
-                <button className="cursor-pointer hover:text-[var(--color-primary)]">
-                  {item}
-                </button>
-              </Link>
-            )
-          )}
+          {[
+            { text: "Портфолио", link: "/cases" },
+            { text: "О нас", link: "/about" },
+            { text: "Новости", link: "/news" },
+            { text: "Галерея", link: "/gallery" },
+            { text: "Контакты", link: "/" },
+          ].map((item, index) => (
+            <Link key={index} href={item.link}>
+              <button className="cursor-pointer hover:text-[var(--color-primary)]">
+                {item.text}
+              </button>
+            </Link>
+          ))}
         </div>
         <button className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200">
           Бесплатная консультация
