@@ -75,3 +75,30 @@ button {
   font-family: var(--font-body);
   font-weight: var(--font-weight-medium);
 }
+
+@keyframes spinBurst {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(370deg);
+  }
+  55% {
+    transform: rotate(355deg);
+  }
+  65% {
+    transform: rotate(365deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-burst {
+  animation: spinBurst 2.4s ease-out infinite;
+  transform-origin: center;
+  will-change: transform, filter;
+}

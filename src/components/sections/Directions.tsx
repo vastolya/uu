@@ -62,6 +62,7 @@ export default function Directions() {
                   <Image
                     src={cards[hoveredIndex].image}
                     alt=""
+                    loading="lazy"
                     className="h-full w-full object-cover"
                   />
                 </motion.div>

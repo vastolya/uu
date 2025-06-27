@@ -99,6 +99,7 @@ export default function LogoSlider() {
               src={logo.src}
               alt={logo.name}
               fill
+              sizes="auto"
               className="object-contain pointer-events-none"
             />
           </div>

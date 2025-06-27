@@ -41,7 +41,6 @@ export default function Home() {
           alt="image hero"
           fill
           sizes="auto"
-          priority
           className="object-cover"
         />
       </section>
