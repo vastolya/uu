@@ -1,24 +1,23 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { PageSection } from "@/components/layout/PageSection";
 import { Button } from "@/components/ui/Button";
-import Image from "next/image";
+import { Accordion } from "@/components/ui/Accordion";
+import { WorkStages } from "@/components/sections/WorkStages";
+import LogoSlider from "@/components/sections/LogoSlider";
+import IconArrowRight from "@/components/icons/IconArrowRight";
+import Directions from "@/components/sections/Directions";
 import LogoBigUU from "../../public/logoBigUU.png";
 import ImageArrow from "../../public/imageArrow.png";
 import ImageBlog1 from "../../public/imageBlog1.png";
 import ImageBlog2 from "../../public/imageBlog2.png";
 import ImageBlog3 from "../../public/imageBlog3.png";
-import { Accordion } from "@/components/ui/Accordion";
 import ImageCase1 from "../../public/imageCase1.png";
 import ImageCase2 from "../../public/imageCase2.png";
 import ImageCase3 from "../../public/imageCase3.png";
-
-import { WorkStages } from "@/components/sections/WorkStages";
-import LogoSlider from "@/components/sections/LogoSlider";
-import IconArrowRight from "@/components/icons/IconArrowRight";
-import Directions from "@/components/sections/Directions";
-import Link from "next/link";
-import HeroParallax from "@/components/sections/HeroParallax";
+import ParallaxSection from "@/components/sections/ParallaxSection";
 
 export default function Home() {
   return (
@@ -36,16 +35,8 @@ export default function Home() {
         </p>
       </PageSection>
 
-      {/* Картинка */}
-      <section className="w-full h-[29.75rem] relative">
-        <Image
-          src="/imageHero.png"
-          alt="image hero"
-          fill
-          sizes="auto"
-          className="object-cover"
-        />
-      </section>
+      {/* Паралакс */}
+      <ParallaxSection />
 
       {/* О нас */}
       <PageSection className="px-5 py-20 ">
