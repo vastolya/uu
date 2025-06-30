@@ -18,6 +18,7 @@ import ImageCase1 from "../../public/imageCase1.png";
 import ImageCase2 from "../../public/imageCase2.png";
 import ImageCase3 from "../../public/imageCase3.png";
 import ParallaxSection from "@/components/sections/ParallaxSection";
+import Form from "@/components/ui/Form";
 
 export default function Home() {
   return (
@@ -149,53 +150,7 @@ export default function Home() {
           </h2>
           <Image src={ImageArrow} alt="" width={154} height={154} />
         </div>
-        <form
-          className="col-span-4 flex flex-col gap-6 subtitle"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <label htmlFor="name" className="sr-only" />
-          <input
-            type="text"
-            name="name"
-            placeholder="Имя"
-            className="py-3  placeholder:text-[var(--color-gray)] border-b-2 border-[var(--color-border-gray)] w-full"
-          />
-          <label htmlFor="phone" className="sr-only" />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Телефон"
-            className="py-3  placeholder:text-[var(--color-gray)] border-b-2 border-[var(--color-border-gray)] w-full"
-          />
-          <div className="flex flex-col">
-            <label htmlFor="comment" className="text-[var(--color-gray)] pb-1">
-              Краткое описание идеи
-            </label>
-            <textarea
-              name="comment"
-              id="comment"
-              className="border-2 border-[var(--color-border-gray)] placeholder:text-[#D2D2D0] py-4 px-3 text-[var(--color-black)] rounded-[var(--radius-sm)] min-h-20"
-              placeholder="Введите текст"
-            />
-          </div>
-          <div className="flex-col flex gap-2">
-            <label className="flex gap-2 cursor-pointer text-[var(--color-gray)]">
-              <input
-                type="checkbox"
-                className="h-4 w-4 accent-[var(--color-black)] rounded-[var(--radius-sm)]"
-              />
-
-              <span>
-                Я принимаю условия{" "}
-                <a href="/privacy-policy" target="_blank" className="underline">
-                  политики конфиденциальности
-                </a>
-              </span>
-            </label>
-
-            <Button text="Начать проект" />
-          </div>
-        </form>
+        <Form className="col-span-4 pb-20" />
       </PageSection>
 
       <LogoSlider />
@@ -253,53 +208,7 @@ export default function Home() {
       {/* Форма 2 */}
       <PageSection className="px-5 pt-20">
         <h2 className="col-span-4">Давайте создадим нечто уникальное</h2>
-        <form
-          className="col-span-4 flex flex-col gap-6 subtitle"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <label htmlFor="name" className="sr-only" />
-          <input
-            type="text"
-            name="name"
-            placeholder="Имя"
-            className="py-3  placeholder:text-[var(--color-gray)] border-b-2 border-[var(--color-border-gray)] w-full"
-          />
-          <label htmlFor="phone" className="sr-only" />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Телефон"
-            className="py-3  placeholder:text-[var(--color-gray)] border-b-2 border-[var(--color-border-gray)] w-full"
-          />
-          <div className="flex flex-col">
-            <label htmlFor="comment" className="text-[var(--color-gray)] pb-1">
-              Краткое описание идеи
-            </label>
-            <textarea
-              name="comment"
-              id="comment"
-              className="border-2 border-[var(--color-border-gray)] placeholder:text-[#D2D2D0] py-4 px-3 text-[var(--color-black)] rounded-[var(--radius-sm)] min-h-20"
-              placeholder="Введите текст"
-            />
-          </div>
-          <div className="flex-col flex gap-2">
-            <label className="flex gap-2 cursor-pointer text-[var(--color-gray)]">
-              <input
-                type="checkbox"
-                className="h-4 w-4 accent-[var(--color-black)] rounded-[var(--radius-sm)]"
-              />
-
-              <span>
-                Я принимаю условия{" "}
-                <a href="/privacy-policy" target="_blank" className="underline">
-                  политики конфиденциальности
-                </a>
-              </span>
-            </label>
-
-            <Button text="Начать проект" />
-          </div>
-        </form>
+        <Form className="col-span-4" />
       </PageSection>
 
       {/* ЭФ АЙ КЬЮ */}

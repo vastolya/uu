@@ -8,6 +8,7 @@ import Preloader from "@/components/layout/Preloader";
 import { useModalStore } from "@/stores/useModalStore";
 import Modal from "@/components/ui/Modal";
 import Form from "@/components/ui/Form";
+import IconClose from "@/components/icons/IconClose";
 
 export default function RootLayout({
   children,
@@ -24,7 +25,14 @@ export default function RootLayout({
       </Head>
       <body>
         <Modal onClose={close} isOpen={type !== "none"}>
-          <Form />
+          <div className="flex justify-end pb-2 cursor-pointer" onClick={close}>
+            <IconClose />
+          </div>
+          <div className="bg-white p-10 max-w-[43rem] my-auto rounded-sm">
+            <div></div>
+            <h2 className="pb-6">Давайте создадим нечто уникальное</h2>
+            <Form />
+          </div>
         </Modal>
         <Preloader />
         <Header />

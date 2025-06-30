@@ -67,11 +67,9 @@ const Form: React.FC<FormProps> = ({ className }) => {
 
   return (
     <form
-      className={`rounded-sm max-w-[43rem] flex flex-col gap-6 subtitle bg-white p-10 ${className}`}
+      className={` flex flex-col gap-6 subtitle  ${className}`}
       onSubmit={handleSubmit}
     >
-      <h2>Давайте создадим нечто уникальное</h2>
-
       <div>
         <input
           type="text"
