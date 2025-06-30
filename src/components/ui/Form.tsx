@@ -67,7 +67,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
 
   return (
     <form
-      className={` flex flex-col gap-6 subtitle  ${className}`}
+      className={`flex flex-col gap-6 subtitle  ${className}`}
       onSubmit={handleSubmit}
     >
       <div>
@@ -112,7 +112,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, comment: e.target.value }))
           }
-          className="border-2 border-[var(--color-border-gray)] placeholder:text-[#D2D2D0] py-4 px-3 text-[var(--color-black)] rounded-[var(--radius-sm)] min-h-20"
+          className="border-2 border-[var(--color-border-gray)] placeholder:text-[#D2D2D0] py-4 px-3 text-[var(--color-black)] rounded-[var(--radius-sm)] min-h-20 focus:outline-none"
           placeholder="Введите текст"
         />
         {errors.comment && (

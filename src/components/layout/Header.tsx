@@ -65,7 +65,7 @@ const Header = () => {
           ))}
         </div>
         <button
-          className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200"
+          className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200 cursor-pointer"
           onClick={() => open("form")}
         >
           Бесплатная консультация
