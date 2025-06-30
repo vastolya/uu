@@ -9,6 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   variant?: "primary" | "secondary";
+  type?: "submit" | "button" | "reset";
 }
 
 const baseStyles =
@@ -26,6 +27,7 @@ export const Button = ({
   onClick,
   className = "",
   variant = "primary",
+  type = "button",
 }: ButtonProps) => {
   const arrowRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -58,6 +60,7 @@ export const Button = ({
       className={combinedClassName}
       initial="initial"
       whileHover="hover"
+      type={type}
     >
       <motion.div
         ref={arrowRef}

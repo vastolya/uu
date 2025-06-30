@@ -3,11 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import ImageCase1 from "../../../public/imageCase1.png";
-import ImageCase2 from "../../../public/imageCase2.png";
-import ImageCase4 from "../../../public/imageCase2.png";
-import ImageCase3 from "../../../public/imageCase3.png";
-import ImageCase5 from "../../../public/imageCase1.png";
+import ImageDirection1 from "../../../public/imageDirection1.png";
+import ImageDirection2 from "../../../public/imageDirection2.png";
+import ImageDirection3 from "../../../public/imageDirection3.png";
+import ImageDirection4 from "../../../public/imageDirection4.png";
+import ImageDirection5 from "../../../public/imageDirection5.png";
+import ImageDirection6 from "../../../public/imageDirection6.png";
+import ImageDirection7 from "../../../public/imageDirection7.png";
+import ImageDirection8 from "../../../public/imageDirection8.png";
+import ImageDirection9 from "../../../public/imageDirection9.png";
+import ImageDirection10 from "../../../public/imageDirection10.png";
 
 declare global {
   interface Window {
@@ -18,23 +23,28 @@ declare global {
 const cards = [
   {
     title: "Коммерческая архитектура",
-    image: ImageCase1,
+    topImage: ImageDirection1,
+    bottomImage: ImageDirection2,
   },
   {
     title: "Дизайн жилых помещений",
-    image: ImageCase2,
+    topImage: ImageDirection3,
+    bottomImage: ImageDirection4,
   },
   {
     title: "Общественные пространства городского значения",
-    image: ImageCase3,
+    topImage: ImageDirection5,
+    bottomImage: ImageDirection6,
   },
   {
     title: "Инклюзивность: проекты для маломобильных групп",
-    image: ImageCase4,
+    topImage: ImageDirection7,
+    bottomImage: ImageDirection8,
   },
   {
     title: "Строим сами: авторский надзор и подряд",
-    image: ImageCase5,
+    topImage: ImageDirection9,
+    bottomImage: ImageDirection10,
   },
 ];
 
@@ -57,10 +67,10 @@ export default function Directions() {
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: -50, opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="h-[334px] w-[332px]"
+                  className="h-[334px] min-w-[332px]"
                 >
                   <Image
-                    src={cards[hoveredIndex].image}
+                    src={cards[hoveredIndex].topImage}
                     alt=""
                     loading="lazy"
                     className="h-full w-full object-cover"
@@ -73,12 +83,12 @@ export default function Directions() {
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: 50, opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="h-[304px] w-[510px]"
+                  className="h-[304px] min-w-[510px]"
                 >
                   <Image
-                    src={cards[hoveredIndex].image}
+                    src={cards[hoveredIndex].bottomImage}
                     alt=""
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain items-end"
                   />
                 </motion.div>
               </>

@@ -6,10 +6,13 @@ import { PageSection } from "./PageSection";
 import LogoUU from "../../../public/logoUU.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useModalStore } from "@/stores/useModalStore";
 
 const Header = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const { open } = useModalStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +64,10 @@ const Header = () => {
             </Link>
           ))}
         </div>
-        <button className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200">
+        <button
+          className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200"
+          onClick={() => open("form")}
+        >
           Бесплатная консультация
         </button>
       </PageSection>

@@ -106,8 +106,8 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="col-span-4 row-span-2 relative">
-          <Image src={ImageCase1} alt="" height={920} sizes="auto" />
+        <div className="col-span-4 row-span-2 relative min-h-[920px]">
+          <Image src={ImageCase1} alt="" fill sizes="auto" />
         </div>
 
         <div className="col-span-3 flex flex-col justify-between h-full">
