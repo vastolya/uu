@@ -52,7 +52,7 @@ export default function Directions() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="bg-[var(--color-black)]">
+    <section className="bg-[var(--color-black)]">
       <section className="max-w-[1440px] mx-auto px-4 py-20 grid grid-cols-8 gap-x-6">
         <p className="subtitle text-[var(--color-gray)] col-span-8 pb-10">
           Направления
@@ -135,6 +135,6 @@ export default function Directions() {
           </p>
         </div>
       </section>
-    </div>
+    </section>
   );
 }

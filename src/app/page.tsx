@@ -19,13 +19,30 @@ import ImageCase2 from "../../public/imageCase2.png";
 import ImageCase3 from "../../public/imageCase3.png";
 import ParallaxSection from "@/components/sections/ParallaxSection";
 import Form from "@/components/ui/Form";
+import { useSectionScroll } from "@/hooks/useSectionScroll";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { scrollToId } = useSectionScroll([
+    "hero",
+    "about",
+    "cases",
+    "direction",
+    "form",
+    "steps",
+    "blog",
+    "form2",
+  ]);
+
+  useEffect(() => {
+    scrollToId("hero");
+  }, []);
+
   return (
     <>
       <div className="h-20"></div>
 
-      <PageSection className={`pt-20 pb-9`}>
+      <PageSection className={`pt-20 pb-9 `} id="hero">
         <h1 className="col-span-6">
           <span className="text-[var(--color-primary)]">Из замысла — </span>
           в архитектурную реальность
@@ -40,7 +57,7 @@ export default function Home() {
       <ParallaxSection />
 
       {/* О нас */}
-      <PageSection className="px-5 py-20 ">
+      <PageSection className="px-5 py-20" id="about">
         <p className="subtitle text-[var(--color-gray)] pb-2 col-span-8">
           О нас
         </p>
@@ -98,7 +115,7 @@ export default function Home() {
       </PageSection>
 
       {/* Кейсы */}
-      <PageSection className="px-5 py-20 gap-y-10">
+      <PageSection className="px-5 py-20 gap-y-10" id="cases">
         <div className="col-span-8 flex justify-between">
           <p className="subtitle text-[var(--color-gray)] pb-2">Кейсы</p>
           <button className="flex items-center gap-2 hover:text-[var(--color-primary)]">
@@ -137,10 +154,12 @@ export default function Home() {
       </PageSection>
 
       {/* Направления */}
-      <Directions />
+      <section id="direction">
+        <Directions />
+      </section>
 
       {/* Форма */}
-      <PageSection className="px-5 py-20">
+      <PageSection className="px-5 py-20" id="form">
         <div className="col-span-4 justify-between flex flex-col">
           <h2>
             Расскажите о вашем проекте —{" "}
@@ -156,12 +175,12 @@ export default function Home() {
       <LogoSlider />
 
       {/* Этапы */}
-      <PageSection>
+      <PageSection id="steps">
         <WorkStages />
       </PageSection>
 
       {/* Блог */}
-      <div className="bg-[var(--color-border-gray)]">
+      <div className="bg-[var(--color-border-gray)]" id="blog">
         <PageSection className="py-20">
           <p className="subtitle text-[var(--color-gray)] pb-2">
             Новости и статьи
@@ -206,13 +225,13 @@ export default function Home() {
       </div>
 
       {/* Форма 2 */}
-      <PageSection className="px-5 pt-20">
+      <PageSection className="px-5 pt-20" id="form2">
         <h2 className="col-span-4">Давайте создадим нечто уникальное</h2>
         <Form className="col-span-4" />
       </PageSection>
 
       {/* ЭФ АЙ КЬЮ */}
-      <PageSection>
+      <PageSection id="faq">
         <div className="col-span-3 relative my-11 h-[368px] flex justify-start items-start">
           <Image
             src={LogoBigUU}
