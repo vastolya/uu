@@ -31,7 +31,6 @@ export function useSectionScroll(sectionIds: string[]) {
 
   console.log("scroll triggered", {
     index: indexRef.current,
-    delta: e.deltaY,
   });
 
   useEffect(() => {
