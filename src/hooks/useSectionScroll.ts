@@ -29,11 +29,13 @@ export function useSectionScroll(sectionIds: string[]) {
     }, 300);
   };
 
-  console.log("scroll triggered", {
-    index: indexRef.current,
-  });
-
   useEffect(() => {
+    const isCurrentSectionTopInViewport = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      const headerOffset = 72;
+      return rect.top >= 0 && rect.top <= headerOffset + 20;
+    };
+
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling.current) return;
 
@@ -41,7 +43,7 @@ export function useSectionScroll(sectionIds: string[]) {
       const currentEl = document.getElementById(currentId);
       if (!currentEl) return;
 
-      if (!isMostlyInView(currentEl)) return;
+      if (!isCurrentSectionTopInViewport(currentEl)) return;
 
       e.preventDefault();
 
@@ -49,13 +51,8 @@ export function useSectionScroll(sectionIds: string[]) {
       const nextIndex = indexRef.current + direction;
 
       if (nextIndex >= 0 && nextIndex < sectionIds.length) {
-        const nextEl = document.getElementById(sectionIds[nextIndex]);
-        if (!nextEl) return;
-
-        if (nextEl.getBoundingClientRect().height <= window.innerHeight + 20) {
-          indexRef.current = nextIndex;
-          scrollToId(sectionIds[nextIndex]);
-        }
+        indexRef.current = nextIndex;
+        scrollToId(sectionIds[nextIndex]);
       }
     };
 
