@@ -4,14 +4,6 @@ export function useSectionScroll(sectionIds: string[]) {
   const indexRef = useRef(0);
   const isScrolling = useRef(false);
 
-  const isMostlyInView = (el: HTMLElement) => {
-    const rect = el.getBoundingClientRect();
-    const threshold = 100;
-    return (
-      rect.top >= -threshold && rect.bottom <= window.innerHeight + threshold
-    );
-  };
-
   const scrollToId = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
