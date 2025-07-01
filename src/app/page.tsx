@@ -20,27 +20,16 @@ import ImageCase3 from "../../public/imageCase3.png";
 import ParallaxSection from "@/components/sections/ParallaxSection";
 import Form from "@/components/ui/Form";
 import { useSectionScroll } from "@/hooks/useSectionScroll";
-import { useEffect } from "react";
 
 export default function Home() {
-  const { scrollToId } = useSectionScroll([
-    "hero",
-    "about",
-    "cases",
-    "direction",
-    "form",
-    "steps",
-    "blog",
-    "faq",
-  ]);
-
-  useEffect(() => {
-    scrollToId("hero");
-  }, []);
+  useSectionScroll(
+    ["top", "about", "cases", "direction", "form", "steps", "blog", "faq"],
+    0
+  );
 
   return (
     <>
-      <div className="h-20"></div>
+      <div className="min-h-20" id="top"></div>
 
       <PageSection className={`pt-20 pb-9 `} id="hero">
         <h1 className="col-span-6">

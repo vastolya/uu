@@ -1,6 +1,7 @@
+"use client";
 import { useEffect, useRef } from "react";
 
-export function useSectionScroll(sectionIds: string[]) {
+export function useSectionScroll(sectionIds: string[], offset = 72) {
   const indexRef = useRef(0);
   const isScrolling = useRef(false);
 
@@ -11,38 +12,31 @@ export function useSectionScroll(sectionIds: string[]) {
     const scrollTop = el.getBoundingClientRect().top + window.scrollY;
 
     window.scrollTo({
-      top: scrollTop - 72,
+      top: scrollTop - offset,
       behavior: "smooth",
     });
 
     isScrolling.current = true;
+
     setTimeout(() => {
       isScrolling.current = false;
-    }, 300);
+    }, 800);
   };
 
   useEffect(() => {
-    const isCurrentSectionTopInViewport = (el: HTMLElement) => {
-      const rect = el.getBoundingClientRect();
-      const headerOffset = 72;
-      return rect.top >= 0 && rect.top <= headerOffset + 20;
-    };
-
     const handleWheel = (e: WheelEvent) => {
-      if (isScrolling.current) return;
-
-      const currentId = sectionIds[indexRef.current];
-      const currentEl = document.getElementById(currentId);
-      if (!currentEl) return;
-
-      if (!isCurrentSectionTopInViewport(currentEl)) return;
-
-      e.preventDefault();
+      if (isScrolling.current) {
+        e.preventDefault(); // иначе браузер начнёт дефолтный scroll
+        return;
+      }
 
       const direction = e.deltaY > 0 ? 1 : -1;
-      const nextIndex = indexRef.current + direction;
+      let nextIndex = indexRef.current + direction;
 
-      if (nextIndex >= 0 && nextIndex < sectionIds.length) {
+      nextIndex = Math.max(0, Math.min(sectionIds.length - 1, nextIndex));
+
+      if (nextIndex !== indexRef.current) {
+        e.preventDefault();
         indexRef.current = nextIndex;
         scrollToId(sectionIds[nextIndex]);
       }
@@ -50,7 +44,10 @@ export function useSectionScroll(sectionIds: string[]) {
 
     window.addEventListener("wheel", handleWheel, { passive: false });
     return () => window.removeEventListener("wheel", handleWheel);
-  }, [sectionIds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds, offset]);
 
-  return { scrollToId };
+  return {
+    scrollToId,
+  };
 }
