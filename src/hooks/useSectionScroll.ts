@@ -4,9 +4,12 @@ export function useSectionScroll(sectionIds: string[]) {
   const indexRef = useRef(0);
   const isScrolling = useRef(false);
 
-  const isFullyInView = (el: HTMLElement) => {
+  const isMostlyInView = (el: HTMLElement) => {
     const rect = el.getBoundingClientRect();
-    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    const threshold = 100;
+    return (
+      rect.top >= -threshold && rect.bottom <= window.innerHeight + threshold
+    );
   };
 
   const scrollToId = (id: string) => {
@@ -26,6 +29,11 @@ export function useSectionScroll(sectionIds: string[]) {
     }, 300);
   };
 
+  console.log("scroll triggered", {
+    index: indexRef.current,
+    delta: e.deltaY,
+  });
+
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling.current) return;
@@ -34,7 +42,7 @@ export function useSectionScroll(sectionIds: string[]) {
       const currentEl = document.getElementById(currentId);
       if (!currentEl) return;
 
-      if (!isFullyInView(currentEl)) return;
+      if (!isMostlyInView(currentEl)) return;
 
       e.preventDefault();
 
@@ -45,7 +53,7 @@ export function useSectionScroll(sectionIds: string[]) {
         const nextEl = document.getElementById(sectionIds[nextIndex]);
         if (!nextEl) return;
 
-        if (nextEl.getBoundingClientRect().height <= window.innerHeight) {
+        if (nextEl.getBoundingClientRect().height <= window.innerHeight + 20) {
           indexRef.current = nextIndex;
           scrollToId(sectionIds[nextIndex]);
         }
