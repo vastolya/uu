@@ -31,7 +31,7 @@ export default function Home() {
     "form",
     "steps",
     "blog",
-    "form2",
+    "faq",
   ]);
 
   useEffect(() => {
@@ -197,15 +197,17 @@ export default function Home() {
             <p className="subtitle-bold">Архитектура без границ</p>
             <p className="subtitle text-[var(--color-gray)]">События</p>
           </div>
-          <div className="col-span-2">
-            <Image
-              src={ImageBlog2}
-              alt=""
-              height={332}
-              width={332}
-              className="pb-2"
-            />
-            <p className="subtitle-bold">
+          <div className="col-span-2 ">
+            <div className="overflow-hidden rounded-[var(--radius-sm)]">
+              <Image
+                src={ImageBlog2}
+                alt=""
+                height={332}
+                width={332}
+                className="hover:scale-120 transition-all duration-300 "
+              />
+            </div>
+            <p className="subtitle-bold mt-2">
               Как инклюзивный дизайн меняет общественные пространства?
             </p>
             <p className="subtitle text-[var(--color-gray)]">Иновации</p>

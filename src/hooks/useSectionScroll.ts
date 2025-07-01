@@ -16,7 +16,7 @@ export function useSectionScroll(sectionIds: string[]) {
     const scrollTop = el.getBoundingClientRect().top + window.scrollY;
 
     window.scrollTo({
-      top: scrollTop - 72, // учёт фиксированного хедера
+      top: scrollTop - 72,
       behavior: "smooth",
     });
 
@@ -28,15 +28,15 @@ export function useSectionScroll(sectionIds: string[]) {
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
       if (isScrolling.current) return;
 
       const currentId = sectionIds[indexRef.current];
       const currentEl = document.getElementById(currentId);
       if (!currentEl) return;
 
-      // ⚠️ Только если текущая секция целиком в экране — разрешаем скролл
       if (!isFullyInView(currentEl)) return;
+
+      e.preventDefault();
 
       const direction = e.deltaY > 0 ? 1 : -1;
       const nextIndex = indexRef.current + direction;
@@ -45,9 +45,7 @@ export function useSectionScroll(sectionIds: string[]) {
         const nextEl = document.getElementById(sectionIds[nextIndex]);
         if (!nextEl) return;
 
-        // ✅ Только если следующая секция влезает в экран — разрешаем переход
-        const rect = nextEl.getBoundingClientRect();
-        if (rect.height <= window.innerHeight) {
+        if (nextEl.getBoundingClientRect().height <= window.innerHeight) {
           indexRef.current = nextIndex;
           scrollToId(sectionIds[nextIndex]);
         }
