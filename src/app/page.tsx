@@ -46,7 +46,10 @@ export default function Home() {
       <ParallaxSection />
 
       {/* О нас */}
-      <PageSection className="px-5 py-20" id="about">
+      <PageSection
+        className="px-5 py-20 border-b-2 border-[var(--color-border-gray)]"
+        id="about"
+      >
         <p className="subtitle text-[var(--color-gray)] pb-2 col-span-8">
           О нас
         </p>
@@ -134,11 +137,11 @@ export default function Home() {
           <Button text="Кейс" variant="secondary" />
         </div>
 
-        <div className="col-span-2  h-full w-full relative">
-          <Image src={ImageCase2} alt="" height={476} sizes="auto />" />
+        <div className="col-span-2  min-h-[447px] w-full relative">
+          <Image src={ImageCase2} alt="" fill sizes="auto />" />
         </div>
-        <div className="col-span-2 h-full w-full relative">
-          <Image src={ImageCase3} alt="" sizes="auto" height={476} />
+        <div className="col-span-2 min-h-[447px] w-full relative">
+          <Image src={ImageCase3} alt="" fill sizes="auto" />
         </div>
       </PageSection>
 
@@ -158,7 +161,7 @@ export default function Home() {
           </h2>
           <Image src={ImageArrow} alt="" width={154} height={154} />
         </div>
-        <Form className="col-span-4 pb-20" />
+        <Form className="col-span-4" />
       </PageSection>
 
       <LogoSlider />

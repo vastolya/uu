@@ -29,9 +29,10 @@ type FormData = {
 
 interface FormProps {
   className?: string;
+  buttonText?: string;
 }
 
-const Form: React.FC<FormProps> = ({ className }) => {
+const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить" }) => {
   const [formValues, setFormValues] = useState<FormData>({
     name: "",
     phone: "",
@@ -145,7 +146,7 @@ const Form: React.FC<FormProps> = ({ className }) => {
           <p className="text-sm text-red-500 mt-1">{errors.accepted}</p>
         )}
 
-        <Button text="Начать проект" type="submit" />
+        <Button text={buttonText} type="submit" />
       </div>
     </form>
   );

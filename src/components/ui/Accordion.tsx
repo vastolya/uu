@@ -54,7 +54,7 @@ function AccordionRow({
   }, [isOpen, item.content]);
 
   return (
-    <div className="box-border border-b-2 border-[var(--color-border-gray)] py-6 flex flex-col ">
+    <div className="mb-4 last:mb-0 box-border border-b-2 last:border-b-0 border-[var(--color-border-gray)] py-6 flex flex-col ">
       <button
         onClick={onToggle}
         className="flex w-full justify-between text-left cursor-pointer"

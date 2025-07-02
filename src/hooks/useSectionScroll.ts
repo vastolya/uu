@@ -20,13 +20,13 @@ export function useSectionScroll(sectionIds: string[], offset = 72) {
 
     setTimeout(() => {
       isScrolling.current = false;
-    }, 800);
+    }, 300);
   };
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling.current) {
-        e.preventDefault(); // иначе браузер начнёт дефолтный scroll
+        e.preventDefault();
         return;
       }
 
@@ -43,6 +43,30 @@ export function useSectionScroll(sectionIds: string[], offset = 72) {
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
+
+    const getClosestVisibleSectionIndex = () => {
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      for (let i = 0; i < sectionIds.length; i++) {
+        const el = document.getElementById(sectionIds[i]);
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+        const distance = Math.abs(rect.top - offset);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = i;
+        }
+      }
+
+      return closestIndex;
+    };
+
+    // Устанавливаем начальный индекс в зависимости от видимого блока
+    indexRef.current = getClosestVisibleSectionIndex();
+
     return () => window.removeEventListener("wheel", handleWheel);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectionIds, offset]);

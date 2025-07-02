@@ -55,7 +55,7 @@ const Header = () => {
             { text: "О нас", link: "/about" },
             { text: "Новости", link: "/news" },
             { text: "Галерея", link: "/gallery" },
-            { text: "Контакты", link: "/" },
+            { text: "Контакты", link: "/map" },
           ].map((item, index) => (
             <Link key={index} href={item.link}>
               <button className="cursor-pointer hover:text-[var(--color-primary)]">
