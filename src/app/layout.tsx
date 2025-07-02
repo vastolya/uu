@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -15,6 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const hideFooter = pathname === "/map";
   const { type, close } = useModalStore();
 
   return (
@@ -28,7 +31,7 @@ export default function RootLayout({
           <div className="flex justify-end pb-2 cursor-pointer" onClick={close}>
             <IconClose />
           </div>
-          <div className="bg-white p-10 max-w-[43rem] my-auto rounded-sm">
+          <div className="bg-white p-10 max-w-[43rem] my-auto rounded-[var(--radius-sm)]">
             <div></div>
             <h2 className="pb-6">Давайте создадим нечто уникальное</h2>
             <Form />
@@ -37,7 +40,7 @@ export default function RootLayout({
         <Preloader />
         <Header />
         {children}
-        <Footer />
+        {!hideFooter && <Footer />}
       </body>
     </html>
   );

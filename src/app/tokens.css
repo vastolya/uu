@@ -1,6 +1,7 @@
 /* styles/tokens.css */
 
 :root {
+  user-select: none;
   /* 🎨 Цвета */
   --color-primary: #eeff29;
   --color-black: #1d1d1b;

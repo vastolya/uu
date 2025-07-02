@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { PageSection } from "./PageSection";
-import LogoUU from "../../../public/logoUU.png";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
+import { PageSection } from "./PageSection";
 import { useModalStore } from "@/stores/useModalStore";
+import LogoUU from "../../../public/logoUU.png";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -33,7 +34,7 @@ const Header = () => {
   }, [lastScrollY]);
 
   return (
-    <motion.div
+    <motion.header
       initial={{ y: 0 }}
       animate={{ y: show ? 0 : "-100%" }}
       transition={{ duration: 0.175, ease: "easeOut" }}
@@ -49,20 +50,8 @@ const Header = () => {
             className="py-5 object-contain"
           />
         </Link>
-        <div className="col-span-4 flex justify-center items-center gap-6">
-          {[
-            { text: "Портфолио", link: "/cases" },
-            { text: "О нас", link: "/about" },
-            { text: "Новости", link: "/news" },
-            { text: "Галерея", link: "/gallery" },
-            { text: "Контакты", link: "/map" },
-          ].map((item, index) => (
-            <Link key={index} href={item.link}>
-              <button className="cursor-pointer hover:text-[var(--color-primary)]">
-                {item.text}
-              </button>
-            </Link>
-          ))}
+        <div className="col-span-4 flex justify-center items-center gap-4">
+          <HeaderNav />
         </div>
         <button
           className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200 cursor-pointer"
@@ -71,8 +60,81 @@ const Header = () => {
           Бесплатная консультация
         </button>
       </PageSection>
-    </motion.div>
+    </motion.header>
   );
 };
 
 export default Header;
+
+const navItems = [
+  { text: "Портфолио", link: "/cases" },
+  { text: "О нас", link: "/about" },
+  { text: "Новости", link: "/news" },
+  { text: "Галерея", link: "/gallery" },
+  { text: "Контакты", link: "/map" },
+];
+
+export function HeaderNav() {
+  const pathname = usePathname();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [underlineProps, setUnderlineProps] = useState<null | {
+    left: number;
+    width: number;
+  }>(null);
+
+  useEffect(() => {
+    const activeLink = containerRef.current?.querySelector(
+      `[data-active="true"]`
+    ) as HTMLButtonElement | null;
+
+    if (activeLink) {
+      const { offsetLeft, offsetWidth } = activeLink;
+      setUnderlineProps({ left: offsetLeft, width: offsetWidth });
+    } else {
+      setUnderlineProps(null); // 🔥 скрываем underline
+    }
+  }, [pathname]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative flex justify-center items-center gap-4"
+    >
+      {navItems.map((item) => {
+        const isActive = pathname === item.link;
+        return (
+          <Link key={item.link} href={item.link}>
+            <button
+              data-active={isActive || undefined}
+              className="relative cursor-pointer px-2 py-1 transition-colors hover:text-[var(--color-primary)]"
+            >
+              {item.text}
+            </button>
+          </Link>
+        );
+      })}
+
+      <AnimatePresence>
+        {underlineProps && (
+          <motion.div
+            key="underline"
+            className="absolute bottom-0 h-[2px] bg-[var(--color-black)]"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              left: underlineProps.left,
+              width: underlineProps.width,
+            }}
+            exit={{ opacity: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+              opacity: { duration: 0.2 },
+            }}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}

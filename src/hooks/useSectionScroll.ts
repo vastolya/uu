@@ -64,11 +64,9 @@ export function useSectionScroll(sectionIds: string[], offset = 72) {
       return closestIndex;
     };
 
-    // Устанавливаем начальный индекс в зависимости от видимого блока
     indexRef.current = getClosestVisibleSectionIndex();
 
     return () => window.removeEventListener("wheel", handleWheel);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectionIds, offset]);
 
   return {
