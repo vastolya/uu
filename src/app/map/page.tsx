@@ -51,6 +51,7 @@ const Map = () => {
           src={ImageMap}
           alt=""
           fill
+          priority
           sizes="auto"
           className="grayscale-100 object-cover hover:scale-125 hover:grayscale-0 transition-all duration-300"
         />

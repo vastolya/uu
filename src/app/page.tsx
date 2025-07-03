@@ -196,7 +196,7 @@ export default function Home() {
                 alt=""
                 height={332}
                 width={332}
-                className="hover:scale-120 transition-all duration-300 "
+                className="hover:scale-120 hover:grayscale transition-all duration-300 "
               />
             </div>
             <p className="subtitle-bold mt-2">

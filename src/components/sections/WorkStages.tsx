@@ -69,7 +69,7 @@ export function WorkStages() {
             >
               <div className="box-border col-span-2 border-r-2 border-[var(--color-border-gray)]">
                 <h2
-                  className={`box-border border-b-2 border-[var(--color-border-gray)] text-[var(--color-border-gray)] ${
+                  className={`box-border border-b-2 border-[var(--color-border-gray)] !text-[var(--color-border-gray)] ${
                     index === 0 && "pt-[12.75rem]"
                   } `}
                 >
