@@ -41,7 +41,7 @@ const Map = () => {
                 <IconIn />
               </Link>
             </div>
-            <p className="subtitle">+7 969 739-99-66</p>
+            <p className="subtitle select-text">+7 969 739-99-66</p>
           </div>
           <h3>Санкт-Петербург, Невский проспект, дом 72</h3>
         </div>

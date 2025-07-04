@@ -11,15 +11,15 @@ import IconArrowRight from "@/components/icons/IconArrowRight";
 import Directions from "@/components/sections/Directions";
 import LogoBigUU from "../../public/logoBigUU.png";
 import ImageArrow from "../../public/imageArrow.png";
-import ImageBlog1 from "../../public/imageBlog1.png";
-import ImageBlog2 from "../../public/imageBlog2.png";
-import ImageBlog3 from "../../public/imageBlog3.png";
 import ImageCase1 from "../../public/imageCase1.png";
 import ImageCase2 from "../../public/imageCase2.png";
 import ImageCase3 from "../../public/imageCase3.png";
 import ParallaxSection from "@/components/sections/ParallaxSection";
 import Form from "@/components/ui/Form";
 import { useSectionScroll } from "@/hooks/useSectionScroll";
+import { news } from "@/lib/newsData";
+
+const blogData = Object.entries(news).slice(0, 3);
 
 export default function Home() {
   useSectionScroll(
@@ -178,43 +178,31 @@ export default function Home() {
             Новости и статьи
           </p>
           <h2 className="col-span-8 pb-10">Идеи, которые меняют города</h2>
-          <div className="col-span-4">
-            <Image
-              src={ImageBlog1}
-              alt=""
-              height={496}
-              width={688}
-              className="pb-2"
-            />
-            <p className="subtitle-bold">Архитектура без границ</p>
-            <p className="subtitle text-[var(--color-gray)]">События</p>
-          </div>
-          <div className="col-span-2 ">
-            <div className="overflow-hidden rounded-[var(--radius-sm)]">
-              <Image
-                src={ImageBlog2}
-                alt=""
-                height={332}
-                width={332}
-                className="hover:scale-120 hover:grayscale transition-all duration-300 "
-              />
-            </div>
-            <p className="subtitle-bold mt-2">
-              Как инклюзивный дизайн меняет общественные пространства?
-            </p>
-            <p className="subtitle text-[var(--color-gray)]">Иновации</p>
-          </div>
-          <div className="col-span-2">
-            <Image
-              src={ImageBlog3}
-              alt=""
-              height={476}
-              width={332}
-              className="pb-2"
-            />
-            <p className="subtitle-bold">Превращение промзоны в арт-кластер</p>
-            <p className="subtitle text-[var(--color-gray)]">Иновации</p>
-          </div>
+
+          {blogData.map(([key, item]) => (
+            <Link
+              key={key}
+              href={`/news/${key}`}
+              className={`flex flex-col gap-2 ${
+                item.type === "1" ? "col-span-4" : "col-span-2"
+              }`}
+            >
+              <div className="overflow-hidden rounded-[var(--radius-sm)]">
+                <Image
+                  src={item.Image}
+                  alt=""
+                  sizes="auto"
+                  className={`
+              object-cover w-full hover:scale-160 hover:grayscale transition-all duration-300
+              ${item.type === "2" ? "h-[332px]" : "h-[476px]"}
+            `}
+                />
+              </div>
+
+              <p className="subtitle-bold">{item.title}</p>
+              <p className="subtitle text-[var(--color-gray)]">{item.tag}</p>
+            </Link>
+          ))}
         </PageSection>
       </div>
 

@@ -33,7 +33,7 @@ h1 {
 }
 
 h2 {
-  /* @apply text-black; */
+  @apply text-black;
   font-size: var(--text-h2);
   line-height: var(--lh-h2);
   letter-spacing: var(--ls-default);

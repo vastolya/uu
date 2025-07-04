@@ -18,6 +18,7 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const hideFooter = pathname === "/map";
+  const darkFooter = pathname === "/news";
   const { type, close } = useModalStore();
 
   return (
@@ -38,9 +39,15 @@ export default function RootLayout({
           </div>
         </Modal>
         <Preloader />
-        <Header />
+        {<Header />}
         {children}
-        {!hideFooter && <Footer />}
+        {hideFooter ? (
+          <></>
+        ) : darkFooter ? (
+          <Footer className="" variant="dark" />
+        ) : (
+          <Footer />
+        )}
       </body>
     </html>
   );
