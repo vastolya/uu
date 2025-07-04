@@ -3,12 +3,13 @@ import Image from "next/image";
 import { news } from "@/lib/newsData";
 
 interface NewsPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function NewsPage(props: NewsPageProps) {
+export default async function NewsPage(props: NewsPageProps) {
   const { params } = props;
-  const data = news[params.slug as keyof typeof news];
+  const { slug } = await params;
+  const data = news[slug as keyof typeof news];
 
   if (!data) {
     notFound();
