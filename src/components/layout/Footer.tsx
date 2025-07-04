@@ -1,20 +1,30 @@
 import React from "react";
 import Image from "next/image";
 import { PageSection } from "./PageSection";
-import LogoUU from "../../../public/logoUU.png";
+import LogoUU from "@public/logoUU.png";
 import LogoUUWhite from "@public/logoUUWhite.png";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface FooterProps {
   className?: string;
   variant?: "light" | "dark";
 }
 
+const navItems = [
+  { text: "Портфолио", link: "/cases" },
+  { text: "О нас", link: "/about" },
+  { text: "Новости", link: "/news" },
+  { text: "Галерея", link: "/gallery" },
+  { text: "Контакты", link: "/map" },
+];
+
 const Footer: React.FC<FooterProps> = ({
   className = "",
   variant = "light",
 }) => {
   const isDark = variant === "dark";
+  const pathname = usePathname();
 
   return (
     <footer
@@ -51,19 +61,25 @@ const Footer: React.FC<FooterProps> = ({
         </div>
 
         <div className="col-span-3 flex flex-col gap-4">
-          {[
-            { text: "Портфолио", link: "/cases" },
-            { text: "О нас", link: "/about" },
-            { text: "Новости", link: "/news" },
-            { text: "Галерея", link: "/gallery" },
-            { text: "Контакты", link: "/map" },
-          ].map((item, index) => (
-            <Link key={index} href={item.link}>
-              <button className="cursor-pointer p-2 hover:text-[var(--color-primary)]">
-                {item.text}
-              </button>
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.link;
+            return (
+              <Link key={item.link} href={item.link}>
+                <button className="relative cursor-pointer py-1 px-2 text-left hover:text-[var(--color-primary)]">
+                  {item.text}
+                  <span
+                    className={`absolute left-0 -bottom-[2px] h-[2px] w-full transition-opacity duration-300 ${
+                      isActive
+                        ? isDark
+                          ? "opacity-100 bg-[var(--color-primary)]"
+                          : "opacity-100 bg-[var(--color-black)]"
+                        : "opacity-0"
+                    }`}
+                  />
+                </button>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex flex-col gap-4">

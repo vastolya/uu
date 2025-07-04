@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { PageSection } from "./PageSection";
 import { useModalStore } from "@/stores/useModalStore";
-import LogoUU from "../../../public/logoUU.png";
+import LogoUU from "@public/logoUU.png";
 
 const Header = () => {
   const [show, setShow] = useState(true);
@@ -41,16 +41,15 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-[var(--color-border-gray)]"
     >
       <PageSection>
-        <Link href={"/"} className="col-span-2 relative">
+        <Link href="/" className=" h-[2.5rem] w-[10.25rem]">
           <Image
             src={LogoUU}
             alt="LogoUU"
-            fill
             sizes="auto"
-            className="py-5 object-contain"
+            className="object-contain py-5"
           />
         </Link>
-        <div className="col-span-4 flex justify-center items-center gap-4">
+        <div className="col-span-5 flex justify-center items-center gap-4">
           <HeaderNav />
         </div>
         <button
