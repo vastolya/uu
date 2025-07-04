@@ -2,10 +2,18 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { news } from "@/lib/newsData";
 
-export default function NewsPage({ params }: { params: { slug: string } }) {
+interface NewsPageProps {
+  params: { slug: string };
+}
+
+export default function NewsPage(props: NewsPageProps) {
+  const { params } = props;
   const data = news[params.slug as keyof typeof news];
 
-  if (!data) return notFound();
+  if (!data) {
+    notFound();
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-10">
