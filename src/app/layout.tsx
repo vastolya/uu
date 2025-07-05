@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const hideFooter = pathname === "/map";
-  const darkFooter = pathname === "/news";
+  const darkFooter = pathname.includes("/news");
   const { type, close } = useModalStore();
 
   return (

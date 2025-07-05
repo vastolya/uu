@@ -71,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({
                     className={`absolute left-0 -bottom-[2px] h-[2px] w-full transition-opacity duration-300 ${
                       isActive
                         ? isDark
-                          ? "opacity-100 bg-[var(--color-primary)]"
+                          ? "opacity-100 bg-white"
                           : "opacity-100 bg-[var(--color-black)]"
                         : "opacity-0"
                     }`}

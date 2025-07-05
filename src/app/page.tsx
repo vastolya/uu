@@ -189,7 +189,7 @@ export default function Home() {
             >
               <div className="overflow-hidden rounded-[var(--radius-sm)]">
                 <Image
-                  src={item.Image}
+                  src={item.image}
                   alt=""
                   sizes="auto"
                   className={`

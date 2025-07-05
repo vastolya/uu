@@ -31,9 +31,9 @@ const News = () => {
   );
 
   return (
-    <>
+    <section className="min-h-[calc(100vh-80px-200px)]">
       <div className="h-20"></div>
-      <PageSection className="px-5 py-10">
+      <PageSection className="px-5 py-10 ">
         <p className="subtitle text-[var(--color-gray)] col-span-8 pb-4">
           Идеи, которые меняют города
         </p>
@@ -52,7 +52,7 @@ const News = () => {
           >
             <div className=" overflow-hidden rounded-[var(--radius-sm)] cursor-pointer">
               <Image
-                src={value.Image}
+                src={value.image}
                 sizes="auto"
                 className={`object-cover w-full ${
                   value.type === "1" ? "h-[476px]" : "h-[332px]"
@@ -68,7 +68,7 @@ const News = () => {
           </Link>
         ))}
       </PageSection>
-    </>
+    </section>
   );
 };
 
