@@ -5,16 +5,14 @@ import { urlFor } from "@/sanity/image";
 import { PageSection } from "@/components/layout/PageSection";
 import { PortableText } from "@portabletext/react";
 
-interface NewsPageProps {
+export default async function NewsPage({
+  params,
+}: {
   params: { slug: string };
-}
-
-export default async function NewsPage({ params }: NewsPageProps) {
-  const { slug } = params;
-
+}) {
   const post = await client.fetch(
     `*[_type == "post" && slug.current == $slug][0]`,
-    { slug }
+    { slug: params.slug }
   );
 
   if (!post) {
