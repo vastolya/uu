@@ -1,18 +1,23 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { news } from "@/lib/newsData";
+import { client } from "@/sanity/client";
+import { urlFor } from "@/sanity/image";
 import { PageSection } from "@/components/layout/PageSection";
+import { PortableText } from "@portabletext/react";
 
 interface NewsPageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }
 
-export default async function NewsPage(props: NewsPageProps) {
-  const { params } = props;
-  const { slug } = await params;
-  const data = news[slug as keyof typeof news];
+export default async function NewsPage({ params }: NewsPageProps) {
+  const { slug } = params;
 
-  if (!data) {
+  const post = await client.fetch(
+    `*[_type == "post" && slug.current == $slug][0]`,
+    { slug }
+  );
+
+  if (!post) {
     notFound();
     return null;
   }
@@ -21,31 +26,55 @@ export default async function NewsPage(props: NewsPageProps) {
     <section className="min-h-screen flex flex-col">
       <div className="h-20"></div>
       <div className="bg-[var(--color-black)]">
-        <PageSection className="">
+        <PageSection>
           <div className="text-white col-span-6 py-20">
             <div className="flex gap-6 text-[var(--color-gray)] subtitle pb-4">
-              <p>{data.tag}</p>
-              <p>{data.date}</p>
+              <p></p>
+              <p>
+                {post.publishedAt
+                  ? new Date(post.publishedAt).toLocaleDateString("ru-RU")
+                  : ""}
+              </p>
             </div>
-            <h1>{data.title}</h1>
+            <h1>{post.title || "Заголовок"}</h1>
           </div>
-          <Image
-            src={data.image}
-            alt=""
-            sizes="auto"
-            className="col-span-2 h-full w-full object-cover"
-          />
+          {post.image && (
+            <Image
+              src={urlFor(post.image).url()}
+              alt={post.title || "Изображение"}
+              sizes="auto"
+              className="col-span-2 h-full w-full object-cover"
+              width={800}
+              height={400}
+            />
+          )}
         </PageSection>
       </div>
-      <p className="py-20 mx-auto">{data.text}</p>
-      <div className="">
-        <Image
-          src={data.image}
-          alt={data.title}
-          sizes="auto"
-          className="w-full h-[29.75rem] object-cover"
-        />
-      </div>
+      {post.body && (
+        <div className="prose prose-lg dark:prose-invert max-w-4xl mx-auto py-20 px-5">
+          <PortableText
+            value={post.body}
+            components={{
+              block: {
+                h3: ({ children }) => <h3 className="pb-10">{children}</h3>,
+                p: ({ children }) => <p className="pb-6">{children}</p>,
+              },
+            }}
+          />
+        </div>
+      )}
+      {post.image && (
+        <div>
+          <Image
+            src={urlFor(post.image).url()}
+            alt={post.title || "Изображение"}
+            sizes="auto"
+            className="w-full h-[29.75rem] object-cover"
+            width={1200}
+            height={476}
+          />
+        </div>
+      )}
     </section>
   );
 }

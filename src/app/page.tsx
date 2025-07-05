@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { PageSection } from "@/components/layout/PageSection";
@@ -16,25 +14,29 @@ import ImageCase2 from "../../public/imageCase2.png";
 import ImageCase3 from "../../public/imageCase3.png";
 import ParallaxSection from "@/components/sections/ParallaxSection";
 import Form from "@/components/ui/Form";
-import { useSectionScroll } from "@/hooks/useSectionScroll";
-import { news } from "@/lib/newsData";
+import HomeClient from "../components/HomeClient";
+import { type SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
+import { urlFor } from "../sanity/image";
 
-const blogData = Object.entries(news).slice(0, 3);
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, image, slug, publishedAt, type, tag}`;
 
-export default function Home() {
-  useSectionScroll(
-    ["top", "about", "cases", "direction", "form", "steps", "blog", "faq"],
-    0
-  );
+const options = { next: { revalidate: 30 } };
+
+export default async function Home() {
+  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
 
   return (
-    <>
+    <HomeClient>
       <div className="min-h-20" id="top"></div>
 
       <PageSection className={`pt-20 pb-9 `} id="hero">
         <h1 className="col-span-6">
-          <span className="text-[var(--color-primary)]">Из замысла — </span>
-          в архитектурную реальность
+          <span className="text-[var(--color-primary)]">Из замысла — </span>в
+          архитектурную реальность
         </h1>
         <p className="subtitle col-span-2 flex flex-col justify-end">
           Архитектура, где каждая линия несёт эмоцию, а каждый проект становится
@@ -54,7 +56,7 @@ export default function Home() {
           О нас
         </p>
         <h2 className="col-span-8 pb-10">
-          Две страсти — архитектура и урбанистика
+          Две страсти — архитектура и урбанистика
         </h2>
         <div className="col-span-4 relative h-[32rem]">
           <Image
@@ -68,10 +70,10 @@ export default function Home() {
         <div className="col-span-4 flex flex-col justify-between ">
           <span>
             <p className="subtitle pb-2">
-              Создаём пространства выражающие индивидуальность, вдохновляющие
-              и выводящие из «тени» шаблонных решений. Превращаем ценности
-              клиентов в осязаемую реальность, где каждая линия, свет и форма
-              работают на эмоции
+              Создаём пространства выражающие индивидуальность, вдохновляющие и
+              выводящие из «тени» шаблонных решений. Превращаем ценности
+              клиентов в осязаемую реальность, где каждая линия, свет и форма
+              работают на эмоции
             </p>
             <p className="subtitle-bold">
               Работаем с частными домами, коммерческими объектами и городскими
@@ -179,27 +181,30 @@ export default function Home() {
           </p>
           <h2 className="col-span-8 pb-10">Идеи, которые меняют города</h2>
 
-          {blogData.map(([key, item]) => (
+          {posts.slice(0, 3).map((item) => (
             <Link
-              key={key}
-              href={`/news/${key}`}
-              className={`flex flex-col gap-2 ${
-                item.type === "1" ? "col-span-4" : "col-span-2"
-              }`}
+              key={item._id}
+              href={`/news/${item.slug.current}`}
+              className={`flex flex-col ${item.type === "1" ? "col-span-4" : "col-span-2"}`}
             >
-              <div className="overflow-hidden rounded-[var(--radius-sm)]">
+              <div
+                className={`relative overflow-hidden rounded-[var(--radius-sm)]  ${item.type === "2" ? "h-[332px]" : "h-[476px]"}`}
+              >
                 <Image
-                  src={item.image}
-                  alt=""
+                  src={
+                    item.image ? urlFor(item.image).url() : "/placeholder.jpg"
+                  }
+                  alt={item.title || ""}
+                  fill
                   sizes="auto"
                   className={`
-              object-cover w-full hover:scale-160 hover:grayscale transition-all duration-300
-              ${item.type === "2" ? "h-[332px]" : "h-[476px]"}
-            `}
+              object-cover hover:scale-160 hover:grayscale transition-all duration-300
+             
+              `}
                 />
               </div>
 
-              <p className="subtitle-bold">{item.title}</p>
+              <p className="subtitle-bold pt-2 pb-1">{item.title}</p>
               <p className="subtitle text-[var(--color-gray)]">{item.tag}</p>
             </Link>
           ))}
@@ -246,6 +251,6 @@ export default function Home() {
           />
         </div>
       </PageSection>
-    </>
+    </HomeClient>
   );
 }
