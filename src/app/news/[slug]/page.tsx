@@ -4,14 +4,15 @@ import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { PageSection } from "@/components/layout/PageSection";
 import { PortableText } from "@portabletext/react";
-interface NewsPageProps {
-  params: { slug: string };
-}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default async function NewsPage({ params }: NewsPageProps) {
+export default async function NewsPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = await client.fetch(
-    `*[_type == "post"] | order(publishedAt desc)`
+    `*[_type == "post" && slug.current == $slug][0]`,
+    { slug: params.slug }
   );
 
   if (!post) {
