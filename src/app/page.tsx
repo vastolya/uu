@@ -35,8 +35,8 @@ export default async function Home() {
 
       <PageSection className={`pt-20 pb-9 `} id="hero">
         <h1 className="col-span-6">
-          <span className="text-[var(--color-primary)]">Из замысла — </span>в
-          архитектурную реальность
+          <span className="text-[var(--color-primary)]">Из замысла —</span>
+          <br />в архитектурную реальность
         </h1>
         <p className="subtitle col-span-2 flex flex-col justify-end">
           Архитектура, где каждая линия несёт эмоцию, а каждый проект становится
@@ -198,7 +198,7 @@ export default async function Home() {
                   fill
                   sizes="auto"
                   className={`
-              object-cover hover:scale-160 hover:grayscale transition-all duration-300
+              object-cover hover:scale-120 hover:grayscale transition-all duration-300
              
               `}
                 />

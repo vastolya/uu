@@ -52,7 +52,7 @@ export default function NewsContent({ posts }: { posts: any[] }) {
                   sizes="auto"
                   className={`object-cover w-full ${
                     post.type === "1" ? "h-[476px]" : "h-[332px]"
-                  } hover:scale-160 hover:grayscale transition-all duration-300`}
+                  } hover:scale-120 hover:grayscale transition-all duration-300`}
                   alt={post.title || ""}
                   width={800}
                   height={332}
