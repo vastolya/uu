@@ -8,11 +8,13 @@ import { PortableText } from "@portabletext/react";
 export default async function NewsPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
+
   const post = await client.fetch(
     `*[_type == "post" && slug.current == $slug][0]`,
-    { slug: params.slug }
+    { slug }
   );
 
   if (!post) {
@@ -27,7 +29,7 @@ export default async function NewsPage({
         <PageSection>
           <div className="text-white col-span-6 py-20">
             <div className="flex gap-6 text-[var(--color-gray)] subtitle pb-4">
-              <p></p>
+              <p>{post.tag}</p>
               <p>
                 {post.publishedAt
                   ? new Date(post.publishedAt).toLocaleDateString("ru-RU")
@@ -75,4 +77,12 @@ export default async function NewsPage({
       )}
     </section>
   );
+}
+
+export async function generateStaticParams() {
+  const slugs: string[] = await client.fetch(
+    `*[_type == "post" && defined(slug.current)][].slug.current`
+  );
+
+  return slugs.map((slug) => ({ slug }));
 }
