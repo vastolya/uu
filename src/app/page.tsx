@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { type SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
+import { urlFor } from "../sanity/image";
 import { PageSection } from "@/components/layout/PageSection";
 import { Button } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
@@ -7,17 +10,14 @@ import { WorkStages } from "@/components/sections/WorkStages";
 import LogoSlider from "@/components/sections/LogoSlider";
 import IconArrowRight from "@/components/icons/IconArrowRight";
 import Directions from "@/components/sections/Directions";
-import LogoBigUU from "../../public/logoBigUU.png";
-import ImageArrow from "../../public/imageArrow.png";
-import ImageCase1 from "../../public/imageCase1.png";
-import ImageCase2 from "../../public/imageCase2.png";
-import ImageCase3 from "../../public/imageCase3.png";
-import ParallaxSection from "@/components/sections/ParallaxSection";
 import Form from "@/components/ui/Form";
-import HomeClient from "../components/HomeClient";
-import { type SanityDocument } from "next-sanity";
-import { client } from "@/sanity/client";
-import { urlFor } from "../sanity/image";
+import ParallaxSection from "@/components/sections/ParallaxSection";
+import HomeClient from "@/components/HomeClient";
+import LogoBigUU from "@public/logoBigUU.png";
+import ImageArrow from "@public/imageArrow.png";
+import ImageCase1 from "@public/imageCase1.png";
+import ImageCase2 from "@public/imageCase2.png";
+import ImageCase3 from "@public/imageCase3.png";
 
 const POSTS_QUERY = `*[
   _type == "post"

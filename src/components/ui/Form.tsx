@@ -104,17 +104,14 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
       </div>
 
       <div className="flex flex-col">
-        <label htmlFor="comment" className="text-[var(--color-gray)] pb-1">
-          Краткое описание идеи
-        </label>
         <textarea
           name="comment"
           value={formValues.comment}
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, comment: e.target.value }))
           }
-          className="border-2 border-[var(--color-border-gray)] placeholder:text-[#D2D2D0] py-4 px-3 text-[var(--color-black)] rounded-[var(--radius-sm)] min-h-20 focus:outline-none"
-          placeholder="Введите текст"
+          className="border-b-2 border-[var(--color-border-gray)] pt-3 mb-10 text-[var(--color-black)] rounded-[var(--radius-sm)] h-15 focus:outline-none placeholder:text-[var(--color-gray)]"
+          placeholder=" Краткое описание идеи"
         />
         {errors.comment && (
           <p className="text-sm text-red-500 mt-1">{errors.comment}</p>

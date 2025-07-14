@@ -8,7 +8,17 @@ interface HomeClientProps {
 
 export default function HomeClient({ children }: HomeClientProps) {
   useSectionScroll(
-    ["top", "about", "cases", "direction", "form", "steps", "blog", "faq"],
+    [
+      "top",
+      "about",
+      "cases",
+      "direction",
+      "form",
+      "steps",
+      "blog",
+      "form2",
+      "faq",
+    ],
     0
   );
 
