@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({
             const isActive = pathname === item.link;
             return (
               <Link key={item.link} href={item.link}>
-                <button className="relative cursor-pointer py-1 px-2 text-left hover:text-[var(--color-primary)]">
+                <button className="relative cursor-pointer py-1 px-2 text-left hover:text-[var(--color-primary)] -z-10">
                   {item.text}
                   <span
                     className={`absolute left-0 -bottom-[2px] h-[2px] w-full transition-opacity duration-300 ${

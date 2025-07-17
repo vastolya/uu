@@ -43,13 +43,19 @@ export function WorkStages() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <>
-      <div className="col-span-2 relative h-[49.75rem] w-[16.8125rem] my-10">
-        <Image src={ImageStep} alt="" fill sizes="auto" className="-z-1" />
+    <section>
+      <div className="col-span-2 relative md:h-[49.75rem] md:w-[16.8125rem] md:my-10">
+        <Image
+          src={ImageStep}
+          alt=""
+          fill
+          sizes="auto"
+          className="-z-1 hidden md:block"
+        />
         <p className="subtitle text-[var(--color-gray)] pb-2 pt-10">
           Этапы работ
         </p>
-        <h2 className="col-span-8 pb-10">Как&nbsp;мы&nbsp;работаем?</h2>
+        <h2 className="col-span-8 pb-8 md:pb-10">Как&nbsp;мы&nbsp;работаем?</h2>
       </div>
 
       <motion.div
@@ -63,11 +69,11 @@ export function WorkStages() {
             <motion.div
               key={index}
               layout
-              className={`grid grid-cols-6 gap-x-6 ${
+              className={`md:grid grid-cols-6 gap-x-6 ${
                 index === steps.length - 1 ? "grow" : ""
               }`}
             >
-              <div className="box-border col-span-2 border-r-2 border-[var(--color-border-gray)]">
+              <div className="hidden md:block box-border col-span-2 border-r-2 border-[var(--color-border-gray)]">
                 <h2
                   className={`box-border border-b-2 border-[var(--color-border-gray)] !text-[var(--color-border-gray)] ${
                     index === 0 && "pt-[12.75rem]"
@@ -79,12 +85,12 @@ export function WorkStages() {
 
               <motion.div
                 layout
-                className="col-span-4 flex flex-col w-full py-6 pb-10"
+                className="col-span-4 flex flex-col w-full md:py-6 md:pb-10 md:pt-0 px-4 pb-4 pt-3 border-b-2 border-[var(--color-border-gray)]"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : index)}
                   className={`flex justify-between items-center w-full text-left text-[var(--color-black)]  ${
-                    index === 0 && "pt-[12.75rem]"
+                    index === 0 && "md:pt-[12.75rem]"
                   } ${index === steps.length - 1 && ""} cursor-pointer`}
                 >
                   <h3 className={`text-[var(--color-black)] `}>{step.title}</h3>
@@ -118,6 +124,6 @@ export function WorkStages() {
           );
         })}
       </motion.div>
-    </>
+    </section>
   );
 }

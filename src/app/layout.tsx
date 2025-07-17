@@ -10,6 +10,8 @@ import { useModalStore } from "@/stores/useModalStore";
 import Modal from "@/components/ui/Modal";
 import Form from "@/components/ui/Form";
 import IconClose from "@/components/icons/IconClose";
+import MobileMenu from "@/components/layout/MobileMenu";
+import { useMobileMenuStore } from "@/stores/useMobileMenuStore";
 
 export default function RootLayout({
   children,
@@ -20,6 +22,7 @@ export default function RootLayout({
   const hideFooter = pathname === "/map";
   const darkFooter = pathname.includes("/news");
   const { type, close } = useModalStore();
+  const { isOpen: isMenuOpen, close: closeMenu } = useMobileMenuStore();
 
   return (
     <html lang="ru">
@@ -28,6 +31,7 @@ export default function RootLayout({
         <meta name="description" content="Архитектурное Агенство" />
       </Head>
       <body>
+        <MobileMenu isOpen={isMenuOpen} onClose={closeMenu} />
         <Modal onClose={close} isOpen={type !== "none"}>
           <div className="flex justify-end pb-2 cursor-pointer" onClick={close}>
             <IconClose />

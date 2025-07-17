@@ -8,8 +8,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PageSection } from "./PageSection";
 import { useModalStore } from "@/stores/useModalStore";
 import LogoUU from "@public/logoUU.png";
+import { useMobileMenuStore } from "@/stores/useMobileMenuStore";
+
+const navItems = [
+  { text: "Портфолио", link: "/cases" },
+  { text: "О нас", link: "/about" },
+  { text: "Новости", link: "/news" },
+  { text: "Галерея", link: "/gallery" },
+  { text: "Контакты", link: "/map" },
+];
 
 const Header = () => {
+  const { isOpen: openMenuState, toggle } = useMobileMenuStore();
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -40,38 +50,52 @@ const Header = () => {
       transition={{ duration: 0.175, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-[var(--color-border-gray)]"
     >
-      <PageSection>
-        <Link href="/" className=" h-[2.5rem] w-[10.25rem]">
+      <PageSection className="min-h-14 px-4 ">
+        <Link
+          href="/"
+          className="w-[136px] h-[32px] md:h-[2.5rem] md:w-[10.25rem]"
+        >
           <Image
             src={LogoUU}
             alt="LogoUU"
             sizes="auto"
-            className="object-contain py-5"
+            className="object-contain md:py-5 py-3"
           />
         </Link>
-        <div className="col-span-5 flex justify-center items-center gap-4">
+        <div className="col-span-5 hidden md:flex justify-center items-center gap-4">
           <HeaderNav />
         </div>
         <button
-          className="col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200 cursor-pointer"
+          className="hidden md:block col-span-2 py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] hover:text-[var(--color-primary)] transition-all duration-200 cursor-pointer"
           onClick={() => open("form")}
         >
           Бесплатная консультация
         </button>
+        <div
+          className="flex md:hidden flex-col gap-1 justify-center cursor-pointer"
+          onClick={toggle}
+        >
+          {openMenuState ? (
+            // Крестик
+            <div className="relative w-5 h-5">
+              <span className="absolute left-0 top-1/2 w-full h-[2px] bg-black rotate-45" />
+              <span className="absolute left-0 top-1/2 w-full h-[2px] bg-black -rotate-45" />
+            </div>
+          ) : (
+            // Бургер
+            <>
+              <div className="w-4 h-[2px] bg-black rounded"></div>
+              <div className="w-5 h-[2px] bg-black rounded"></div>
+              <div className="w-3 h-[2px] bg-black rounded"></div>
+            </>
+          )}
+        </div>
       </PageSection>
     </motion.header>
   );
 };
 
 export default Header;
-
-const navItems = [
-  { text: "Портфолио", link: "/cases" },
-  { text: "О нас", link: "/about" },
-  { text: "Новости", link: "/news" },
-  { text: "Галерея", link: "/gallery" },
-  { text: "Контакты", link: "/map" },
-];
 
 export function HeaderNav() {
   const pathname = usePathname();

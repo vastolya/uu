@@ -110,7 +110,7 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, comment: e.target.value }))
           }
-          className="border-b-2 border-[var(--color-border-gray)] pt-3 mb-10 text-[var(--color-black)] rounded-[var(--radius-sm)] h-15 focus:outline-none placeholder:text-[var(--color-gray)]"
+          className="border-b-2 border-[var(--color-border-gray)] pt-3 mb-3 md:mb-10 text-[var(--color-black)] rounded-[var(--radius-sm)] h-15 focus:outline-none placeholder:text-[var(--color-gray)]"
           placeholder=" Краткое описание идеи"
         />
         {errors.comment && (
@@ -118,7 +118,7 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
         )}
       </div>
 
-      <div className="flex-col flex gap-2">
+      <div className="flex-col flex gap-3 md:gap-2">
         <label className="flex gap-2 cursor-pointer text-[var(--color-gray)]">
           <input
             type="checkbox"

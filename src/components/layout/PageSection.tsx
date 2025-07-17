@@ -14,7 +14,7 @@ export function PageSection({
   return (
     <section id={id}>
       <div
-        className={`max-w-[1440px] mx-auto px-4 grid grid-cols-8 gap-x-6 ${className}`}
+        className={`md:max-w-[90rem] mx-auto md:px-4 flex justify-between md:grid md:grid-cols-8 md:gap-x-6 ${className}`}
       >
         {children}
       </div>

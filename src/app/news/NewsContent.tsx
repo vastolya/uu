@@ -1,4 +1,3 @@
-// components/news/NewsContent.tsx (клиентский компонент)
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -30,7 +29,7 @@ export default function NewsContent({ posts }: { posts: any[] }) {
 
   return (
     <section className="min-h-[calc(100vh-80px-200px)]">
-      <div className="h-20"></div>
+      <div className="md:h-20 h-[56px]"></div>
       <PageSection className="px-5 py-10 ">
         <p className="subtitle text-[var(--color-gray)] col-span-8 pb-4">
           Идеи, которые меняют города
@@ -39,37 +38,45 @@ export default function NewsContent({ posts }: { posts: any[] }) {
 
         <UnderlineTabs tabs={tabs} active={activeTab} onChange={setActiveTab} />
 
-        {filteredPosts.map((post) => (
-          <Link
-            href={`/news/${post.slug.current}`}
-            key={post._id}
-            className="col-span-2 pb-10 flex flex-col gap-2"
-          >
-            <div className="overflow-hidden rounded-[var(--radius-sm)] cursor-pointer">
-              {post.image && (
-                <Image
-                  src={urlFor(post.image).url()}
-                  sizes="auto"
-                  className={`object-cover w-full ${
-                    post.type === "1" ? "h-[476px]" : "h-[332px]"
-                  } hover:scale-120 hover:grayscale transition-all duration-300`}
-                  alt={post.title || ""}
-                  width={800}
-                  height={332}
-                />
-              )}
-            </div>
+        <AnimatePresence mode="wait">
+          {filteredPosts.map((post) => (
+            <motion.div
+              key={post._id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="col-span-2 pb-10 flex flex-col gap-2"
+            >
+              <Link
+                href={`/news/${post.slug.current}`}
+                className="overflow-hidden rounded-[var(--radius-sm)] cursor-pointer"
+              >
+                {post.image && (
+                  <Image
+                    src={urlFor(post.image).url()}
+                    sizes="auto"
+                    className={`object-cover w-full ${
+                      post.type === "1" ? "h-[476px]" : "h-[332px]"
+                    } hover:scale-120 hover:grayscale transition-all duration-300`}
+                    alt={post.title || ""}
+                    width={800}
+                    height={332}
+                  />
+                )}
+              </Link>
 
-            <div>
-              <p className="subtitle-bold pb-1">
-                {post.title || "Без названия"}
-              </p>
-              <p className="subtitle text-[var(--color-gray)]">
-                {post.tag || "Без тега"}
-              </p>
-            </div>
-          </Link>
-        ))}
+              <div>
+                <p className="subtitle-bold pb-1">
+                  {post.title || "Без названия"}
+                </p>
+                <p className="subtitle text-[var(--color-gray)]">
+                  {post.tag || "Без тега"}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </PageSection>
     </section>
   );

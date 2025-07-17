@@ -88,7 +88,7 @@ export default function LogoSlider() {
   return (
     <div
       ref={wrapperRef}
-      className="w-full overflow-hidden bg-[var(--color-border-gray)] py-20 select-none"
+      className="w-full overflow-hidden bg-[var(--color-border-gray)] py-[52px] md:py-20 select-none"
     >
       <div ref={trackRef} className="flex gap-30 will-change-transform">
         {repeated.map((logo, i) => (

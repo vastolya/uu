@@ -107,3 +107,44 @@ button {
   transform-origin: center;
   will-change: transform, filter;
 }
+
+@media (max-width: 430px) {
+  h1 {
+    font-size: 28px;
+    line-height: 115%;
+    letter-spacing: -1%;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-normal);
+  }
+  h2 {
+    @apply text-black;
+    font-size: 20px;
+    line-height: 138%;
+    letter-spacing: 1%;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-normal);
+  }
+
+  h3 {
+    font-size: 16px;
+    line-height: 128%;
+    letter-spacing: 0%;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 128%;
+    letter-spacing: 0%;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+  }
+  button {
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+  }
+}

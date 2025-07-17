@@ -13,11 +13,11 @@ interface ButtonProps {
 }
 
 const baseStyles =
-  "flex justify-center items-center gap-2 w-fit rounded-[var(--radius-sm)] font-medium transition-colors duration-300 cursor-pointer";
+  "flex justify-center items-center gap-2 w-full rounded-[var(--radius-sm)] font-medium transition-colors duration-300 cursor-pointer";
 
 const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "py-7 w-full bg-[var(--color-primary)] hover:bg-[var(--color-black)] text-[var(--color-black)] hover:text-[var(--color-white)]",
+    "py-6 md:py-7 bg-[var(--color-primary)] hover:bg-[var(--color-black)] text-[var(--color-black)] hover:text-[var(--color-white)]",
   secondary:
     "p-4 box-border border-2 border-[var(--color-primary)] hover:border-[var(--color-black)] text-[var(--color-black)] hover:bg-[var(--color-black)] hover:text-[var(--color-white)]",
 };

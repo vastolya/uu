@@ -15,7 +15,7 @@ import Directions from "@/components/sections/Directions";
 const About = () => {
   return (
     <>
-      <div className="h-20"></div>
+      <div className="h-[56px] md:h-20"></div>
 
       {/* Hero */}
       <section className="relative">
