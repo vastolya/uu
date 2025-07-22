@@ -83,9 +83,11 @@ export default async function Home() {
               пространствами
             </p>
           </span>
-          <Link href="/about" className="flex md:justify-end w-full">
-            <Button text="Подробнее" variant="secondary" />
-          </Link>
+          <div className="flex md:justify-end ">
+            <Link href="/about" className="w-full md:w-[9.125rem] ">
+              <Button text="Подробнее" variant="secondary" />
+            </Link>
+          </div>
         </div>
         <div className="col-span-8 pt-[52px] md:pt-20 flex flex-col md:flex-row px-4 md:px-0 gap-8 md:gap-0">
           <span className="flex-1 flex-col">
@@ -198,20 +200,22 @@ export default async function Home() {
 
       {/* Блог */}
       <div className="bg-[var(--color-border-gray)]" id="blog">
-        <PageSection className="py-20">
+        <PageSection className="md:py-20 py-[52px] px-4 flex flex-col">
           <p className="subtitle text-[var(--color-gray)] pb-2">
             Новости и статьи
           </p>
-          <h2 className="col-span-8 pb-10">Идеи, которые меняют города</h2>
+          <h2 className="col-span-8 pb-8 md:pb-10">
+            Идеи, которые меняют города
+          </h2>
 
           {posts.slice(0, 3).map((item) => (
             <Link
               key={item._id}
               href={`/news/${item.slug.current}`}
-              className={`flex flex-col ${item.type === "1" ? "col-span-4" : "col-span-2"}`}
+              className={`flex flex-col ${item.type === "1" ? "col-span-4" : "col-span-2"} pb-5 md:pb-0`}
             >
               <div
-                className={`relative overflow-hidden rounded-[var(--radius-sm)]  ${item.type === "2" ? "h-[332px]" : "h-[476px]"}`}
+                className={`relative overflow-hidden rounded-[var(--radius-sm)]  ${item.type === "2" ? "h-[412px] md:h-[332px]" : "h-[412px] md:h-[476px]"}`}
               >
                 <Image
                   src={
@@ -235,24 +239,27 @@ export default async function Home() {
       </div>
 
       {/* Форма 2 */}
-      <PageSection className="px-5 pt-20" id="form2">
+      <PageSection
+        className="px-4 md:pt-20 md:py-0 py-[52px] flex flex-col"
+        id="form2"
+      >
         <h2 className="col-span-4">Давайте создадим нечто уникальное</h2>
         <Form className="col-span-4" />
       </PageSection>
 
       {/* ЭФ АЙ КЬЮ */}
-      <PageSection id="faq">
-        <div className="col-span-3 relative my-11 h-[368px] flex justify-start items-start">
+      <PageSection id="faq" className="flex flex-col pb-[52px] md:pb-0">
+        <div className="col-span-3 relative mb-8 md:my-[2.75rem] md:h-[23rem] flex md:justify-start items-start">
           <Image
             src={LogoBigUU}
             alt=""
             fill
             sizes="auto"
-            className="object-contain object-left"
+            className="object-contain object-left hidden md:block"
           />
-          <h2 className="z-[1] pt-9">FAQ</h2>
+          <h2 className="md:z-[1] md:pt-9 px-4 md:px-0 ">FAQ</h2>
         </div>
-        <div className="col-start-5 col-span-4 my-auto">
+        <div className="col-start-5 col-span-4 my-auto ">
           <Accordion
             items={[
               {

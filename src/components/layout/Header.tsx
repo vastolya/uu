@@ -76,13 +76,11 @@ const Header = () => {
           onClick={toggle}
         >
           {openMenuState ? (
-            // Крестик
             <div className="relative w-5 h-5">
               <span className="absolute left-0 top-1/2 w-full h-[2px] bg-black rotate-45" />
               <span className="absolute left-0 top-1/2 w-full h-[2px] bg-black -rotate-45" />
             </div>
           ) : (
-            // Бургер
             <>
               <div className="w-4 h-[2px] bg-black rounded"></div>
               <div className="w-5 h-[2px] bg-black rounded"></div>

@@ -12,12 +12,8 @@ const tabLabels = ["Все", "Новости", "Инновации", "Событ
 interface Tab {
   label: string;
   value: string;
+  count: number;
 }
-
-const tabs = tabLabels.map((item) => ({
-  label: item,
-  value: item,
-}));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function NewsContent({ posts }: { posts: any[] }) {
@@ -27,16 +23,29 @@ export default function NewsContent({ posts }: { posts: any[] }) {
     (post) => activeTab === "Все" || post.tag === activeTab
   );
 
+  const tabsWithCount = tabLabels.map((label) => ({
+    label,
+    value: label,
+    count:
+      label === "Все"
+        ? posts.length
+        : posts.filter((post) => post.tag === label).length,
+  }));
+
   return (
     <section className="min-h-[calc(100vh-80px-200px)]">
       <div className="md:h-20 h-[56px]"></div>
-      <PageSection className="px-5 py-10 ">
-        <p className="subtitle text-[var(--color-gray)] col-span-8 pb-4">
+      <PageSection className="px-4 py-5 md:px-5 md:py-10 flex flex-col ">
+        <p className="subtitle text-[var(--color-gray)] col-span-8 pb-2 md:pb-4">
           Идеи, которые меняют города
         </p>
-        <h1 className="col-span-8 pb-20">Новости и статьи</h1>
+        <h1 className="col-span-8 md:pb-20 pb-8">Новости и статьи</h1>
 
-        <UnderlineTabs tabs={tabs} active={activeTab} onChange={setActiveTab} />
+        <UnderlineTabs
+          tabs={tabsWithCount}
+          active={activeTab}
+          onChange={setActiveTab}
+        />
 
         <AnimatePresence mode="wait">
           {filteredPosts.map((post) => (
@@ -46,7 +55,7 @@ export default function NewsContent({ posts }: { posts: any[] }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="col-span-2 pb-10 flex flex-col gap-2"
+              className="col-span-2 pb-8 md:pb-10 flex flex-col gap-2"
             >
               <Link
                 href={`/news/${post.slug.current}`}
@@ -57,7 +66,9 @@ export default function NewsContent({ posts }: { posts: any[] }) {
                     src={urlFor(post.image).url()}
                     sizes="auto"
                     className={`object-cover w-full ${
-                      post.type === "1" ? "h-[476px]" : "h-[332px]"
+                      post.type === "1"
+                        ? "h-[288px] md:h-[29.75rem]"
+                        : "h-[288px] md:h-[20.75rem]"
                     } hover:scale-120 hover:grayscale transition-all duration-300`}
                     alt={post.title || ""}
                     width={800}
@@ -109,44 +120,49 @@ function UnderlineTabs({
   }, [active]);
 
   return (
-    <div
-      ref={containerRef}
-      className="subtitle mb-10 box-border col-span-8 flex gap-2 relative border-b-2 border-[var(--color-border-gray)]"
-    >
-      {tabs.map((tab) => (
-        <button
-          key={tab.value}
-          onClick={() => onChange(tab.value)}
-          data-active={active === tab.value || undefined}
-          className={`box-border text-[var(--color-gray)] px-2 py-1 cursor-pointer ${
-            active === tab.value ? "!text-[var(--color-black)]" : ""
-          }`}
-        >
-          {tab.label}
-        </button>
-      ))}
+    <div className="col-span-8 mb-10 overflow-x-auto md:overflow-visible hide-scrollbar">
+      <div
+        ref={containerRef}
+        className="subtitle box-border relative inline-flex md:flex gap-2 border-b-2 border-[var(--color-border-gray)] min-w-max"
+      >
+        {tabs.map((tab) => (
+          <button
+            key={tab.value}
+            onClick={() => onChange(tab.value)}
+            data-active={active === tab.value || undefined}
+            className={`flex box-border text-[var(--color-gray)] px-2 py-1 cursor-pointer whitespace-nowrap ${
+              active === tab.value ? "!text-[var(--color-black)]" : ""
+            }`}
+          >
+            <div className="flex gap-2">
+              {tab.label}
+              <p className="subtitle-sm items-center flex">{tab.count}</p>
+            </div>
+          </button>
+        ))}
 
-      <AnimatePresence>
-        {underline && (
-          <motion.div
-            key="underline"
-            className="absolute left-0 -bottom-[2px] h-[2px] bg-[var(--color-black)]"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              left: underline.left,
-              width: underline.width,
-            }}
-            exit={{ opacity: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
-              opacity: { duration: 0.2 },
-            }}
-          />
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {underline && (
+            <motion.div
+              key="underline"
+              className="absolute left-0 -bottom-[2px] h-[2px] bg-[var(--color-black)]"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                left: underline.left,
+                width: underline.width,
+              }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+                opacity: { duration: 0.2 },
+              }}
+            />
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

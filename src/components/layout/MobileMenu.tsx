@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Button } from "../ui/Button";
+import { useModalStore } from "@/stores/useModalStore";
 
 const MobileMenu = ({
   isOpen,
@@ -12,6 +13,8 @@ const MobileMenu = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const { open } = useModalStore();
+
   useEffect(() => {
     const handleScroll = () => {
       onClose();
@@ -54,7 +57,7 @@ const MobileMenu = ({
               <button className="w-full justify-end flex p-2">Контакты</button>
             </Link>
           </nav>
-          <Button text="Бесплатная консультация" />
+          <Button text="Бесплатная консультация" onClick={() => open("form")} />
         </motion.div>
       )}
     </AnimatePresence>

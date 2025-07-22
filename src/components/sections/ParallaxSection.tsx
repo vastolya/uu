@@ -1,11 +1,23 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export default function ParallaxSection() {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 900], [0, -1500]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 430);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const y = useTransform(scrollY, [0, 900], [0, isMobile ? -150 : -1500]);
 
   return (
     <section className="relative h-[328px] md:h-[29.5rem] overflow-hidden">

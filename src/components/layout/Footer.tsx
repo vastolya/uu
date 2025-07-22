@@ -38,9 +38,9 @@ const Footer: React.FC<FooterProps> = ({
         ${className}
       `}
     >
-      <PageSection>
+      <PageSection className="flex flex-col md:flex:row py-[52px] gap-8 md:gap-0">
         <div className="col-span-4 flex flex-col justify-between">
-          <Link href="/" className="h-[2.5rem] w-[10.25rem]">
+          <Link href="/" className="h-[2.5rem] w-[10.25rem] mx-auto md:mx-0">
             <Image
               src={isDark ? LogoUUWhite : LogoUU}
               alt="LogoUU"
@@ -48,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({
               className="object-contain"
             />
           </Link>
-          <div>
+          <div className="hidden md:block">
             <p className="subtitle pb-4">Правила использования сайта</p>
             <p
               className={`subtitle ${
@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        <div className="col-span-3 flex flex-col gap-4">
+        <div className="col-span-3 hidden md:flex flex-col  gap-4">
           {navItems.map((item) => {
             const isActive = pathname === item.link;
             return (
@@ -82,13 +82,33 @@ const Footer: React.FC<FooterProps> = ({
           })}
         </div>
 
-        <div className="flex flex-col gap-4">
-          <Link href="tel:+79697399966">
-            <button className="cursor-pointer">+7 969 739-99-66</button>
+        <div className="flex flex-col gap-1 md:gap-4 mx-auto">
+          <Link href="tel:+79697399966 ">
+            <button className="cursor-pointer py-2 md:py-0">
+              +7 969 739-99-66
+            </button>
           </Link>
           <Link href="mailto:w11group@ya.ru">
-            <button className="cursor-pointer">w11group@ya.ru</button>
+            <button className="cursor-pointer py-2 md:py-0">
+              w11group@ya.ru
+            </button>
           </Link>
+        </div>
+        <div className="md:hidden mx-auto">
+          <Link
+            href="/privacy-policy"
+            target="_blank"
+            className="subtitle md:pb-4 pb-2 "
+          >
+            Правила использования сайта
+          </Link>
+          <p
+            className={`subtitle-sm ${
+              isDark ? "text-white" : "text-[var(--color-gray)]"
+            }`}
+          >
+            © {new Date().getFullYear()} ООО Дабл-Ю. Все права защищены
+          </p>
         </div>
       </PageSection>
     </footer>

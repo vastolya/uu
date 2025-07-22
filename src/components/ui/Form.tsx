@@ -133,9 +133,9 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
             className="h-4 w-4 accent-[var(--color-black)] rounded-[var(--radius-sm)]"
           />
           <span>
-            Я принимаю условия{" "}
+            Я согласен с{" "}
             <a href="/privacy-policy" target="_blank" className="underline">
-              политики конфиденциальности
+              условиями
             </a>
           </span>
         </label>
