@@ -130,54 +130,66 @@ const About = () => {
       </PageSection>
 
       {/* Кейсы */}
-      <PageSection className="md:py-20 overflow-x-auto md:overflow-visible hide-scrollbar">
-        <h2 className="col-span-8 pb-10">
-          Истинное удовольствие — в наблюдении за тем, как концепт обретает
-          форму,
-          <br /> ритм и материю
+      <>
+        <h2 className="block md:hidden pt-[52px] px-4 pb-8">
+          Истинное <br /> удовольствие — в <br /> наблюдении за тем, <br /> как
+          концепт обретает <br /> форму, ритм и <br /> материю
         </h2>
 
-        <div className="col-span-2 ">
-          <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
-          <p className="subtitle-bold pt-2">
-            Набережная Реки ОХТА Набережная Реки ОХТА
-          </p>
-          <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
-            <p>Москва</p>
-            <p>972m2</p>
-          </div>
-        </div>
+        <PageSection className="md:py-20 overflow-x-auto md:overflow-visible hide-scrollbar">
+          <h2 className="col-span-8 pb-10 hidden md:block">
+            Истинное удовольствие — в наблюдении за тем, как концепт обретает
+            форму,
+            <br /> ритм и материю
+          </h2>
 
-        <div className="col-span-2 ">
-          <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
-          <p className="subtitle-bold pt-2">
-            Набережная Реки ОХТА Набережная Реки ОХТА
-          </p>
-          <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
-            <p>Москва</p>
-            <p>972m2</p>
+          <div className="col-span-2 ">
+            <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
+            <p className="subtitle-bold pt-2">
+              Набережная Реки ОХТА Набережная Реки ОХТА
+            </p>
+            <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
+              <p>Москва</p>
+              <p>972m2</p>
+            </div>
           </div>
-        </div>
 
-        <div className="col-span-2 ">
-          <p className="subtitle">
-            Говорим на языке современной архитектуры, но понимаем и ценим
-            традиции, создавая проекты, которые гармонично вписываются в
-            городской контекст
-          </p>
-        </div>
-
-        <div className="col-span-2 ">
-          <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
-          <p className="subtitle-bold pt-2">
-            Набережная Реки ОХТА Набережная Реки ОХТА
-          </p>
-          <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
-            <p>Москва</p>
-            <p>972m2</p>
+          <div className="col-span-2 ">
+            <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
+            <p className="subtitle-bold pt-2">
+              Набережная Реки ОХТА Набережная Реки ОХТА
+            </p>
+            <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
+              <p>Москва</p>
+              <p>972m2</p>
+            </div>
           </div>
-        </div>
-      </PageSection>
+
+          <div className="col-span-2 ">
+            <p className="subtitle hidden md:block">
+              Говорим на языке современной архитектуры, но понимаем и ценим
+              традиции, создавая проекты, которые гармонично вписываются в
+              городской контекст
+            </p>
+          </div>
+
+          <div className="col-span-2 ">
+            <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
+            <p className="subtitle-bold pt-2">
+              Набережная Реки ОХТА Набережная Реки ОХТА
+            </p>
+            <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
+              <p>Москва</p>
+              <p>972m2</p>
+            </div>
+          </div>
+        </PageSection>
+        <p className="subtitle block  md:hidden py-8 px-4">
+          Говорим на языке современной архитектуры, но понимаем и ценим
+          традиции, создавая проекты, которые гармонично вписываются в городской
+          контекст
+        </p>
+      </>
 
       {/* Шикокая пикча */}
       <section className="relative">

@@ -10,40 +10,47 @@ import Link from "next/link";
 const Map = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="h-20"></div>
-      <PageSection className="py-10 z-50">
-        <div className="col-span-4">
+      <div className="md:h-20 h-[56px]"></div>
+      <PageSection className="px-4 pt-5 md:pt-10 md:py-10 z-50 flex flex-col md:flex-row">
+        <div className="col-span-4 pb-[42px] md:pb-0">
           <h1 className="">Контакты</h1>
         </div>
         <div className="col-span-4 relative">
           <h3 className="pb-6">w11group@ya.ru</h3>
-          <div className="pb-[6.75rem] flex  items-center gap-6">
-            <div className="flex gap-2">
+          <p className="subtitle select-text block md:hidden pb-5 ">
+            +7 969 739-99-66
+          </p>
+          <div className="pb-5 md:pb-[6.75rem] flex  items-center gap-6">
+            <div className="flex gap-2 w-full md:w-fit justify-between">
               <Link
                 href="/"
                 target="_blank"
-                className="p-3 bg-[var(--color-border-gray)] rounded-[var(--radius-sm)]"
+                className="p-3 bg-[var(--color-primary)] rounded-[var(--radius-sm)]"
               >
                 <IconWU />
               </Link>
               <Link
                 href="/"
                 target="_blank"
-                className="p-3 bg-[var(--color-border-gray)] rounded-[var(--radius-sm)]"
+                className="p-3 bg-[var(--color-primary)] rounded-[var(--radius-sm)]"
               >
                 <IconTg />
               </Link>
               <Link
                 href="/"
                 target="_blank"
-                className="p-3 bg-[var(--color-border-gray)] rounded-[var(--radius-sm)]"
+                className="p-3 bg-[var(--color-primary)] rounded-[var(--radius-sm)]"
               >
                 <IconIn />
               </Link>
             </div>
-            <p className="subtitle select-text">+7 969 739-99-66</p>
+            <p className="subtitle select-text hidden md:block">
+              +7 969 739-99-66
+            </p>
           </div>
-          <h3>Санкт-Петербург, Невский проспект, дом 72</h3>
+          <h3 className="pb-5 md:pb-0">
+            Санкт-Петербург, Невский проспект, дом 72
+          </h3>
         </div>
       </PageSection>
       <div className="flex-1 relative overflow-hidden">

@@ -55,26 +55,32 @@ export function WorkStages() {
 
   return (
     <>
-      <div className="col-span-2 relative h-[49.75rem] w-[16.8125rem] my-10">
-        <Image src={ImageStep} alt="" fill sizes="auto" className="-z-1" />
-        <p className="subtitle text-[var(--color-gray)] pb-2 pt-10">
+      <div className="col-span-2 relative md:h-[49.75rem] md:w-[16.8125rem] md:my-10 px-4 md:px-0">
+        <Image
+          src={ImageStep}
+          alt=""
+          fill
+          sizes="auto"
+          className="-z-1 hidden md:block"
+        />
+        <p className="subtitle text-[var(--color-gray)] pb-2 pt-[52px] md:pt-10">
           Этапы&nbsp;работ
         </p>
-        <h2 className="col-span-8 pb-10">Как&nbsp;мы&nbsp;работаем?</h2>
+        <h2 className="col-span-8 md:pb-10 pb-8">Как&nbsp;мы&nbsp;работаем?</h2>
       </div>
 
-      <div className=" col-start-3 col-span-6 flex flex-col h-full">
+      <div className=" col-start-3 col-span-6 flex flex-col h-full pb-[52px]">
         {steps.map((step, index) => {
           const isOpen = open === index;
 
           return (
             <div
               key={index}
-              className={`grid grid-cols-6 gap-x-6 ${
+              className={`md:grid grid-cols-6 gap-x-6  ${
                 index === steps.length - 1 ? "grow" : ""
               }`}
             >
-              <div className="box-border col-span-2 border-r-2 border-[var(--color-border-gray)] pb-10">
+              <div className="box-border col-span-2 border-r-2 border-[var(--color-border-gray)] pb-10 hidden md:block">
                 <h2
                   className={`box-border border-b-2 border-[var(--color-border-gray)] text-[var(--color-border-gray)] ${
                     index === 0 && "pt-[12.75rem]"
@@ -84,11 +90,13 @@ export function WorkStages() {
                 </h2>
               </div>
 
-              <div className="col-span-4 flex flex-col w-full py-6">
+              <div
+                className={`col-span-4 flex flex-col w-full py-6 px-4 md:px-0  border-[var(--color-border-gray)] ${index === steps.length - 1 ? "" : "border-b-2 md:border-b-0"}`}
+              >
                 <button
                   onClick={() => setOpen(isOpen ? null : index)}
-                  className={`flex justify-between items-center w-full text-left text-[var(--color-black)] ${
-                    index === 0 && "pt-[12.75rem]"
+                  className={`flex justify-between items-center w-full text-left text-[var(--color-black)]  ${
+                    index === 0 && "pt-0 md:pt-[12.75rem]"
                   } ${index === steps.length - 1 && ""} cursor-pointer`}
                 >
                   <h3 className={`text-[var(--color-black)] `}>{step.title}</h3>
