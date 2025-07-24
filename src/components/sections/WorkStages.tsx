@@ -69,7 +69,7 @@ export function WorkStages() {
         <h2 className="col-span-8 md:pb-10 pb-8">Как&nbsp;мы&nbsp;работаем?</h2>
       </div>
 
-      <div className=" col-start-3 col-span-6 flex flex-col h-full pb-[52px]">
+      <div className=" col-start-3 col-span-6 flex flex-col h-full pb-[52px] md:pb-0">
         {steps.map((step, index) => {
           const isOpen = open === index;
 

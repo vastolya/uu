@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       className={`
-        border-t-2 py-6
+        border-t-2 py-6 -z-10
         ${
           isDark
             ? "bg-[var(--color-black)] text-white border-[var(--color-black)]"
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({
             const isActive = pathname === item.link;
             return (
               <Link key={item.link} href={item.link}>
-                <button className="relative cursor-pointer py-1 px-2 text-left hover:text-[var(--color-primary)] -z-10">
+                <button className="relative cursor-pointer py-1 px-2 text-left hover:text-[var(--color-primary)] ">
                   {item.text}
                   <span
                     className={`absolute left-0 -bottom-[2px] h-[2px] w-full transition-opacity duration-300 ${
@@ -83,22 +83,22 @@ const Footer: React.FC<FooterProps> = ({
         </div>
 
         <div className="flex flex-col gap-1 md:gap-4 mx-auto">
-          <Link href="tel:+79697399966 ">
+          <Link href="tel:+79697399966 " className="w-full flex justify-center">
             <button className="cursor-pointer py-2 md:py-0">
               +7 969 739-99-66
             </button>
           </Link>
-          <Link href="mailto:w11group@ya.ru">
-            <button className="cursor-pointer py-2 md:py-0">
+          <Link href="mailto:w11group@ya.ru" className=" flex justify-center">
+            <button className="cursor-pointer py-2 md:py-0 ">
               w11group@ya.ru
             </button>
           </Link>
         </div>
-        <div className="md:hidden mx-auto">
+        <div className="md:hidden mx-auto ">
           <Link
             href="/privacy-policy"
             target="_blank"
-            className="subtitle md:pb-4 pb-2 "
+            className="subtitle md:pb-4 pb-2 flex justify-center"
           >
             Правила использования сайта
           </Link>

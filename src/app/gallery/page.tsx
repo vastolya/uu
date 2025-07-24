@@ -1,12 +1,21 @@
-import React from "react";
+import { client } from "@/sanity/client";
+import { notFound } from "next/navigation";
+import GalleryContent from "./GalleryContent";
 
-const Gallery = () => {
-  return (
-    <>
-      <div className="h-20"></div>
-      <h1>Gallery</h1>
-    </>
-  );
-};
+export default async function GalleryPage() {
+  const arts = await client.fetch(`
+    *[_type == "art"] | order(_createdAt desc){
+      _id,
+      title,
+      material,
+      type,
+      size,
+      slug,
+      image
+    }
+  `);
 
-export default Gallery;
+  if (!arts || arts.length === 0) return notFound();
+
+  return <GalleryContent arts={arts} />;
+}

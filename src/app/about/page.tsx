@@ -45,9 +45,8 @@ const About = () => {
       <>
         <PageSection className="pt-[52px] pb-5 px-4 md:pt-20 md:pb-6 flex flex-col md:flex-row">
           <h2 className="col-span-8 pb-8 md:pb-10">
-            <span className="text-[var(--color-primary)]">
-              Архитектура <br className="block md:hidden" />
-            </span>
+            <span className="text-[var(--color-primary)]">Архитектура </span>
+            <br className="hidden md:block" />
             как искусство среды
           </h2>
           <div className="col-start-5 col-span-4">

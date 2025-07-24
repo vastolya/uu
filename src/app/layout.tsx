@@ -20,7 +20,10 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const hideFooter = pathname === "/map";
-  const darkFooter = pathname.includes("/news");
+  const darkFooter =
+    pathname.includes("/news") ||
+    pathname.includes("/about") ||
+    pathname.includes("/gallery");
   const { type, close } = useModalStore();
   const { isOpen: isMenuOpen, close: closeMenu } = useMobileMenuStore();
 
