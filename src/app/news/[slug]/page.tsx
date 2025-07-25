@@ -57,7 +57,9 @@ export default async function NewsPage({
             components={{
               block: {
                 h3: ({ children }) => <h3 className="pb-10">{children}</h3>,
-                p: ({ children }) => <p className="pb-6">{children}</p>,
+                normal: ({ children }) => (
+                  <p className="subtitle pb-6">{children}</p>
+                ),
               },
             }}
           />

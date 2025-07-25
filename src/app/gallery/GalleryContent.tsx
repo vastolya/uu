@@ -9,15 +9,24 @@ import { urlFor } from "@/sanity/image";
 interface GalleryContentProps {
   arts: {
     _id: string;
+    slug: {
+      _type: string;
+      current: string;
+    };
     title: string;
+    type: string;
     material: string;
     size: string;
-    image?: object;
-    type: string;
+    image?: {
+      _type: string;
+      asset: object;
+    };
   }[];
 }
 
 const GalleryContent = ({ arts }: GalleryContentProps) => {
+  console.log(arts);
+
   return (
     <>
       <div className="h-14 md:h-20"></div>
@@ -50,7 +59,8 @@ const GalleryContent = ({ arts }: GalleryContentProps) => {
           </p>
         </div>
         {arts.map((item, index) => (
-          <div
+          <Link
+            href={`/gallery/${item.slug.current}`}
             className={`col-span-2 ${index == arts.length - 1 ? "pb-0" : "pb-5 md:pb-0"} `}
             key={item._id}
           >
@@ -72,7 +82,7 @@ const GalleryContent = ({ arts }: GalleryContentProps) => {
               </p>
               <p>{item.size}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </PageSection>
     </>

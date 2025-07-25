@@ -11,7 +11,8 @@ export default async function GalleryPage() {
       type,
       size,
       slug,
-      image
+      image, 
+      body
     }
   `);
 
