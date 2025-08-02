@@ -25,8 +25,6 @@ interface GalleryContentProps {
 }
 
 const GalleryContent = ({ arts }: GalleryContentProps) => {
-  console.log(arts);
-
   return (
     <>
       <div className="h-14 md:h-20"></div>

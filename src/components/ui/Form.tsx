@@ -30,9 +30,14 @@ type FormData = {
 interface FormProps {
   className?: string;
   buttonText?: string;
+  variant: "white" | "black";
 }
 
-const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить" }) => {
+const Form: React.FC<FormProps> = ({
+  variant = "white",
+  className,
+  buttonText = "Отправить",
+}) => {
   const [formValues, setFormValues] = useState<FormData>({
     name: "",
     phone: "",
@@ -68,7 +73,7 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
 
   return (
     <form
-      className={`flex flex-col gap-6 subtitle  ${className}`}
+      className={`flex flex-col gap-2 md:gap-6 subtitle ${className}`}
       onSubmit={handleSubmit}
     >
       <div>
@@ -79,7 +84,7 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, name: e.target.value }))
           }
-          className="py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)]"
+          className="py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)] text-white"
           placeholder="Имя"
         />
         {errors.name && (
@@ -95,7 +100,7 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
           onChange={(e) =>
             setFormValues((prev) => ({ ...prev, phone: e.target.value }))
           }
-          className="py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)]"
+          className="py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)] text-white"
           placeholder="Телефон"
         />
         {errors.phone && (
@@ -103,23 +108,25 @@ const Form: React.FC<FormProps> = ({ className, buttonText = "Отправить
         )}
       </div>
 
-      <div className="flex flex-col">
-        <textarea
-          name="comment"
-          value={formValues.comment}
-          onChange={(e) =>
-            setFormValues((prev) => ({ ...prev, comment: e.target.value }))
-          }
-          className="border-b-2 border-[var(--color-border-gray)] pt-3 mb-3 md:mb-10 text-[var(--color-black)] rounded-[var(--radius-sm)] h-15 focus:outline-none placeholder:text-[var(--color-gray)]"
-          placeholder=" Краткое описание идеи"
-        />
-        {errors.comment && (
-          <p className="text-sm text-red-500 mt-1">{errors.comment}</p>
-        )}
-      </div>
+      {variant !== "black" && (
+        <div className="flex flex-col">
+          <textarea
+            name="comment"
+            value={formValues.comment}
+            onChange={(e) =>
+              setFormValues((prev) => ({ ...prev, comment: e.target.value }))
+            }
+            className="border-b-2 border-[var(--color-border-gray)] pt-3 mb-3 md:mb-10 text-[var(--color-black)]  h-15 focus:outline-none placeholder:text-[var(--color-gray)]"
+            placeholder=" Краткое описание идеи"
+          />
+          {errors.comment && (
+            <p className="text-sm text-red-500 mt-1">{errors.comment}</p>
+          )}
+        </div>
+      )}
 
-      <div className="flex-col flex gap-3 md:gap-2">
-        <label className="flex gap-2 cursor-pointer text-[var(--color-gray)]">
+      <div className="flex-col flex gap-3 md:gap-2 pt-8 md:pt-0 ">
+        <label className="flex gap-2 cursor-pointer text-[var(--color-gray)] items-center">
           <input
             type="checkbox"
             name="accepted"

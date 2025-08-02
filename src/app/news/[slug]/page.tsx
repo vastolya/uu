@@ -4,6 +4,8 @@ import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { PageSection } from "@/components/layout/PageSection";
 import { PortableText } from "@portabletext/react";
+import Link from "next/link";
+import IconChevron from "@/components/icons/IconChevron";
 
 export default async function NewsPage({
   params,
@@ -17,6 +19,19 @@ export default async function NewsPage({
     { slug }
   );
 
+  if (!post) return notFound();
+
+  const [previous, next] = await Promise.all([
+    client.fetch(
+      `*[_type == "post" && publishedAt > $date] | order(publishedAt asc)[0]`,
+      { date: post.publishedAt }
+    ),
+    client.fetch(
+      `*[_type == "post" && publishedAt < $date] | order(publishedAt desc)[0]`,
+      { date: post.publishedAt }
+    ),
+  ]);
+
   if (!post) {
     notFound();
     return null;
@@ -24,11 +39,11 @@ export default async function NewsPage({
 
   return (
     <section className="min-h-screen flex flex-col">
-      <div className="h-20"></div>
+      <div className="h-14 md:h-20"></div>
       <div className="bg-[var(--color-black)]">
         <PageSection>
-          <div className="text-white col-span-6 py-20">
-            <div className="flex gap-6 text-[var(--color-gray)] subtitle pb-4">
+          <div className="text-white w-full col-span-6 px-4 md:px-0 py-8 md:py-20">
+            <div className="flex justify-between md:justify-start md:gap-6 text-[var(--color-gray)] subtitle pb-4">
               <p>{post.tag}</p>
               <p>
                 {post.publishedAt
@@ -43,7 +58,7 @@ export default async function NewsPage({
               src={urlFor(post.image).url()}
               alt={post.title || "Изображение"}
               sizes="auto"
-              className="col-span-2 h-full w-full object-cover"
+              className="col-span-2 h-full w-full object-cover hidden md:block"
               width={800}
               height={400}
             />
@@ -51,20 +66,59 @@ export default async function NewsPage({
         </PageSection>
       </div>
       {post.body && (
-        <div className="prose prose-lg dark:prose-invert max-w-4xl mx-auto py-20 px-5">
+        <div className="prose prose-lg dark:prose-invert max-w-[43rem] mx-auto pt-8 md:pt-20 pb-10 px-4 md:px-0">
           <PortableText
             value={post.body}
             components={{
               block: {
-                h3: ({ children }) => <h3 className="pb-10">{children}</h3>,
+                h3: ({ children }) => (
+                  <h3 className="pb-5 md:pb-10">{children}</h3>
+                ),
                 normal: ({ children }) => (
-                  <p className="subtitle pb-6">{children}</p>
+                  <p className="subtitle ">{children}</p>
                 ),
               },
             }}
           />
         </div>
       )}
+      <div className="flex justify-between max-w-[43rem] w-full mx-auto pb-[52px] md:pb-20 px-4 md:px-0">
+        {previous ? (
+          <Link
+            href={`/news/${previous.slug.current}`}
+            className=" flex items-center gap-2 cursor-pointer"
+          >
+            <IconChevron className="rotate-270 h-[1rem]" />
+            <button className="cursor-pointer">Предыдущая</button>
+          </Link>
+        ) : (
+          <Link
+            href={`/news`}
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            <IconChevron className="rotate-270 h-[1rem] " />
+            <button className="cursor-pointer">К новостям</button>
+          </Link>
+        )}
+
+        {next ? (
+          <Link
+            href={`/news/${next.slug.current}`}
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            <button className="cursor-pointer">Следующая</button>
+            <IconChevron className="rotate-90 h-[1rem]" />
+          </Link>
+        ) : (
+          <Link
+            href={`/news`}
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            <button className="cursor-pointer">К новостям</button>
+            <IconChevron className="rotate-90 h-[1rem] " />
+          </Link>
+        )}
+      </div>
       {post.image && (
         <div>
           <Image

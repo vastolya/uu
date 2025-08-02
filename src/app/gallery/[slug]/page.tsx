@@ -8,7 +8,8 @@ import React from "react";
 import Link from "next/link";
 import IconWU from "@/components/icons/IconWU";
 import IconTg from "@/components/icons/IconTg";
-import IconIn from "@/components/icons/IconIn";
+import IconChevron from "@/components/icons/IconChevron";
+import Form from "@/components/ui/Form";
 
 export default async function ArtsPage({
   params,
@@ -22,6 +23,22 @@ export default async function ArtsPage({
     { slug }
   );
 
+  let previous = null;
+  let next = null;
+
+  if (arts && arts._createdAt) {
+    [previous, next] = await Promise.all([
+      client.fetch(
+        `*[_type == "art" && _createdAt > $date] | order(_createdAt asc)[0]`,
+        { date: arts._createdAt }
+      ),
+      client.fetch(
+        `*[_type == "art" && _createdAt < $date] | order(_createdAt desc)[0]`,
+        { date: arts._createdAt }
+      ),
+    ]);
+  }
+
   if (!arts) {
     notFound();
     return null;
@@ -30,25 +47,25 @@ export default async function ArtsPage({
   return (
     <div className="">
       <div className="h-14 md:h-20" />
-      <PageSection className="px-5 pt-10 pb-20">
-        <div className="h-[476px] w-ful relative col-span-4  ">
+      <PageSection className="md:px-5 md:pt-10 pb-[60px] md:pb-20 flex flex-col md:flex-row">
+        <div className="h-[220px] md:h-[29.75rem] w-ful relative col-span-4  mb-[18px] md:mb-0">
           <Image
             src={urlFor(arts.image).url()}
             alt=""
             fill
             sizes="auto"
-            className="object-contain rounded-[var(--radius-sm)]"
+            className="object-cover rounded-[var(--radius-sm)]"
           />
         </div>
-        <div className="col-span-4 col-start-5 ">
+        <div className="col-span-4 col-start-5 flex flex-col justify-between px-4">
           <div>
-            <div className="flex justify-between pb-4 ">
+            <div className="flex justify-between md:pb-4 pb-[18px]">
               <h3 className="">{arts.title}</h3>
               <p className="p-1 bg-[var(--color-border-gray)] text-[var(--color-gray)] flex items-center rounded-[var(--radius-sm)]">
                 {arts.tag}
               </p>
             </div>
-            <ul className="list-disc pl-7 text-[var(--color-gray)] pb-4 subtitle">
+            <ul className="list-disc pl-7 text-[var(--color-gray)] pb-4 subtitle flex flex-col gap-2 md:gap-0">
               <li className="">{arts.type}</li>
               <li>{arts.material}</li>
               <li>{arts.size}</li>
@@ -64,8 +81,11 @@ export default async function ArtsPage({
               }}
             />
           </div>
-          <div className="pb-5 md:pb-[6.75rem] flex  items-center gap-6">
-            <div className="flex gap-2 w-full md:w-fit justify-between">
+          <div className="md:pb-5 flex justify-end items-center gap-6">
+            <p className="subtitle select-text w-full flex justify-end">
+              +7 969 739-99-66
+            </p>
+            <div className="gap-2 w-fit flex justify-end">
               <Link
                 href="/"
                 target="_blank"
@@ -80,20 +100,60 @@ export default async function ArtsPage({
               >
                 <IconTg />
               </Link>
-              <Link
-                href="/"
-                target="_blank"
-                className="p-3 bg-[var(--color-primary)] rounded-[var(--radius-sm)]"
-              >
-                <IconIn />
-              </Link>
             </div>
-            <p className="subtitle select-text hidden md:block">
-              +7 969 739-99-66
-            </p>
           </div>
         </div>
       </PageSection>
+
+      <PageSection className="w-full pb-2 md:pb-20 px-4 md:px-0">
+        {previous ? (
+          <Link
+            href={`/gallery/${previous.slug.current}`}
+            className="flex items-center gap-2 cursor-pointer col-span-2"
+          >
+            <IconChevron className="rotate-270 h-[1rem] " />
+            <button className="cursor-pointer">Предыдущая</button>
+          </Link>
+        ) : (
+          <Link
+            href={`/gallery`}
+            className="flex items-center gap-2 cursor-pointer col-span-2"
+          >
+            <IconChevron className="rotate-270 h-[1rem]" />
+            <button className="cursor-pointer">К галерее</button>
+          </Link>
+        )}
+
+        {next ? (
+          <Link
+            href={`/gallery/${next.slug.current}`}
+            className="flex items-center gap-2 cursor-pointer col-span-2 justify-end"
+          >
+            <button className="cursor-pointer">Следующая</button>
+            <IconChevron className="rotate-90 h-[1rem]" />
+          </Link>
+        ) : (
+          <Link
+            href={`/gallery`}
+            className="flex items-center gap-2 cursor-pointer col-span-2 justify-end"
+          >
+            <button className="cursor-pointer">К галерее</button>
+            <IconChevron className="rotate-90 h-[1rem]" />
+          </Link>
+        )}
+      </PageSection>
+
+      <div className="bg-[var(--color-black)] border-b-2 border-[var(--color-gray)]">
+        <PageSection className="px-4 py-[52px] md:py-20 flex flex-col md:flex-row">
+          <h2 className="col-span-4 !text-white ">
+            Хотите эту картину? <br className="flex md:hidden" />
+            <span className="text-[var(--color-primary)]">Оставьте заявку</span>
+          </h2>
+          <div className="col-span-4 ">
+            <Form variant="black" />
+          </div>
+        </PageSection>
+      </div>
     </div>
   );
 }
