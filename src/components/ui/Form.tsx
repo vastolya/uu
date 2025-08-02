@@ -30,7 +30,7 @@ type FormData = {
 interface FormProps {
   className?: string;
   buttonText?: string;
-  variant: "white" | "black";
+  variant?: "white" | "black";
 }
 
 const Form: React.FC<FormProps> = ({
