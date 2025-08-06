@@ -11,6 +11,8 @@ import IconTg from "@/components/icons/IconTg";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 
+export const revalidate = 60;
+
 export default async function ArtsPage({
   params,
 }: {

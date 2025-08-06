@@ -20,6 +20,7 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const hideFooter = pathname === "/map";
+  const isSuccessPage = pathname === "/success";
   const darkFooter =
     pathname.includes("/news") ||
     pathname.includes("/about") ||
@@ -46,9 +47,9 @@ export default function RootLayout({
           </div>
         </Modal>
         <Preloader />
-        {<Header />}
+        {!isSuccessPage && <Header />}
         {children}
-        {hideFooter ? (
+        {hideFooter || isSuccessPage ? (
           <></>
         ) : darkFooter ? (
           <Footer className="" variant="dark" />

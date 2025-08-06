@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "./Button";
 import {
   object,
@@ -38,6 +39,7 @@ const Form: React.FC<FormProps> = ({
   className,
   buttonText = "Отправить",
 }) => {
+  const router = useRouter();
   const [formValues, setFormValues] = useState<FormData>({
     name: "",
     phone: "",
@@ -54,6 +56,9 @@ const Form: React.FC<FormProps> = ({
       const parsed = parse(formSchema, formValues);
       setErrors({});
       console.log("Форма успешно отправлена!", parsed);
+
+      // Редирект на страницу успеха
+      router.push("/success");
     } catch (err) {
       if (err instanceof ValiError) {
         const errorMap: Record<string, string> = {};

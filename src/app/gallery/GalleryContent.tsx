@@ -1,3 +1,5 @@
+"use client";
+
 import { PageSection } from "@/components/layout/PageSection";
 import IconTg from "@/components/icons/IconTg";
 import IconWU from "@/components/icons/IconWU";
@@ -5,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { urlFor } from "@/sanity/image";
+import { AnimatePresence, motion } from "motion/react";
 
 interface GalleryContentProps {
   arts: {
@@ -56,32 +59,39 @@ const GalleryContent = ({ arts }: GalleryContentProps) => {
             <strong> Можно не только рассмотреть, но и приобрести</strong>
           </p>
         </div>
-        {arts.map((item, index) => (
-          <Link
-            href={`/gallery/${item.slug.current}`}
-            className={`col-span-2 ${index == arts.length - 1 ? "pb-0" : "pb-5 md:pb-0"} `}
-            key={item._id}
-          >
-            <div className=" md:h-[20.75rem] h-[288px] md:w-[20.75rem] rounded-[var(--radius-sm)] mb-2 overflow-hidden relative">
-              {item.image && (
-                <Image
-                  src={urlFor(item.image).url()}
-                  alt={item.title}
-                  fill
-                  className="hover:scale-120 hover:grayscale transition-all duration-300 object-cover"
-                  priority
-                />
-              )}
-            </div>
-            <p className="subtitle-bold pb-1">{item.title}</p>
-            <div className="flex justify-between subtitle text-[var(--color-gray)]">
-              <p>
-                {item.material} / {item.type}
-              </p>
-              <p>{item.size}</p>
-            </div>
-          </Link>
-        ))}
+        <AnimatePresence>
+          {arts.map((item, index) => (
+            <motion.div
+              key={item._id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={`col-span-2 ${index == arts.length - 1 ? "pb-0" : "pb-5 md:pb-0"}`}
+            >
+              <Link href={`/gallery/${item.slug.current}`} className="block">
+                <div className=" md:h-[20.75rem] h-[288px] md:w-[20.75rem] rounded-[var(--radius-sm)] mb-2 overflow-hidden relative">
+                  {item.image && (
+                    <Image
+                      src={urlFor(item.image).url()}
+                      alt={item.title}
+                      fill
+                      className="hover:scale-120 hover:grayscale transition-all duration-300 object-cover"
+                      priority
+                    />
+                  )}
+                </div>
+                <p className="subtitle-bold pb-1">{item.title}</p>
+                <div className="flex justify-between subtitle text-[var(--color-gray)]">
+                  <p>
+                    {item.material} / {item.type}
+                  </p>
+                  <p>{item.size}</p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </PageSection>
     </>
   );
