@@ -2,6 +2,8 @@ import { client } from "@/sanity/client";
 import { notFound } from "next/navigation";
 import GalleryContent from "./GalleryContent";
 
+export const revalidate = 60;
+
 export default async function GalleryPage() {
   const arts = await client.fetch(`
     *[_type == "art"] | order(_createdAt desc){

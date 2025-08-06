@@ -7,6 +7,8 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 
+export const revalidate = 60;
+
 export default async function NewsPage({
   params,
 }: {

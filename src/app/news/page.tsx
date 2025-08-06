@@ -3,6 +3,8 @@ import { client } from "@/sanity/client";
 import { notFound } from "next/navigation";
 import NewsContent from "./NewsContent";
 
+export const revalidate = 60;
+
 export default async function NewsPage() {
   const posts = await client.fetch(
     `*[_type == "post"] | order(publishedAt desc)`
