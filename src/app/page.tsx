@@ -13,11 +13,11 @@ import Directions from "@/components/sections/Directions";
 import Form from "@/components/ui/Form";
 import ParallaxSection from "@/components/sections/ParallaxSection";
 import HomeClient from "@/components/HomeClient";
-import LogoBigUU from "@public/logoBigUU.png";
-import ImageArrow from "@public/imageArrow.png";
-import ImageCase1 from "@public/imageCase1.png";
-import ImageCase2 from "@public/imageCase2.png";
-import ImageCase3 from "@public/imageCase3.png";
+import LogoBigUU from "@public/logoBigUU.webp";
+import ImageArrow from "@public/imageArrow.webp";
+import ImageCase1 from "@public/imageCase1.webp";
+import ImageCase2 from "@public/imageCase2.webp";
+import ImageCase3 from "@public/imageCase3.webp";
 
 const POSTS_QUERY = `*[
   _type == "post"
@@ -63,7 +63,7 @@ export default async function Home() {
         </h2>
         <div className="col-span-4 relative h-[240px] md:h-[32rem] ">
           <Image
-            src="/imageTeam.jpg"
+            src="/imageTeam.webp"
             alt="image team"
             fill
             sizes="auto"
@@ -219,7 +219,7 @@ export default async function Home() {
               >
                 <Image
                   src={
-                    item.image ? urlFor(item.image).url() : "/placeholder.jpg"
+                    item.image ? urlFor(item.image).url() : "/placeholder.webp"
                   }
                   alt={item.title || ""}
                   fill

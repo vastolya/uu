@@ -1,6 +1,6 @@
 import React from "react";
 import { PageSection } from "@components/layout/PageSection";
-import ImageMap from "@public/imageMap.jpg";
+import ImageMap from "@public/imageMap.webp";
 import Image from "next/image";
 import IconWU from "@/components/icons/IconWU";
 import IconTg from "@/components/icons/IconTg";

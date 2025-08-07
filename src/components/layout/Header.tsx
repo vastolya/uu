@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { PageSection } from "./PageSection";
 import { useModalStore } from "@/stores/useModalStore";
-import LogoUU from "@public/logoUU.png";
+import LogoUU from "@public/logoUU.webp";
 import { useMobileMenuStore } from "@/stores/useMobileMenuStore";
 
 const navItems = [

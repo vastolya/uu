@@ -1,6 +1,6 @@
-import ImageNews1 from "@public/imageNews1.jpg";
-import ImageNews2 from "@public/imageNews2.jpg";
-import ImageNews3 from "@public/imageNews3.jpg";
+import ImageNews1 from "@public/imageNews1.webp";
+import ImageNews2 from "@public/imageNews2.webp";
+import ImageNews3 from "@public/imageNews3.webp";
 
 export const news = {
   news1: {

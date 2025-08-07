@@ -26,7 +26,7 @@ export default function ParallaxSection() {
         className="absolute top-0 left-0 w-full h-[125rem] -z-10"
       >
         <Image
-          src="/imageHero.png"
+          src="/imageHero.webp"
           alt="Hero"
           fill
           priority

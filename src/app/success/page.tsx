@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 // import { useEffect } from "react";
 // import { useRouter } from "next/navigation";
-import MainLogo from "@public/logoUUWhite.png";
+import MainLogo from "@public/logoUUWhite.webp";
 import IconArrowRight from "@/components/icons/IconArrowRight";
 import Link from "next/link";
 

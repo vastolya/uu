@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import ImageDirection1 from "../../../public/imageDirection1.png";
-import ImageDirection2 from "../../../public/imageDirection2.png";
-import ImageDirection3 from "../../../public/imageDirection3.png";
-import ImageDirection4 from "../../../public/imageDirection4.png";
-import ImageDirection5 from "../../../public/imageDirection5.png";
-import ImageDirection6 from "../../../public/imageDirection6.png";
-import ImageDirection7 from "../../../public/imageDirection7.png";
-import ImageDirection8 from "../../../public/imageDirection8.png";
-import ImageDirection9 from "../../../public/imageDirection9.png";
-import ImageDirection10 from "../../../public/imageDirection10.png";
+import ImageDirection1 from "../../../public/imageDirection1.webp";
+import ImageDirection2 from "../../../public/imageDirection2.webp";
+import ImageDirection3 from "../../../public/imageDirection3.webp";
+import ImageDirection4 from "../../../public/imageDirection4.webp";
+import ImageDirection5 from "../../../public/imageDirection5.webp";
+import ImageDirection6 from "../../../public/imageDirection6.webp";
+import ImageDirection7 from "../../../public/imageDirection7.webp";
+import ImageDirection8 from "../../../public/imageDirection8.webp";
+import ImageDirection9 from "../../../public/imageDirection9.webp";
+import ImageDirection10 from "../../../public/imageDirection10.webp";
 
 declare global {
   interface Window {

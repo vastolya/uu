@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { PageSection } from "./PageSection";
-import LogoUU from "@public/logoUU.png";
-import LogoUUWhite from "@public/logoUUWhite.png";
+import LogoUU from "@public/logoUU.webp";
+import LogoUUWhite from "@public/logoUUWhite.webp";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

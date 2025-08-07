@@ -3,7 +3,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import IconChevron from "@/components/icons/IconChevron";
-import ImageStep from "../../../public/imageStep.png";
+import ImageStep from "../../../public/imageStep.webp";
 import Image from "next/image";
 
 const steps = [

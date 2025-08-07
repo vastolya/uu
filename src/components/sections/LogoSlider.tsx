@@ -3,13 +3,13 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 
 const logos = [
-  { name: "V6", src: "/logoClient1.png" },
-  { name: "SVO", src: "/logoClient2.png" },
-  { name: "Kvant", src: "/logoClient3.png" },
-  { name: "Temporal", src: "/logoClient4.png" },
-  { name: "Adler", src: "/logoClient5.png" },
-  { name: "RosAtom", src: "/logoClient6.png" },
-  { name: "Yandex", src: "/logoClient7.png" },
+  { name: "V6", src: "/logoClient1.webp" },
+  { name: "SVO", src: "/logoClient2.webp" },
+  { name: "Kvant", src: "/logoClient3.webp" },
+  { name: "Temporal", src: "/logoClient4.webp" },
+  { name: "Adler", src: "/logoClient5.webp" },
+  { name: "RosAtom", src: "/logoClient6.webp" },
+  { name: "Yandex", src: "/logoClient7.webp" },
 ];
 
 export default function LogoSlider() {
