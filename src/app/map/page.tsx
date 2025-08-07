@@ -1,7 +1,5 @@
 import React from "react";
 import { PageSection } from "@components/layout/PageSection";
-import ImageMap from "@public/imageMap.webp";
-import Image from "next/image";
 import IconWU from "@/components/icons/IconWU";
 import IconTg from "@/components/icons/IconTg";
 import IconIn from "@/components/icons/IconIn";
@@ -54,13 +52,13 @@ const Map = () => {
         </div>
       </PageSection>
       <div className="flex-1 relative overflow-hidden">
-        <Image
-          src={ImageMap}
-          alt=""
-          fill
-          priority
-          sizes="auto"
-          className="grayscale-100 object-cover hover:scale-125 hover:grayscale-0 transition-all duration-300"
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab9ec88cde93dab7ff3a508ef26b999a92b83f372d656da022617c5572cd540a6&amp;source=constructor"
+          width="100%"
+          height="100%"
+          className="absolute top-0 left-0 w-full h-full min-h-[25rem] border-0 md:grayscale-100 md:hover:scale-125 md:hover:grayscale-0 transition-all duration-300"
+          allowFullScreen
+          title="Yandex Map"
         />
       </div>
     </div>
