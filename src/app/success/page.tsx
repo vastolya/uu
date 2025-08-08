@@ -2,23 +2,22 @@
 
 import Image from "next/image";
 import React from "react";
-// import { useEffect } from "react";
-// import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import MainLogo from "@public/logoUUWhite.webp";
 import IconArrowRight from "@/components/icons/IconArrowRight";
 import Link from "next/link";
 
 const Success = () => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // Автоматический редирект через 5 секунд
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     router.push("/");
-  //   }, 5000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/");
+    }, 5000);
 
-  //   return () => clearTimeout(timer);
-  // }, [router]);
+    return () => clearTimeout(timer);
+  }, [router]);
 
   return (
     <section className="bg-[var(--color-black)]  min-h-screen py-20 flex flex-col items-center ">

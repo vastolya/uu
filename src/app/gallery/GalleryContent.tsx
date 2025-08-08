@@ -70,7 +70,7 @@ const GalleryContent = ({ arts }: GalleryContentProps) => {
               className={`col-span-2 ${index == arts.length - 1 ? "pb-0" : "pb-5 md:pb-0"}`}
             >
               <Link href={`/gallery/${item.slug.current}`} className="block">
-                <div className=" md:h-[20.75rem] h-[288px] md:w-[20.75rem] rounded-[var(--radius-sm)] mb-2 overflow-hidden relative">
+                <div className=" md:h-[20.75rem] h-[288px] md:w-full rounded-[var(--radius-sm)] mb-2 overflow-hidden relative">
                   {item.image && (
                     <Image
                       src={urlFor(item.image).url()}

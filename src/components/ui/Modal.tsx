@@ -48,7 +48,7 @@ export default function Modal({
 
   return createPortal(
     <div
-      onClick={onClose}
+      // onClick={onClose}
       className={`fixed inset-0 flex items-center justify-center bg-black/50 ${className} `}
     >
       <div onClick={(e) => e.stopPropagation()} className="relative">

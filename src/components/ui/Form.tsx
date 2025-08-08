@@ -1,32 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { Button } from "./Button";
-import {
-  object,
-  string,
-  boolean,
-  minLength,
-  maxLength,
-  pipe,
-  parse,
-  ValiError,
-} from "valibot";
-
-const formSchema = object({
-  name: pipe(string(), minLength(2, "Имя слишком короткое")),
-  phone: pipe(string(), minLength(10, "Введите корректный телефон")),
-  comment: pipe(string(), maxLength(500, "Комментарий слишком длинный")),
-  accepted: boolean(),
-});
-
-type FormData = {
-  name: string;
-  phone: string;
-  comment: string;
-  accepted: boolean;
-};
+import { useModalStore } from "@/stores/useModalStore";
+import { FormSchema, formSchema } from "./formSchema";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 
 interface FormProps {
   className?: string;
@@ -40,92 +20,87 @@ const Form: React.FC<FormProps> = ({
   buttonText = "Отправить",
 }) => {
   const router = useRouter();
-  const [formValues, setFormValues] = useState<FormData>({
-    name: "",
-    phone: "",
-    comment: "",
-    accepted: false,
+  const { close } = useModalStore();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormSchema>({
+    resolver: valibotResolver(formSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      message: "",
+      isAgreed: false,
+    },
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = async (data: FormSchema) => {
     try {
-      const parsed = parse(formSchema, formValues);
-      setErrors({});
-      console.log("Форма успешно отправлена!", parsed);
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      // Редирект на страницу успеха
-      router.push("/success");
-    } catch (err) {
-      if (err instanceof ValiError) {
-        const errorMap: Record<string, string> = {};
-
-        err.issues.forEach((issue) => {
-          if (issue.message.includes("Имя")) errorMap.name = issue.message;
-          if (issue.message.includes("телефон")) errorMap.phone = issue.message;
-          if (issue.message.includes("Комментарий"))
-            errorMap.comment = issue.message;
-          if (issue.message.includes("прин")) errorMap.accepted = issue.message;
-        });
-
-        setErrors(errorMap);
+      if (!response.ok) {
+        throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
       }
+
+      router.push("/success");
+      reset();
+      close();
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
     }
   };
 
   return (
     <form
       className={`flex flex-col gap-2 md:gap-6 subtitle ${className}`}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <input
           type="text"
+          {...register("name")}
           name="name"
-          value={formValues.name}
-          onChange={(e) =>
-            setFormValues((prev) => ({ ...prev, name: e.target.value }))
-          }
-          className="py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)] text-white"
+          className={`py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)] ${variant == "black" ? "text-white" : "text-[var(--color-black)]"}`}
           placeholder="Имя"
         />
         {errors.name && (
-          <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+          <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
         )}
       </div>
 
       <div>
         <input
           type="tel"
+          {...register("phone")}
           name="phone"
-          value={formValues.phone}
-          onChange={(e) =>
-            setFormValues((prev) => ({ ...prev, phone: e.target.value }))
-          }
-          className="py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)] text-white"
+          className={`py-3 border-b-2 border-[var(--color-border-gray)] w-full focus:outline-none placeholder:text-[var(--color-gray)] ${variant == "black" ? "text-white" : "text-[var(--color-black)]"} `}
           placeholder="Телефон"
         />
         {errors.phone && (
-          <p className="text-sm text-red-500 mt-1">{errors.phone}</p>
+          <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>
         )}
       </div>
 
       {variant !== "black" && (
         <div className="flex flex-col">
           <textarea
-            name="comment"
-            value={formValues.comment}
-            onChange={(e) =>
-              setFormValues((prev) => ({ ...prev, comment: e.target.value }))
-            }
+            {...register("message")}
             className="border-b-2 border-[var(--color-border-gray)] pt-3 mb-3 md:mb-10 text-[var(--color-black)]  h-15 focus:outline-none placeholder:text-[var(--color-gray)]"
             placeholder=" Краткое описание идеи"
           />
-          {errors.comment && (
-            <p className="text-sm text-red-500 mt-1">{errors.comment}</p>
+          {errors.message && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.message?.message}
+            </p>
           )}
         </div>
       )}
@@ -134,14 +109,7 @@ const Form: React.FC<FormProps> = ({
         <label className="flex gap-2 cursor-pointer text-[var(--color-gray)] items-center">
           <input
             type="checkbox"
-            name="accepted"
-            checked={formValues.accepted}
-            onChange={(e) =>
-              setFormValues((prev) => ({
-                ...prev,
-                accepted: e.target.checked,
-              }))
-            }
+            {...register("isAgreed")}
             className="h-4 w-4 accent-[var(--color-black)] rounded-[var(--radius-sm)]"
           />
           <span>
@@ -151,8 +119,10 @@ const Form: React.FC<FormProps> = ({
             </a>
           </span>
         </label>
-        {errors.accepted && (
-          <p className="text-sm text-red-500 mt-1">{errors.accepted}</p>
+        {errors.isAgreed && (
+          <p className="text-sm text-red-500 mt-1">
+            {errors.isAgreed?.message}
+          </p>
         )}
 
         <Button text={buttonText} type="submit" />

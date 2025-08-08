@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
     "@portabletext/react": "^3.2.1",
     "@sanity/image-url": "^1.1.0",
     "clsx": "^2.1.1",
@@ -18,6 +19,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.59.0",
+    "resend": "^6.0.1",
     "valibot": "^1.1.0",
     "zustand": "^5.0.5"
   },

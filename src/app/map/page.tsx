@@ -14,7 +14,7 @@ const Map = () => {
           <h1 className="">Контакты</h1>
         </div>
         <div className="col-span-4 relative">
-          <h3 className="pb-6">w11group@ya.ru</h3>
+          <h3 className="pb-6 select-text">w11group@ya.ru</h3>
           <p className="subtitle select-text block md:hidden pb-5 ">
             +7 969 739-99-66
           </p>
