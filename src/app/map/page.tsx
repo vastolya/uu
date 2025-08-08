@@ -46,7 +46,7 @@ const Map = () => {
               +7 969 739-99-66
             </p>
           </div>
-          <h3 className="pb-5 md:pb-0">
+          <h3 className="pb-5 md:pb-0 select-text">
             Санкт-Петербург, Невский проспект, дом 72
           </h3>
         </div>

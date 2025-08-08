@@ -88,7 +88,7 @@ export default async function NewsPage({
         {previous ? (
           <Link
             href={`/news/${previous.slug.current}`}
-            className=" flex items-center gap-2 cursor-pointer"
+            className=" flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <IconChevron className="rotate-270 h-[1rem]" />
             <button className="cursor-pointer">Предыдущая</button>
@@ -96,7 +96,7 @@ export default async function NewsPage({
         ) : (
           <Link
             href={`/news`}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <IconChevron className="rotate-270 h-[1rem] " />
             <button className="cursor-pointer">К новостям</button>
@@ -106,7 +106,7 @@ export default async function NewsPage({
         {next ? (
           <Link
             href={`/news/${next.slug.current}`}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <button className="cursor-pointer">Следующая</button>
             <IconChevron className="rotate-90 h-[1rem]" />
@@ -114,7 +114,7 @@ export default async function NewsPage({
         ) : (
           <Link
             href={`/news`}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <button className="cursor-pointer">К новостям</button>
             <IconChevron className="rotate-90 h-[1rem] " />

@@ -37,9 +37,11 @@ export default async function Home() {
         className={`md:pt-20 md:pb-9 py-5 px-4 flex flex-col`}
         id="hero"
       >
-        <h1 className="col-span-6 pb-2 md:pb-0">
-          <span className="text-[var(--color-primary)]">Из замысла —</span>
-          <br />в архитектурную реальность
+        <h1 className="col-span-6 pb-2 md:pb-0 flex flex-col">
+          <span className="text-[var(--color-primary)]">
+            Из&nbsp;замысла&nbsp;—
+          </span>
+          в&nbsp;архитектурную реальность
         </h1>
         <p className="subtitle col-span-2 flex flex-col justify-end">
           Архитектура, где каждая линия несёт эмоцию, а каждый проект становится
@@ -208,14 +210,14 @@ export default async function Home() {
             Идеи, которые меняют города
           </h2>
 
-          {posts.slice(0, 3).map((item) => (
+          {posts.slice(0, 3).map((item, index) => (
             <Link
               key={item._id}
               href={`/news/${item.slug.current}`}
-              className={`flex flex-col ${item.type === "1" ? "col-span-4" : "col-span-2"} pb-5 md:pb-0`}
+              className={`flex flex-col ${index === 0 ? "col-span-4" : "col-span-2"} pb-5 md:pb-0`}
             >
               <div
-                className={`relative overflow-hidden rounded-[var(--radius-sm)]  ${item.type === "2" ? "h-[412px] md:h-[332px]" : "h-[412px] md:h-[476px]"}`}
+                className={`relative overflow-hidden rounded-[var(--radius-sm)]  ${index <= 1 ? "h-[412px] md:h-[29.75rem]" : "h-[412px] md:h-[20.75rem]"}`}
               >
                 <Image
                   src={

@@ -111,7 +111,7 @@ export default async function ArtsPage({
         {previous ? (
           <Link
             href={`/gallery/${previous.slug.current}`}
-            className="flex items-center gap-2 cursor-pointer col-span-2"
+            className="flex items-center gap-2 cursor-pointer col-span-2 hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <IconChevron className="rotate-270 h-[1rem] " />
             <button className="cursor-pointer">Предыдущая</button>
@@ -119,7 +119,7 @@ export default async function ArtsPage({
         ) : (
           <Link
             href={`/gallery`}
-            className="flex items-center gap-2 cursor-pointer col-span-2"
+            className="flex items-center gap-2 cursor-pointer col-span-2 hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <IconChevron className="rotate-270 h-[1rem]" />
             <button className="cursor-pointer">К галерее</button>
@@ -129,7 +129,7 @@ export default async function ArtsPage({
         {next ? (
           <Link
             href={`/gallery/${next.slug.current}`}
-            className="flex items-center gap-2 cursor-pointer col-span-2 justify-end"
+            className="flex items-center gap-2 cursor-pointer col-span-2 justify-end hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <button className="cursor-pointer">Следующая</button>
             <IconChevron className="rotate-90 h-[1rem]" />
@@ -137,7 +137,7 @@ export default async function ArtsPage({
         ) : (
           <Link
             href={`/gallery`}
-            className="flex items-center gap-2 cursor-pointer col-span-2 justify-end"
+            className="flex items-center gap-2 cursor-pointer col-span-2 justify-end hover:text-[var(--color-primary)] transition-all duration-200"
           >
             <button className="cursor-pointer">К галерее</button>
             <IconChevron className="rotate-90 h-[1rem]" />
