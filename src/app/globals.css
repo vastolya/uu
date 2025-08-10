@@ -49,6 +49,14 @@ h3 {
   font-weight: var(--font-weight-bold);
 }
 
+.h3 {
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--ls-h3);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+}
+
 .subtitle {
   font-size: var(--text-subtitle);
   line-height: var(--lh-subtitle);

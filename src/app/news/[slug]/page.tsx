@@ -73,8 +73,8 @@ export default async function NewsPage({
             value={post.body}
             components={{
               block: {
-                h3: ({ children }) => (
-                  <h3 className="pb-5 md:pb-10">{children}</h3>
+                h2: ({ children }) => (
+                  <h2 className="h3 pb-5 md:pb-10">{children}</h2>
                 ),
                 normal: ({ children }) => (
                   <p className="subtitle ">{children}</p>
