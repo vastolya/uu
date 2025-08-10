@@ -12,7 +12,6 @@ import IconArrowRight from "@/components/icons/IconArrowRight";
 import Directions from "@/components/sections/Directions";
 import Form from "@/components/ui/Form";
 import ParallaxSection from "@/components/sections/ParallaxSection";
-import HomeClient from "@/components/HomeClient";
 import LogoBigUU from "@public/logoBigUU.webp";
 import ImageArrow from "@public/imageArrow.webp";
 import ImageCase1 from "@public/imageCase1.webp";
@@ -30,7 +29,7 @@ export default async function Home() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
 
   return (
-    <HomeClient>
+    <>
       <div className="h-[56px] md:h-20" id="top"></div>
 
       <PageSection
@@ -283,6 +282,6 @@ export default async function Home() {
           />
         </div>
       </PageSection>
-    </HomeClient>
+    </>
   );
 }

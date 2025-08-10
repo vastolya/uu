@@ -58,45 +58,47 @@ export default function Directions() {
           Направления
         </p>
         <div className="col-span-3 flex flex-col gap-6 items-end">
-          <AnimatePresence mode="wait">
-            {hoveredIndex !== null && (
-              <>
-                <motion.div
-                  key={`image-left-${hoveredIndex}`}
-                  initial={{ x: -50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -50, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="h-[334px] min-w-[332px]"
-                >
-                  <Image
-                    src={cards[hoveredIndex].topImage}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </motion.div>
+          <div className="flex flex-col gap-6 items-end min-h-[calc(20.75rem+22rem+1.5rem)] ">
+            <AnimatePresence mode="wait">
+              {hoveredIndex !== null && (
+                <>
+                  <motion.div
+                    key={`image-left-${hoveredIndex}`}
+                    initial={{ x: -100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -100, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="h-[20.75rem]"
+                  >
+                    <Image
+                      src={cards[hoveredIndex].topImage}
+                      alt=""
+                      loading="lazy"
+                      className="h-[20.75rem] w-[20.75rem] object-cover"
+                    />
+                  </motion.div>
 
-                <motion.div
-                  key={`image-right-${hoveredIndex}`}
-                  initial={{ x: 50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: 50, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="h-[304px] min-w-[510px]"
-                >
-                  <Image
-                    src={cards[hoveredIndex].bottomImage}
-                    alt=""
-                    className="h-full w-full object-contain items-end"
-                  />
-                </motion.div>
-              </>
-            )}
-          </AnimatePresence>
+                  <motion.div
+                    key={`image-right-${hoveredIndex}`}
+                    initial={{ x: 50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 50, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="h-[22rem] min-w-[31.875rem]"
+                  >
+                    <Image
+                      src={cards[hoveredIndex].bottomImage}
+                      alt=""
+                      className="h-[22rem] w-full object-cover items-end"
+                    />
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
-        <div className="col-span-4 col-start-5 flex flex-col gap-10 overflow-hidden">
+        <div className="col-span-4 col-start-5 flex flex-col justify-end gap-6 overflow-hidden">
           {cards.map((card, index) => (
             <motion.p
               key={index}
@@ -118,7 +120,7 @@ export default function Directions() {
               whileHover={{
                 scale: 1.15,
                 color: "var(--color-primary)",
-                x: 8,
+                //  x: 8,
               }}
               className="subtitle-bold text-white py-4 border-b-2 border-[var(--color-gray)] cursor-pointer"
               style={{ originX: 0 }}
