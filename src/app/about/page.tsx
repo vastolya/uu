@@ -89,7 +89,7 @@ const About = () => {
       </>
 
       <section id="direction">
-        <Directions />
+        <Directions variant="about" />
       </section>
 
       {/* About bureau 2*/}

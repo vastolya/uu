@@ -52,10 +52,7 @@ export default async function Home() {
       <ParallaxSection />
 
       {/* О нас */}
-      <PageSection
-        className="py-14 md:px-5 md:py-20 border-b-2 border-[var(--color-border-gray)] flex flex-col"
-        id="about"
-      >
+      <PageSection className="py-14 md:px-5 md:py-20  flex flex-col" id="about">
         <p className="subtitle text-[var(--color-gray)] pb-2 col-span-8 px-4 md:px-0">
           О нас
         </p>
@@ -113,6 +110,8 @@ export default async function Home() {
           </span>
         </div>
       </PageSection>
+
+      <div className="border-b-2 border-[var(--color-border-gray)]" />
 
       {/* Кейсы */}
       <PageSection
