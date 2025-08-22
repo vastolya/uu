@@ -12,6 +12,7 @@ import Form from "@/components/ui/Form";
 import IconClose from "@/components/icons/IconClose";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { useMobileMenuStore } from "@/stores/useMobileMenuStore";
+import React from "react";
 
 export default function RootLayout({
   children,
