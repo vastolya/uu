@@ -36,7 +36,7 @@ export default function PolicyPage() {
 
   const { activeId } = useActiveSection({
     ids: SECTIONS.map((s) => s.id),
-    rootMargin: "-550px 0px -30% 0px",
+    rootMargin: "-520px 0px -30% 0px",
   });
 
   const handleNavClick = (e: React.MouseEvent, id: string) => {

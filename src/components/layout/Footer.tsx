@@ -49,7 +49,9 @@ const Footer: React.FC<FooterProps> = ({
             />
           </Link>
           <div className="hidden md:block">
-            <p className="subtitle pb-4">Правила использования сайта</p>
+            <Link href="/policy" className="subtitle pb-4">
+              Правила использования сайта
+            </Link>
             <p
               className={`subtitle ${
                 isDark ? "text-white" : "text-[var(--color-gray)]"
@@ -96,9 +98,8 @@ const Footer: React.FC<FooterProps> = ({
         </div>
         <div className="md:hidden mx-auto ">
           <Link
-            href="/privacy-policy"
-            target="_blank"
-            className="subtitle md:pb-4 pb-2 flex justify-center"
+            href="/policy"
+            className="subtitle md:pb-4 pb-2 flex justify-center pointer-events-auto relative z-10"
           >
             Правила использования сайта
           </Link>

@@ -7,6 +7,7 @@ import { Button } from "./Button";
 import { useModalStore } from "@/stores/useModalStore";
 import { FormSchema, formSchema } from "./formSchema";
 import { valibotResolver } from "@hookform/resolvers/valibot";
+import Link from "next/link";
 
 interface FormProps {
   className?: string;
@@ -114,9 +115,9 @@ const Form: React.FC<FormProps> = ({
           />
           <span>
             Я согласен с{" "}
-            <a href="/privacy-policy" target="_blank" className="underline">
+            <Link href="/policy" className="underline" onClick={() => close()}>
               условиями
-            </a>
+            </Link>
           </span>
         </label>
         {errors.isAgreed && (
