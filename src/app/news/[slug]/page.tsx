@@ -57,12 +57,14 @@ export default async function NewsPage({
           </div>
           {post.image && (
             <Image
-              src={urlFor(post.image).url()}
+              src={urlFor(post.image).url()} // Увеличиваем качество до максимального
               alt={post.title || "Изображение"}
               sizes="auto"
               className="col-span-2 h-full w-full object-cover hidden md:block"
               width={800}
               height={400}
+              priority
+              // unoptimized
             />
           )}
         </PageSection>
@@ -74,11 +76,28 @@ export default async function NewsPage({
             components={{
               block: {
                 h2: ({ children }) => (
-                  <h2 className="h3 pb-5 md:pb-10">{children}</h2>
+                  <h2 className="pb-5 md:pb-10">{children}</h2>
                 ),
                 normal: ({ children }) => (
-                  <p className="subtitle ">{children}</p>
+                  <p className="subtitle">{children}</p>
                 ),
+              },
+              list: {
+                bullet: ({ children }) => (
+                  <ul className="subtitle list-disc pl-6 space-y-2">
+                    {children}
+                  </ul>
+                ),
+
+                number: ({ children }) => (
+                  <ol className="subtitle list-decimal pl-6 space-y-2">
+                    {children}
+                  </ol>
+                ),
+              },
+              listItem: {
+                bullet: ({ children }) => <li>{children}</li>,
+                number: ({ children }) => <li>{children}</li>,
               },
             }}
           />
@@ -130,6 +149,7 @@ export default async function NewsPage({
             className="w-full h-[29.75rem] object-cover"
             width={1200}
             height={476}
+            priority
           />
         </div>
       )}

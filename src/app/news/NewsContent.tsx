@@ -73,6 +73,7 @@ export default function NewsContent({ posts }: { posts: any[] }) {
                     alt={post.title || ""}
                     width={800}
                     height={332}
+                    quality={75}
                   />
                 )}
               </Link>
