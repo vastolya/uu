@@ -35,11 +35,6 @@ export default async function NewsPage({
     ),
   ]);
 
-  if (!post) {
-    notFound();
-    return null;
-  }
-
   return (
     <section className="min-h-screen flex flex-col">
       <div className="h-14 md:h-20"></div>
@@ -160,8 +155,6 @@ export default async function NewsPage({
 
 /* ===== Динамическая мета  ===== */
 
-type PageProps = { params: { slug: string } };
-
 type PostForMeta = {
   _id: string;
   title?: string;
@@ -220,8 +213,10 @@ function extractPlainText(body: unknown): string {
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params; // ← сначала await
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params; // ← await один раз
   const post = await getPost(slug);
 
   if (!post) {
@@ -229,7 +224,7 @@ export async function generateMetadata({
       title: "Новость — ДАБЛ-Ю",
       description: "Новости и статьи архитектурного бюро ДАБЛ-Ю.",
       robots: { index: false, follow: false },
-      alternates: { canonical: `${siteUrl}/news/${params.slug}` },
+      alternates: { canonical: `${siteUrl}/news/${slug}` },
     };
   }
 
@@ -246,7 +241,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${siteUrl}/news/${post.slug.current}` }, // абсолютный canonical
+    alternates: { canonical: `${siteUrl}/news/${post.slug.current}` },
     robots: { index: !isFuture, follow: !isFuture },
   };
 }
