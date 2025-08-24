@@ -207,7 +207,8 @@ function extractPlainText(body: unknown): string {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const art = await getArt(params.slug);
+  const { slug } = await params; // ← await один раз
+  const art = await getArt(slug);
 
   if (!art) {
     return {
