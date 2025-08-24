@@ -163,7 +163,8 @@ export default async function ArtsPage({
 
 /* ===== Динамическая мета для галереи ===== */
 
-type PageProps = { params: { slug: string } };
+type RouteParams = { slug: string };
+type DynamicProps = { params: Promise<RouteParams> };
 
 type ArtForMeta = {
   _id: string;
@@ -206,8 +207,8 @@ function extractPlainText(body: unknown): string {
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params; // ← await один раз
+}: DynamicProps): Promise<Metadata> {
+  const { slug } = await params;
   const art = await getArt(slug);
 
   if (!art) {
@@ -215,7 +216,7 @@ export async function generateMetadata({
       title: "Галерея — ДАБЛ-Ю",
       description: "Картины и арт‑проекты бюро ДАБЛ-Ю.",
       robots: { index: false, follow: false },
-      alternates: { canonical: `${siteUrl}/gallery/${params.slug}` },
+      alternates: { canonical: `${siteUrl}/gallery/${slug}` }, // ← здесь slug
     };
   }
 
@@ -224,7 +225,6 @@ export async function generateMetadata({
   const description =
     (bodyText && bodyText.slice(0, 160)) ||
     "Картины и арт‑проекты бюро ДАБЛ-Ю.";
-
   const isFuture = art._createdAt
     ? new Date(art._createdAt) > new Date()
     : false;
@@ -232,7 +232,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${siteUrl}/gallery/${art.slug.current}` }, // абсолютный canonical
+    alternates: { canonical: `${siteUrl}/gallery/${art.slug.current}` },
     robots: { index: !isFuture, follow: !isFuture },
   };
 }
