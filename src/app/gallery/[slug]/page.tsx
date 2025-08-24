@@ -10,6 +10,7 @@ import IconWU from "@/components/icons/IconWU";
 import IconTg from "@/components/icons/IconTg";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
+import { Metadata } from "next";
 
 export const revalidate = 60;
 
@@ -159,6 +160,82 @@ export default async function ArtsPage({
     </div>
   );
 }
+
+/* ===== Динамическая мета для галереи ===== */
+
+type PageProps = { params: { slug: string } };
+
+type ArtForMeta = {
+  _id: string;
+  title?: string;
+  slug: { current: string };
+  _createdAt?: string;
+  body?: unknown;
+};
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NODE_ENV === "production"
+    ? "https://your-domain.ru" // заменить после деплоя
+    : "http://localhost:3000");
+
+async function getArt(slug: string): Promise<ArtForMeta | null> {
+  return client.fetch(
+    `*[_type=="art" && slug.current==$slug][0]{ _id, title, slug, _createdAt, body }`,
+    { slug },
+    { next: { revalidate: 60 } }
+  );
+}
+
+function extractPlainText(body: unknown): string {
+  try {
+    if (!Array.isArray(body)) return "";
+    return body
+      .map((block) =>
+        block?._type === "block" && Array.isArray(block.children)
+          ? block.children.map((c: { text: string }) => c?.text ?? "").join("")
+          : ""
+      )
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+  } catch {
+    return "";
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const art = await getArt(params.slug);
+
+  if (!art) {
+    return {
+      title: "Галерея — ДАБЛ-Ю",
+      description: "Картины и арт‑проекты бюро ДАБЛ-Ю.",
+      robots: { index: false, follow: false },
+      alternates: { canonical: `${siteUrl}/gallery/${params.slug}` },
+    };
+  }
+
+  const title = art.title?.trim() || "Работа из галереи — ДАБЛ-Ю";
+  const bodyText = extractPlainText(art.body);
+  const description =
+    (bodyText && bodyText.slice(0, 160)) ||
+    "Картины и арт‑проекты бюро ДАБЛ-Ю.";
+
+  const isFuture = art._createdAt
+    ? new Date(art._createdAt) > new Date()
+    : false;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `${siteUrl}/gallery/${art.slug.current}` }, // абсолютный canonical
+    robots: { index: !isFuture, follow: !isFuture },
+  };
+}
+/* ===== /динамическая мета ===== */
 
 export async function generateStaticParams() {
   const slugs: string[] = await client.fetch(

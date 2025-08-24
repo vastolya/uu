@@ -6,6 +6,7 @@ import { PageSection } from "@/components/layout/PageSection";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
+import { Metadata } from "next";
 
 export const revalidate = 60;
 
@@ -156,6 +157,100 @@ export default async function NewsPage({
     </section>
   );
 }
+
+/* ===== Динамическая мета  ===== */
+
+type PageProps = { params: { slug: string } };
+
+type PostForMeta = {
+  _id: string;
+  title?: string;
+  slug: { current: string };
+  publishedAt?: string;
+  body?: unknown;
+};
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NODE_ENV === "production"
+    ? "https://your-domain.ru"
+    : "http://localhost:3000");
+
+async function getPost(slug: string): Promise<PostForMeta | null> {
+  return client.fetch(
+    `*[_type=="post" && slug.current==$slug][0]{ _id, title, slug, publishedAt, body }`,
+    { slug },
+    { next: { revalidate: 60 } }
+  );
+}
+
+type PTSpan = { _type: "span"; text?: string };
+type PTBlock = { _type: "block"; children?: PTSpan[] };
+
+function isPTSpan(x: unknown): x is PTSpan {
+  return typeof x === "object" && x !== null && (x as PTSpan)._type === "span";
+}
+
+function isPTBlock(x: unknown): x is PTBlock {
+  return (
+    typeof x === "object" &&
+    x !== null &&
+    (x as PTBlock)._type === "block" &&
+    Array.isArray((x as PTBlock).children)
+  );
+}
+
+export function extractPlainText(body: unknown): string {
+  if (!Array.isArray(body)) return "";
+
+  const pieces: string[] = [];
+
+  for (const node of body) {
+    if (isPTBlock(node)) {
+      for (const ch of node.children ?? []) {
+        if (isPTSpan(ch) && typeof ch.text === "string") {
+          pieces.push(ch.text);
+        }
+      }
+    }
+  }
+
+  return pieces.join(" ").replace(/\s+/g, " ").trim();
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params; // ← сначала await
+  const post = await getPost(slug);
+
+  if (!post) {
+    return {
+      title: "Новость — ДАБЛ-Ю",
+      description: "Новости и статьи архитектурного бюро ДАБЛ-Ю.",
+      robots: { index: false, follow: false },
+      alternates: { canonical: `${siteUrl}/news/${params.slug}` },
+    };
+  }
+
+  const title = post.title?.trim() || "Новость — ДАБЛ-Ю";
+  const bodyText = extractPlainText(post.body);
+  const description =
+    (bodyText && bodyText.slice(0, 160)) ||
+    "Новости и статьи архитектурного бюро ДАБЛ-Ю.";
+
+  const isFuture = post.publishedAt
+    ? new Date(post.publishedAt) > new Date()
+    : false;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `${siteUrl}/news/${post.slug.current}` }, // абсолютный canonical
+    robots: { index: !isFuture, follow: !isFuture },
+  };
+}
+/* ===== /динамическая мета ===== */
 
 export async function generateStaticParams() {
   const slugs: string[] = await client.fetch(

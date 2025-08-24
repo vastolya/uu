@@ -17,6 +17,20 @@ import ImageArrow from "@public/imageArrow.webp";
 import ImageCase1 from "@public/imageCase1.webp";
 import ImageCase2 from "@public/imageCase2.webp";
 import ImageCase3 from "@public/imageCase3.webp";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ДАБЛ-Ю — мультидисциплинарное архитектурное бюро в Санкт-Петербурге",
+  description:
+    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const POSTS_QUERY = `*[
   _type == "post"

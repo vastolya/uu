@@ -1,6 +1,20 @@
 import { client } from "@/sanity/client";
 import { notFound } from "next/navigation";
 import GalleryContent from "./GalleryContent";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Галерея ДАБЛ-Ю: картины, живопись и художественные коллекции",
+  description:
+    "Галерея картин ДАБЛ-Ю: живопись, современные художественные работы, уникальные произведения искусства и вдохновение для вашего интерьера.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export const revalidate = 60;
 

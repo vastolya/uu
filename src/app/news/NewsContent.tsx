@@ -1,13 +1,20 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { PageSection } from "@/components/layout/PageSection";
 import { urlFor } from "@/sanity/image";
 
-const tabLabels = ["Все", "Новости", "Инновации", "События", "Загородные дома"];
+interface Post {
+  _id: string;
+  slug: { current: string };
+  title?: string;
+  image?: ReactNode;
+  type?: string;
+  tag?: string | string[] | null;
+}
 
 interface Tab {
   label: string;
@@ -15,26 +22,42 @@ interface Tab {
   count: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function NewsContent({ posts }: { posts: any[] }) {
-  const [activeTab, setActiveTab] = useState("Все");
+function normalizeTag(tag: Post["tag"]): string {
+  if (Array.isArray(tag)) return tag[0]?.toString().trim() || "Без тега";
+  if (typeof tag === "string") return tag.trim() || "Без тега";
+  return "Без тега";
+}
 
-  const filteredPosts = posts.filter(
-    (post) => activeTab === "Все" || post.tag === activeTab
-  );
+export default function NewsContent({ posts }: { posts: Post[] }) {
+  const [activeTab, setActiveTab] = useState<string>("Все");
 
-  const tabsWithCount = tabLabels.map((label) => ({
-    label,
-    value: label,
-    count:
-      label === "Все"
-        ? posts.length
-        : posts.filter((post) => post.tag === label).length,
-  }));
+  const { tabsWithCount, filteredPosts } = useMemo(() => {
+    const counts = new Map<string, number>();
+
+    for (const p of posts) {
+      const tag = normalizeTag(p.tag);
+      counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    }
+
+    // Формируем список вкладок
+    const dynamicTabs: Tab[] = [
+      { label: "Все", value: "Все", count: posts.length },
+      ...Array.from(counts.entries())
+        .sort(([a], [b]) => a.localeCompare(b, "ru"))
+        .map(([label, count]) => ({ label, value: label, count })),
+    ];
+
+    const list =
+      activeTab === "Все"
+        ? posts
+        : posts.filter((p) => normalizeTag(p.tag) === activeTab);
+
+    return { tabsWithCount: dynamicTabs, filteredPosts: list };
+  }, [posts, activeTab]);
 
   return (
     <section className="min-h-[calc(100vh-80px-200px)]">
-      <div className="md:h-20 h-[56px]"></div>
+      <div className="md:h-20 h-[56px]" />
       <PageSection className="px-4 py-5 md:px-5 md:py-10 flex flex-col ">
         <p className="subtitle text-[var(--color-gray)] col-span-8 pb-2 md:pb-4">
           Идеи, которые меняют города
@@ -64,7 +87,7 @@ export default function NewsContent({ posts }: { posts: any[] }) {
                 {post.image && (
                   <Image
                     src={urlFor(post.image).url()}
-                    sizes="auto"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     className={`object-cover w-full ${
                       post.type === "1"
                         ? "h-[288px] md:h-[29.75rem]"
@@ -83,7 +106,7 @@ export default function NewsContent({ posts }: { posts: any[] }) {
                   {post.title || "Без названия"}
                 </p>
                 <p className="subtitle text-[var(--color-gray)]">
-                  {post.tag || "Без тега"}
+                  {normalizeTag(post.tag)}
                 </p>
               </div>
             </motion.div>
@@ -113,12 +136,25 @@ function UnderlineTabs({
     const activeEl = containerRef.current?.querySelector(
       `[data-active="true"]`
     ) as HTMLButtonElement | null;
-    if (activeEl) {
+    if (activeEl)
       setUnderline({ left: activeEl.offsetLeft, width: activeEl.offsetWidth });
-    } else {
-      setUnderline(null);
-    }
-  }, [active]);
+    else setUnderline(null);
+  }, [active, tabs]);
+
+  useEffect(() => {
+    const handler = () => {
+      const activeEl = containerRef.current?.querySelector(
+        `[data-active="true"]`
+      ) as HTMLButtonElement | null;
+      if (activeEl)
+        setUnderline({
+          left: activeEl.offsetLeft,
+          width: activeEl.offsetWidth,
+        });
+    };
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   return (
     <div className="col-span-8 mb-10 overflow-x-auto md:overflow-visible hide-scrollbar">
