@@ -200,7 +200,7 @@ function isPTBlock(x: unknown): x is PTBlock {
   );
 }
 
-export function extractPlainText(body: unknown): string {
+function extractPlainText(body: unknown): string {
   if (!Array.isArray(body)) return "";
 
   const pieces: string[] = [];
