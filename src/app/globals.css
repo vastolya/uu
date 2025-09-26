@@ -20,6 +20,14 @@
 
 /* 🌍 Глобальные типографические правила */
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .text-black {
   color: var(--color-black);
 }

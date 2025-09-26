@@ -1,5 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
+import imageNews1 from "@public/imageNews1.webp";
+import { PageSection } from "@/components/layout/PageSection";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Портфолио ДАБЛ-Ю | Архитектура и дизайн интерьеров",
@@ -18,7 +22,37 @@ const Cases = () => {
   return (
     <>
       <div className="h-20"></div>
-      <h1>Cases</h1>
+      <div className="relative h-[55rem] w-screen ">
+        <Image
+          src={imageNews1}
+          alt="imageNews1"
+          sizes="auto"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,29,27,0)_50%,#1D1D1B_90.14%)]" />
+        <PageSection className="text-white items-end pt-[40.75rem]">
+          <h1 className=" col-span-4  z-10">Портфолио</h1>
+          <div className="col-span-4  z-10">
+            <p className="subtitle-bold pb-4 ">
+              Добро пожаловать в коллекцию живых,
+              <br /> вдохновляющих пространств, созданных нами — и для вас
+            </p>
+            <p className="subtitle">
+              Только высказывания, только идеи, только архитектура, в которой
+              форма подчинена чувству, а стиль — смыслу. Мы проектируем не
+              здания, а переживания. За каждым объектом — интеллектуальная
+              глубина и эмоциональная выразительность. Это архитектура,
+              рожденная из диалога
+            </p>
+          </div>
+        </PageSection>
+      </div>
+      <PageSection>
+        <section className="h-10">
+          <Link href={"/okhta"}>okhta</Link>
+        </section>
+      </PageSection>
     </>
   );
 };
