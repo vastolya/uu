@@ -50,7 +50,7 @@ const Cases = () => {
       </div>
       <PageSection>
         <section className="h-10">
-          <Link href={"/okhta"}>okhta</Link>
+          <Link href={"/cases/okhta"}>okhta</Link>
         </section>
       </PageSection>
     </>
