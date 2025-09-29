@@ -25,7 +25,8 @@ export default function RootLayout({
   const darkFooter =
     pathname.includes("/news") ||
     pathname.includes("/about") ||
-    pathname.includes("/gallery");
+    pathname.includes("/gallery") ||
+    pathname.includes("/cases");
   const { type, close } = useModalStore();
   const { isOpen: isMenuOpen, close: closeMenu } = useMobileMenuStore();
 
