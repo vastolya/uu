@@ -36,90 +36,90 @@ export default function Page() {
             src={Samsonovskaya1}
             alt=""
             sizes="auto"
-            className="h-[476px] w-full object-cover mb-[516px] rounded-[var(--radius-sm)]"
+            className="h-[29.75rem] w-full object-cover mb-[32.25rem] rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya2}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-[12.5rem] w-full object-cover  rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-[12.5rem] w-full object-cover  rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya3}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya4}
             alt=""
             sizes="auto"
-            className="h-[507px] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[31.6875rem] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya5}
             alt=""
             sizes="auto"
-            className="h-[476px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[29.75rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya6}
             alt=""
             sizes="auto"
-            className="h-[820px]  mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[51.25rem]  mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya7}
             alt=""
             sizes="auto"
-            className="h-[507px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[31.6875rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya8}
             alt=""
             sizes="auto"
-            className="h-[820px] mb-[200px] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[51.25rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya9}
             alt=""
             sizes="auto"
-            className="h-[820px] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[51.25rem] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya10}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya11}
             alt=""
             sizes="auto"
-            className="h-[760px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[47.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Samsonovskaya12}
             alt=""
             sizes="auto"
-            className="h-[840px] w-full object-cover rounded-[var(--radius-sm)] mb-2"
+            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)] mb-2"
           />
           <Image
             src={Samsonovskaya13}
             alt=""
             sizes="auto"
-            className="h-[560px] w-full object-cover rounded-[var(--radius-sm)] mb-[200px]"
-          />{" "}
+            className="h-[35rem] w-full object-cover rounded-[var(--radius-sm)] mb-[12.5rem]"
+          />
           <Image
             src={Samsonovskaya14}
             alt=""
             sizes="auto"
-            className="h-[840px] w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)] "
           />
         </div>
 
         <div className="col-span-4">
-          <div className="min-h-[792px] mb-[12.5rem]">
+          <div className="min-h-[49.5rem] mb-[12.5rem]">
             <section className="sticky top-20">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
                 <p className="col-span-2 my-auto">Локация</p>
@@ -171,7 +171,7 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[840px] mb-[12.5rem]">
+          <div className="min-h-[52.5rem] mb-[12.5rem]">
             <section className="sticky  top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">Ограничения</h2>
 
@@ -216,7 +216,7 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[4010px] mb-[12.5rem]">
+          <div className="min-h-[250.625rem] mb-[12.5rem]">
             <section className="sticky  top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">
                 Проектные предложения
@@ -270,7 +270,7 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[3852px] mb-[12.5rem]">
+          <div className="min-h-[240.75rem] mb-[12.5rem]">
             <section className="sticky  top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">
                 Дизайн-решения
@@ -330,12 +330,12 @@ export default function Page() {
             </section>
           </div>
 
-          <section className="md:grid md:grid-cols-4 md:gap-x-6 mb-[200px]">
+          <section className="md:grid md:grid-cols-4 md:gap-x-6 mb-[12.5rem]">
             <h2 className="col-span-2">
               Проектная группа{" "}
               <span className="text-[var(--color-primary)]">Double U</span>
             </h2>
-            <div className="col-span-2 pb-[360px]">
+            <div className="col-span-2 pb-[22.5rem]">
               <p className="subtitle pb-1">Валерия Нечаева</p>
               <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
                 Архитектор
@@ -398,7 +398,7 @@ export default function Page() {
 
       {/* Форма */}
       <PageSection
-        className="px-4 py-[52px] md:px-5 md:py-20 flex flex-col md:flex-row"
+        className="px-4 py-[3.25rem] md:px-5 md:py-20 flex flex-col md:flex-row"
         id="form"
       >
         <div className="col-span-4 justify-between flex flex-col pb-8 md:pb-0">
@@ -411,9 +411,7 @@ export default function Page() {
           <Image
             src={ImageArrow}
             alt=""
-            width={154}
-            height={154}
-            className="hidden md:block"
+            className="hidden md:block w-[9.625rem] h-auto"
           />
         </div>
         <Form className="col-span-4" />

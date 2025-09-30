@@ -52,6 +52,8 @@ const Cases = () => {
         <section className="flex flex-col gap-2">
           <Link href={"/cases/okhta"}>okhta</Link>
           <Link href={"/cases/samsonovskaya"}>samsonovskaya</Link>
+          <Link href={"/cases/volzhskaya"}>volzhskaya</Link>
+          <Link href={"/cases/corpus"}>corpus</Link>
         </section>
       </PageSection>
     </>
