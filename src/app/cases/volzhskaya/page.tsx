@@ -42,126 +42,126 @@ export default function Page() {
             src={Volzhskaya1}
             alt=""
             sizes="auto"
-            className="h-[476px] w-full object-cover mb-2 rounded-[var(--radius-sm)]"
+            className="h-[29.75rem] w-full object-cover mb-2 rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya2}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-2 w-full object-cover  rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya3}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-[200px] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya4}
             alt=""
             sizes="auto"
-            className="h-[420px] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[26.25rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya5}
             alt=""
             sizes="auto"
-            className="h-[820px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[51.25rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya6}
             alt=""
             sizes="auto"
-            className="h-[820px]  mb-[200px] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[51.25rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya7}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya8}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya9}
             alt=""
             sizes="auto"
-            className="h-[480px] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[30rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya10}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-[200px]  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya11}
             alt=""
             sizes="auto"
-            className="h-[460px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[28.75rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya12}
             alt=""
             sizes="auto"
-            className="h-[440px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[27.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya13}
             alt=""
             sizes="auto"
-            className="h-[424px] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[26.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya14}
             alt=""
             sizes="auto"
-            className="h-[560px] mb-2 w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[35rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya15}
             alt=""
             sizes="auto"
-            className="h-[476px] mb-[200px] w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[29.75rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya16}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-2 w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya17}
             alt=""
             sizes="auto"
-            className="h-[480px] mb-2 w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[30rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya18}
             alt=""
             sizes="auto"
-            className="h-[476px] mb-2 w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[29.75rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya19}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-[200px] w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya20}
             alt=""
             sizes="auto"
-            className="h-[840px] mb-[200px] w-full object-cover rounded-[var(--radius-sm)] "
+            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="col-span-4">
-          <div className="min-h-[2172px] mb-[12.5rem]">
+          <div className="min-h-[135.75rem] mb-[12.5rem]">
             <section className="sticky top-20">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
                 <p className="col-span-2 my-auto">Локация</p>
@@ -175,7 +175,7 @@ export default function Page() {
                   Благоустройство
                 </p>
               </div>
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] mb-[376px]">
+              <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] mb-[23.5rem]">
                 <p className="col-span-2">Площадь</p>
                 <p className="col-span-2 text-[var(--color-gray)]">5.56 га</p>
               </div>
@@ -187,8 +187,8 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[2076px] mb-[12.5rem]">
-            <section className="sticky  top-20">
+          <div className="min-h-[129.75rem] mb-[12.5rem]">
+            <section className="sticky top-20">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-6">
                 <h3 className="col-span-2">Контекст</h3>
                 <ul className="col-span-2 subtitle list-disc flex flex-col gap-2">
@@ -207,7 +207,7 @@ export default function Page() {
                 </ul>
               </div>
 
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 ">
+              <div className="md:grid md:grid-cols-4 md:gap-x-6">
                 <h3 className="col-span-2">Нюансы</h3>
                 <ul className="col-span-2 subtitle list-disc flex flex-col gap-2">
                   <li>Подтопляемость нижнего яруса</li>
@@ -220,8 +220,8 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[3024px] mb-[12.5rem]">
-            <section className="sticky  top-20">
+          <div className="min-h-[189rem] mb-[12.5rem]">
+            <section className="sticky top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">Ограничения</h2>
 
               <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-6">
@@ -249,8 +249,8 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[2392px] mb-[12.5rem]">
-            <section className="sticky  top-20">
+          <div className="min-h-[149.5rem] mb-[12.5rem]">
+            <section className="sticky top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">
                 Проектные предложения
               </h2>
@@ -344,8 +344,8 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="min-h-[2660px] mb-[12.5rem]">
-            <section className="sticky  top-20">
+          <div className="min-h-[166.25rem] mb-[12.5rem]">
+            <section className="sticky top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">
                 Дизайн-решения
               </h2>
@@ -405,12 +405,14 @@ export default function Page() {
             </section>
           </div>
 
-          <section className="md:grid md:grid-cols-4 md:gap-x-6 mb-[200px]">
+          <section className="md:grid md:grid-cols-4 md:gap-x-6 mb-[12.5rem]">
             <h2 className="col-span-2">
               Проектная группа{" "}
               <span className="text-[var(--color-primary)]">Double U</span>
             </h2>
-            <div className="col-span-2 pb-[344px]">
+            <div className="col-span-2 pb-[21.5rem]">
+              {" "}
+              {/* 344px */}
               <p className="subtitle pb-1">Валерия Нечаева</p>
               <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
                 Архитектор
@@ -430,7 +432,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className=" bg-[var(--color-black)] p-10 col-span-4 rounded-[var(--radius-sm)]">
+            <div className="bg-[var(--color-black)] p-10 col-span-4 rounded-[var(--radius-sm)]">
               <h2 className="!text-white pb-4">Итог</h2>
               <ul className="!text-white flex flex-col gap-2 list-disc subtitle">
                 <li>
@@ -461,7 +463,7 @@ export default function Page() {
       <div className="flex justify-between md:max-w-[90rem] mx-auto px-5">
         <Link
           href={`/cases`}
-          className=" flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
+          className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
         >
           <IconChevron className="rotate-270 h-[1rem]" />
           <button className="cursor-pointer">Предыдущая</button>
@@ -477,7 +479,7 @@ export default function Page() {
 
       {/* Форма */}
       <PageSection
-        className="px-4 py-[52px] md:px-5 md:py-20 flex flex-col md:flex-row"
+        className="px-4 py-[3.25rem] md:px-5 md:py-20 flex flex-col md:flex-row"
         id="form"
       >
         <div className="col-span-4 justify-between flex flex-col pb-8 md:pb-0">
