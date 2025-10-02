@@ -57,7 +57,7 @@ export default async function ArtsPage({
             alt=""
             fill
             sizes="auto"
-            className="object-cover rounded-[var(--radius-sm)]"
+            className="object-contain rounded-[var(--radius-sm)]"
           />
         </div>
         <div className="col-span-4 col-start-5 flex flex-col justify-between px-4">

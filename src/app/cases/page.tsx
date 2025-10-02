@@ -56,6 +56,7 @@ const Cases = () => {
           <Link href={"/cases/corpus"}>corpus</Link>
           <Link href={"/cases/kvantoriym"}>kvantoriym</Link>
           <Link href={"/cases/temporal"}>temporal</Link>
+          <Link href={"/cases/flat"}>flat</Link>
         </section>
       </PageSection>
     </>
