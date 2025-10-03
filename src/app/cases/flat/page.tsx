@@ -28,10 +28,17 @@ import Image from "next/image";
 import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
+import CaseTitle from "@/components/layout/CaseTitle";
 
 export default function Page() {
   return (
     <>
+      <CaseTitle
+        title="Жилая квартира "
+        description="Интерьерный дизайн: 87 м²"
+        threshold={280}
+      />
+
       <div className="h-20" />
       <PageSection className="">
         <p className="pt-10 pb-2 col-span-8 text-[var(--color-gray)] subtitle">

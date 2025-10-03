@@ -18,94 +18,42 @@ import Image from "next/image";
 import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
+import CaseTitle from "@/components/layout/CaseTitle";
 
 export default function Page() {
   return (
     <>
+      <CaseTitle
+        title="Набережная реки Охты"
+        description="Благоустройство"
+        threshold={280}
+      />
+
       <div className="h-20" />
+
       <PageSection className="">
         <div className="py-10 col-span-8">
           <p className="pb-2 text-[var(--color-gray)]">(Санкт-Петербург)</p>
           <h1>набережная реки Охты</h1>
         </div>
 
-        <div className="col-span-4">
+        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
           <Image
             src={Okhta1}
             alt=""
             sizes="auto"
-            className="h-[43rem] w-full object-cover mb-2 rounded-[var(--radius-sm)]"
+            className="h-[43rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
           <Image
             src={Okhta2}
             alt=""
             sizes="auto"
-            className="h-[29.75rem] w-full object-cover mb-[12.5rem] rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta3}
-            alt=""
-            sizes="auto"
-            className="h-[51.25rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta4}
-            alt=""
-            sizes="auto"
-            className="h-[52.5rem] mb-[12.5rem]  w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta5}
-            alt=""
-            sizes="auto"
-            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta6}
-            alt=""
-            sizes="auto"
-            className="h-[52.5rem]  mb-2 w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta7}
-            alt=""
-            sizes="auto"
-            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta8}
-            alt=""
-            sizes="auto"
-            className="h-[52.5rem] mb-2 w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta9}
-            alt=""
-            sizes="auto"
-            className="h-[50rem] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta10}
-            alt=""
-            sizes="auto"
-            className="h-[28.75rem] mb-2  w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta11}
-            alt=""
-            sizes="auto"
-            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Okhta12}
-            alt=""
-            sizes="auto"
-            className="h-[29.75rem] w-full object-cover rounded-[var(--radius-sm)] mb-[26.875rem]"
+            className="h-[29.75rem] w-full object-cover rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="col-span-4">
-          <div className="min-h-[73.25rem] mb-[12.5rem]">
+          <div className="min-h-[73.25rem]">
             <section className="sticky top-20">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
                 <p className="col-span-2">Год сдачи</p>
@@ -151,8 +99,25 @@ export default function Page() {
               </div>
             </section>
           </div>
+        </div>
 
-          <div className="min-h-[104.25rem] mb-[12.5rem]">
+        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+          <Image
+            src={Okhta3}
+            alt=""
+            sizes="auto"
+            className="h-[51.25rem]  w-full object-cover rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Okhta4}
+            alt=""
+            sizes="auto"
+            className="h-[52.5rem]  w-full object-cover rounded-[var(--radius-sm)]"
+          />
+        </div>
+
+        <div className="col-span-4">
+          <div className="min-h-[104.25rem]">
             <section className="sticky  top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">Ограничения</h2>
               <h3 className="pb-2">
@@ -165,8 +130,31 @@ export default function Page() {
               </p>
             </section>
           </div>
+        </div>
 
-          <div className="min-h-[158.5rem] mb-[12.5rem]">
+        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+          <Image
+            src={Okhta5}
+            alt=""
+            sizes="auto"
+            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Okhta6}
+            alt=""
+            sizes="auto"
+            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Okhta7}
+            alt=""
+            sizes="auto"
+            className="h-[52.5rem]  w-full object-cover rounded-[var(--radius-sm)]"
+          />
+        </div>
+
+        <div className="col-span-4">
+          <div className="min-h-[158.5rem]">
             <section className="sticky  top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">
                 Проектные предложения
@@ -227,8 +215,37 @@ export default function Page() {
               </div>
             </section>
           </div>
+        </div>
 
-          <div className="min-h-[185.25rem] mb-[12.5rem]">
+        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+          <Image
+            src={Okhta8}
+            alt=""
+            sizes="auto"
+            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Okhta9}
+            alt=""
+            sizes="auto"
+            className="h-[50rem]  w-full object-cover rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Okhta10}
+            alt=""
+            sizes="auto"
+            className="h-[28.75rem]  w-full object-cover rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Okhta11}
+            alt=""
+            sizes="auto"
+            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+          />
+        </div>
+
+        <div className="col-span-4">
+          <div className="min-h-[185.25rem]">
             <section className="sticky  top-20">
               <h2 className="!text-[var(--color-gray)] pb-10 ">
                 Дизайн-решения
@@ -297,25 +314,40 @@ export default function Page() {
               </div>
             </section>
           </div>
+        </div>
 
-          <section className="md:grid md:grid-cols-4 md:gap-x-6">
-            <h2 className="col-span-2">
-              Проектная группа{" "}
-              <span className="text-[var(--color-primary)]">Double U</span>
-            </h2>
-            <div className="col-span-2 pb-[12.125rem]">
-              <p className="subtitle pb-1">Валерия Нечаева</p>
-              <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
-                Архитектор
-              </p>
-              <p className="subtitle pb-1">Анна Ефимова</p>
-              <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
-                Дизайнер
-              </p>
-              <p className="subtitle pb-1">Александр Козлов</p>
-              <p className="subtitle-sm text-[var(--color-gray)]">Дизайнер</p>
+        <div className="col-span-4 mb-[12.5rem]">
+          <Image
+            src={Okhta12}
+            alt=""
+            sizes="auto"
+            className="h-[600px] w-full object-cover rounded-[var(--radius-sm)] "
+          />
+        </div>
+
+        <div className="col-span-4 mb-[12.5rem]">
+          <section className="flex flex-col justify-between h-full">
+            <div className="md:grid md:grid-cols-4 md:gap-x-6">
+              <h2 className="col-span-2 ">
+                Проектная группа{" "}
+                <span className="text-[var(--color-primary)]">Double U</span>
+              </h2>
+              <div className="col-span-2 ">
+                <p className="subtitle pb-1">Валерия Нечаева</p>
+                <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
+                  Архитектор
+                </p>
+                <p className="subtitle pb-1">Анна Ефимова</p>
+                <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
+                  Дизайнер
+                </p>
+                <p className="subtitle pb-1">Александр Козлов</p>
+                <p className="subtitle-sm  text-[var(--color-gray)]">
+                  Дизайнер
+                </p>
+              </div>
             </div>
-            <div className=" bg-[var(--color-black)] p-10 col-span-4 rounded-[var(--radius-sm)]">
+            <div className="bg-[var(--color-black)] p-10 col-span-4 rounded-[var(--radius-sm)]">
               <h2 className="!text-white pb-4">Итог</h2>
               <ul className="!text-white flex flex-col gap-2 list-disc subtitle">
                 <li>

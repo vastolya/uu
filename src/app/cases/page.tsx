@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import imageNews1 from "@public/imageNews1.webp";
+import ImageCases from "@public/imageCases.webp";
 import { PageSection } from "@/components/layout/PageSection";
 import Link from "next/link";
 
@@ -24,7 +24,7 @@ const Cases = () => {
       <div className="h-20"></div>
       <div className="relative h-[55rem] w-screen ">
         <Image
-          src={imageNews1}
+          src={ImageCases}
           alt="imageNews1"
           sizes="auto"
           fill
@@ -57,6 +57,7 @@ const Cases = () => {
           <Link href={"/cases/kvantoriym"}>kvantoriym</Link>
           <Link href={"/cases/temporal"}>temporal</Link>
           <Link href={"/cases/flat"}>flat</Link>
+          <Link href={"/cases/sheremeteva"}>sheremeteva</Link>
         </section>
       </PageSection>
     </>
