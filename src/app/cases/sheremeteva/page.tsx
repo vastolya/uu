@@ -657,13 +657,13 @@ export default function Page() {
           className=" flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
         >
           <IconChevron className="rotate-270 h-[1rem]" />
-          <button className="cursor-pointer">Предыдущая</button>
+          <button className="cursor-pointer">К портфолио</button>
         </Link>
         <Link
-          href={`/cases`}
+          href={`/cases/kvantoriym`}
           className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
         >
-          <button className="cursor-pointer">Следующая</button>
+          <button className="cursor-pointer">Следующий проект</button>
           <IconChevron className="rotate-90 h-[1rem]" />
         </Link>
       </div>

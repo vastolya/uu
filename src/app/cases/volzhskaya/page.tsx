@@ -493,17 +493,17 @@ export default function Page() {
 
       <div className="flex justify-between md:max-w-[90rem] mx-auto px-5">
         <Link
-          href={`/cases`}
+          href={`/cases/samsonovskaya`}
           className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
         >
           <IconChevron className="rotate-270 h-[1rem]" />
-          <button className="cursor-pointer">Предыдущая</button>
+          <button className="cursor-pointer">Предыдущий проект</button>
         </Link>
         <Link
-          href={`/cases`}
+          href={`/cases/corpus`}
           className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
         >
-          <button className="cursor-pointer">Следующая</button>
+          <button className="cursor-pointer">Следующий проект</button>
           <IconChevron className="rotate-90 h-[1rem]" />
         </Link>
       </div>

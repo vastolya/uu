@@ -62,13 +62,13 @@ const Map = () => {
             </p>
           </div>
           <h3 className="pb-5 md:pb-0 select-text">
-            Санкт-Петербург, Невский проспект, дом 72
+            Санкт-Петербург, Рузовская, дом 10-12
           </h3>
         </div>
       </PageSection>
       <div className="flex-1 relative overflow-hidden">
         <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab9ec88cde93dab7ff3a508ef26b999a92b83f372d656da022617c5572cd540a6&amp;source=constructor"
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A4079059cb6ac2debc99f721e03ad6bd204c472cdb6fbf973323d97072ca14d6a&amp;source=constructor"
           width="100%"
           height="100%"
           className="absolute top-0 left-0 w-full h-full min-h-[25rem] border-0 md:grayscale-100 md:hover:scale-125 md:hover:grayscale-0 transition-all duration-300"

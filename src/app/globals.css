@@ -139,7 +139,7 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: black !important;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 1080px) {
   h1 {
     font-size: 28px;
     line-height: 115%;
