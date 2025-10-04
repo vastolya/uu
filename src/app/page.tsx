@@ -8,16 +8,13 @@ import { Button } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
 import { WorkStages } from "@/components/sections/WorkStages";
 import LogoSlider from "@/components/sections/LogoSlider";
-import IconArrowRight from "@/components/icons/IconArrowRight";
 import Directions from "@/components/sections/Directions";
 import Form from "@/components/ui/Form";
 import ParallaxSection from "@/components/sections/ParallaxSection";
 import LogoBigUU from "@public/logoBigUU.webp";
 import ImageArrow from "@public/imageArrow.webp";
-import ImageCase1 from "@public/imageCase1.webp";
-import ImageCase2 from "@public/imageCase2.webp";
-import ImageCase3 from "@public/imageCase3.webp";
 import type { Metadata } from "next";
+import CasesHorizontal from "@/components/CasesHorizontal";
 
 export const metadata: Metadata = {
   title: "ДАБЛ-Ю — мультидисциплинарное архитектурное бюро в Санкт-Петербурге",
@@ -128,7 +125,7 @@ export default async function Home() {
       <div className="border-b-2 border-[var(--color-border-gray)]" />
 
       {/* Кейсы */}
-      <PageSection
+      {/* <PageSection
         className="px-4 md:px-5 py-[52px] md:py-20 md:gap-y-10 flex flex-col"
         id="cases"
       >
@@ -175,7 +172,8 @@ export default async function Home() {
         <div className="hidden md:block col-span-2 min-h-[447px] w-full relative">
           <Image src={ImageCase3} alt="" fill sizes="auto" />
         </div>
-      </PageSection>
+      </PageSection> */}
+      <CasesHorizontal />
 
       {/* Направления */}
       <section id="direction">

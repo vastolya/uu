@@ -20,6 +20,7 @@ const Cases = () => {
           alt="imageNews1"
           sizes="auto"
           fill
+          priority
           className="object-cover"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,29,27,0)_50%,#1D1D1B_90.14%)]" />

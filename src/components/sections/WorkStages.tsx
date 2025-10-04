@@ -82,7 +82,7 @@ export function WorkStages() {
             >
               <div className="box-border col-span-2 border-r-2 border-[var(--color-border-gray)] pb-10 hidden md:block">
                 <h2
-                  className={`box-border border-b-2 border-[var(--color-border-gray)] text-[var(--color-border-gray)] ${
+                  className={`box-border border-b-2 border-[var(--color-border-gray)] !text-[var(--color-gray)] ${
                     index === 0 && "pt-[12.75rem]"
                   } `}
                 >
