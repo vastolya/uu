@@ -125,54 +125,7 @@ export default async function Home() {
       <div className="border-b-2 border-[var(--color-border-gray)]" />
 
       {/* Кейсы */}
-      {/* <PageSection
-        className="px-4 md:px-5 py-[52px] md:py-20 md:gap-y-10 flex flex-col"
-        id="cases"
-      >
-        <div className="col-span-8 flex justify-between pb-12 md:pb-0">
-          <p className="subtitle flex items-center text-[var(--color-gray)] md:pb-2 ">
-            Кейсы
-          </p>
-          <button className="flex items-center gap-2 hover:text-[var(--color-primary)]">
-            <IconArrowRight />
-            <Link href="/cases">Все кейсы </Link>
-          </button>
-        </div>
 
-        <div className="col-span-4 row-span-2 relative h-[216px] md:min-h-[57.5rem] overflow-hidden rounded-[var(--radius-sm)]">
-          <Image
-            src={ImageCase1}
-            alt=""
-            fill
-            sizes="auto"
-            className="object-cover -z-10"
-          />
-        </div>
-
-        <div className="col-span-3 flex flex-col justify-between h-full mt-3 md:mt-0">
-          <h3 className="pb-1 md:pb-0">
-            Не&nbsp;только&nbsp;проектирование,&nbsp;но&nbsp;и&nbsp;весь цикл —
-            от чертежа до запуска объекта
-          </h3>
-          <p className="subtitle pb-3 md:pb-0">
-            Мы обеспечиваем и контролируем каждый этап, чтобы ваш проект стал
-            идеальным от концепции до последнего гвоздя
-          </p>
-        </div>
-
-        <div className="flex md:flex-col items-center md:items-end h-full gap-y-[324px]">
-          <p className="subtitle text-[var(--color-gray)]">1/4</p>
-
-          <Button text="Кейс" variant="secondary" />
-        </div>
-
-        <div className="hidden md:block col-span-2  min-h-[447px] w-full relative">
-          <Image src={ImageCase2} alt="" fill sizes="auto />" />
-        </div>
-        <div className="hidden md:block col-span-2 min-h-[447px] w-full relative">
-          <Image src={ImageCase3} alt="" fill sizes="auto" />
-        </div>
-      </PageSection> */}
       <CasesHorizontal />
 
       {/* Направления */}
