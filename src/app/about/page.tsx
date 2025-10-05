@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import ImageArrow from "@public/imageArrow.webp";
@@ -11,6 +13,8 @@ import ImageTeam from "@public/imageTeam.webp";
 import { PageSection } from "@/components/layout/PageSection";
 import Form from "@/components/ui/Form";
 import Directions from "@/components/sections/Directions";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -93,40 +97,42 @@ const About = () => {
       </section>
 
       {/* About bureau 2*/}
-      <PageSection className="md:py-20 py-[52px] flex flex-col md:flex-row ">
-        <h2 className="col-span-8 md:pb-[9.5rem] py-8 px-4">
-          <span className="text-[var(--color-primary)] ">Архитектура </span>
-          как интеллектуальное сотрудничество
-        </h2>
-        <p className="px-4 md:px-0 subtitle col-span-2 col-start-5 gap-2 flex flex-col pb-2 mdLpb-0">
-          <strong>В основе — люди, способные мыслить вне рамок</strong> Это
-          синергия опыта и интуиции, точности и воображения, технической
-          культуры и художественного чутья
-        </p>
-        <p className=" px-4 md:px-0 subtitle col-span-2 md:pb-10 pb-8">
-          Мы — команда, состоящая из архитекторов, дизайнеров, исследователей,
-          инженеров. Каждый обладает своей экспертизой, но объединены единым
-          культурным кодом: стремлением к выразительности и ответственности
-          за детали
-        </p>
+      <div className="bg-[var(--color-border-gray)]">
+        <PageSection className="md:py-20 py-[52px] flex flex-col md:flex-row  ">
+          <h2 className="col-span-8 md:pb-[9.5rem] py-8 px-4">
+            <span className="text-[var(--color-primary)] ">Архитектура </span>
+            как интеллектуальное сотрудничество
+          </h2>
+          <p className="px-4 md:px-0 subtitle col-span-2 col-start-5 gap-2 flex flex-col pb-2 mdLpb-0">
+            <strong>В основе — люди, способные мыслить вне рамок</strong> Это
+            синергия опыта и интуиции, точности и воображения, технической
+            культуры и художественного чутья
+          </p>
+          <p className=" px-4 md:px-0 subtitle col-span-2 md:pb-10 pb-8">
+            Мы — команда, состоящая из архитекторов, дизайнеров, исследователей,
+            инженеров. Каждый обладает своей экспертизой, но объединены единым
+            культурным кодом: стремлением к выразительности и ответственности
+            за детали
+          </p>
 
-        {[ImageAbout3, ImageAbout4, ImageAbout5, ImageAbout6].map(
-          (item, index) => (
-            <div
-              className={`col-span-2 h-[302px] md:h-[20.75rem] relative md:rounded-[var(--radius-sm)] overflow-hidden ${index % 2 === 0 ? "ml-4 md:ml-0 rounded-l-[var(--radius-sm)]" : "mr-4 md:mr-0 rounded-r-[var(--radius-sm)]"} ${index === 3 ? "mb-0" : "mb-5 "}`}
-              key={index}
-            >
-              <Image
-                src={item}
-                alt="img_about"
-                sizes="auto"
-                fill
-                className={`object-cover`}
-              />
-            </div>
-          )
-        )}
-      </PageSection>
+          {[ImageAbout3, ImageAbout4, ImageAbout5, ImageAbout6].map(
+            (item, index) => (
+              <div
+                className={`col-span-2 h-[302px] md:h-[20.75rem] relative md:rounded-[var(--radius-sm)] overflow-hidden ${index % 2 === 0 ? "ml-4 md:ml-0 rounded-l-[var(--radius-sm)]" : "mr-4 md:mr-0 rounded-r-[var(--radius-sm)]"} ${index === 3 ? "mb-0" : "mb-5 "}`}
+                key={index}
+              >
+                <Image
+                  src={item}
+                  alt="img_about"
+                  sizes="auto"
+                  fill
+                  className={`object-cover`}
+                />
+              </div>
+            )
+          )}
+        </PageSection>
+      </div>
 
       {/* Кейсы */}
       <>
@@ -135,55 +141,115 @@ const About = () => {
           концепт обретает <br /> форму, ритм и <br /> материю
         </h2>
 
-        <PageSection className="md:py-20 overflow-x-auto md:overflow-visible hide-scrollbar">
+        <PageSection className="md:py-20 overflow-x-auto md:overflow-visible hide-scrollbar flex md:gap-5">
           <h2 className="col-span-8 pb-10 hidden md:block">
             Истинное удовольствие — в наблюдении за тем, как концепт обретает
             форму,
             <br /> ритм и материю
           </h2>
 
-          <div className="col-span-2 ">
-            <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
-            <p className="subtitle-bold pt-2">
-              Набережная Реки ОХТА Набережная Реки ОХТА
-            </p>
-            <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
-              <p>Москва</p>
-              <p>972m2</p>
-            </div>
-          </div>
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key="case-okhta"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="flex flex-col col-span-2 px-4 md:px-0 "
+            >
+              <Link href={`/cases/okhta`} className="flex flex-col ">
+                <div className="relative overflow-hidden rounded-[var(--radius-sm)] h-[288px] md:h-[29.75rem] w-[320px] md:w-full">
+                  <Image
+                    src={"/sheremeteva1.webp"}
+                    alt=""
+                    fill
+                    sizes="auto"
+                    className="object-cover hover:scale-120 hover:grayscale transition-all duration-300 "
+                    priority
+                  />
+                </div>
+                <p className="subtitle-bold pt-2 pb-1">Набережная реки Охты</p>
+                <div className="flex justify-between">
+                  <p className="subtitle text-[var(--color-gray)]">
+                    Санк-Петербург
+                  </p>
+                  <p className="subtitle text-[var(--color-gray)]">47253 м²</p>
+                </div>
+              </Link>
+            </motion.div>
 
-          <div className="col-span-2 ">
-            <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
-            <p className="subtitle-bold pt-2">
-              Набережная Реки ОХТА Набережная Реки ОХТА
-            </p>
-            <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
-              <p>Москва</p>
-              <p>972m2</p>
-            </div>
-          </div>
+            <motion.div
+              key="case-samsonovskaya"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="flex flex-col col-span-2 px-4 md:px-0"
+            >
+              <Link href={`/cases/samsonovskaya`} className="flex flex-col">
+                <div className="relative overflow-hidden rounded-[var(--radius-sm)] h-[288px] md:h-[29.75rem] w-[320px] md:w-full">
+                  <Image
+                    src={"/samsonovskaya1.webp"}
+                    alt=""
+                    fill
+                    sizes="auto"
+                    className="object-cover hover:scale-120 hover:grayscale transition-all duration-300"
+                    priority
+                  />
+                </div>
+                <p className="subtitle-bold pt-2 pb-1">Самсоновская площадь</p>
+                <div className="flex justify-between">
+                  <p className="subtitle text-[var(--color-gray)]">Петергоф</p>
+                  <p className="subtitle text-[var(--color-gray)]"></p>
+                </div>
+              </Link>
+            </motion.div>
 
-          <div className="col-span-2 ">
-            <p className="subtitle hidden md:block">
-              Говорим на языке современной архитектуры, но понимаем и ценим
-              традиции, создавая проекты, которые гармонично вписываются в
-              городской контекст
-            </p>
-          </div>
-
-          <div className="col-span-2 ">
-            <div className="bg-[var(--color-gray)] h-[476px] relative rounded-[var(--radius-sm)]" />
-            <p className="subtitle-bold pt-2">
-              Набережная Реки ОХТА Набережная Реки ОХТА
-            </p>
-            <div className="flex justify-between mt-1 subtitle text-[var(--color-gray)]">
-              <p>Москва</p>
-              <p>972m2</p>
+            <div className=" hidden md:flex md:col-span-2">
+              <p className="subtitle hidden md:block">
+                Говорим на языке современной архитектуры, но понимаем и ценим
+                традиции, создавая проекты, которые гармонично вписываются в
+                городской контекст
+              </p>
             </div>
-          </div>
+
+            <motion.div
+              key="case-corpus"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="flex flex-col col-span-2 px-4 md:px-0"
+            >
+              <Link href={`/cases/corpus`} className="flex flex-col">
+                <div className="relative overflow-hidden rounded-[var(--radius-sm)] h-[288px] md:h-[29.75rem] w-[320px] md:w-full">
+                  <Image
+                    src={"/corpus1.webp"}
+                    alt=""
+                    fill
+                    sizes="auto"
+                    className="object-cover hover:scale-120 hover:grayscale transition-all duration-300"
+                    priority
+                  />
+                </div>
+                <p className="subtitle-bold pt-2 pb-1">
+                  Ресторан «Corpus Societas»
+                </p>
+                <div className="flex justify-between">
+                  <p className="subtitle text-[var(--color-gray)]">
+                    Санкт-Петербург
+                  </p>
+                  <p className="subtitle text-[var(--color-gray)]">38.92 га</p>
+                </div>
+              </Link>
+            </motion.div>
+          </AnimatePresence>
         </PageSection>
-        <p className="subtitle block  md:hidden py-8 px-4">
+
+        <p className="subtitle flex md:hidden pt-8 pb-[84px] px-4">
           Говорим на языке современной архитектуры, но понимаем и ценим
           традиции, создавая проекты, которые гармонично вписываются в городской
           контекст

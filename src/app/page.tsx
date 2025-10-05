@@ -14,7 +14,7 @@ import ParallaxSection from "@/components/sections/ParallaxSection";
 import LogoBigUU from "@public/logoBigUU.webp";
 import ImageArrow from "@public/imageArrow.webp";
 import type { Metadata } from "next";
-import CasesHorizontal from "@/components/CasesHorizontal";
+import CasesHorizontal from "@/components/sections/CasesHorizontal";
 
 export const metadata: Metadata = {
   title: "ДАБЛ-Ю — мультидисциплинарное архитектурное бюро в Санкт-Петербурге",
@@ -125,7 +125,6 @@ export default async function Home() {
       <div className="border-b-2 border-[var(--color-border-gray)]" />
 
       {/* Кейсы */}
-
       <CasesHorizontal />
 
       {/* Направления */}
