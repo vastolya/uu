@@ -37,55 +37,63 @@ export default function Page() {
         threshold={280}
       />
 
-      <div className="h-20" />
-      <PageSection className="">
-        <div className="py-10 col-span-8">
-          <p className="pb-2 text-[var(--color-gray)]">(Ярославль)</p>
+      <div className="h-14 md:h-20" />
+      <PageSection className="flex flex-col">
+        <div className="py-5 md:py-10 col-span-8 px-4 md:px-0">
+          <p className="pb-2 text-[var(--color-gray)] hidden md:flex">
+            (Ярославль)
+          </p>
           <h1>Волжская набережная</h1>
         </div>
 
-        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+        <div className="order-2 md:order-1 col-span-4 flex flex-col gap-2 mb-8 md:mb-[12.5rem]">
           <Image
             src={Volzhskaya1}
             alt=""
             sizes="auto"
-            className="h-[29.75rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[258px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya2}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya3}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
-        <div className="col-span-4">
-          <div className="min-h-[135.75rem] ">
+        <div className="order-1 md:order-2 col-span-4">
+          <div className="md:min-h-[135.75rem] ">
             <section className="sticky top-20">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
-                <p className="col-span-2 my-auto">Локация</p>
-                <p className="col-span-2 text-[var(--color-gray)]">
+                <p className="col-span-2 my-auto pb-1 md:pb-0 px-4 md:px-0">
+                  Локация
+                </p>
+                <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
                   Центральная набережная р. Волги
                 </p>
               </div>
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
-                <p className="col-span-2 my-auto">Тип услуги</p>
-                <p className="col-span-2 text-[var(--color-gray)]">
+                <p className="col-span-2 my-auto pb-1 md:pb-0 px-4 md:px-0">
+                  Тип услуги
+                </p>
+                <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
                   Благоустройство
                 </p>
               </div>
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] mb-[23.5rem]">
-                <p className="col-span-2">Площадь</p>
-                <p className="col-span-2 text-[var(--color-gray)]">5.56 га</p>
+              <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] md:mb-[23.5rem]">
+                <p className="col-span-2 pb-1 md:pb-0 px-4 md:px-0">Площадь</p>
+                <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
+                  5.56 га
+                </p>
               </div>
 
-              <h3 className="col-span-2">
+              <h3 className="col-span-2 py-[52px] md:py-0 px-4 md:px-0">
                 Центральная набережная в историческом центре Ярославля (объект
                 ЮНЕСКО)
               </h3>
@@ -93,33 +101,34 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+        <div className="order-4 md:order-3 col-span-4 flex flex-col gap-2 mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Volzhskaya4}
             alt=""
             sizes="auto"
-            className="h-[26.25rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[424px] md:h-[26.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya5}
             alt=""
             sizes="auto"
-            className="h-[51.25rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya6}
             alt=""
             sizes="auto"
-            className="h-[51.25rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
-        <div className="col-span-4">
-          <div className="min-h-[129.75rem]">
-            <section className="sticky top-20">
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-6">
-                <h3 className="col-span-2">Контекст</h3>
-                <ul className="col-span-2 subtitle list-disc flex flex-col gap-2">
+        <div className="order-3 md:order-4 col-span-4">
+          <div className="md:min-h-[129.75rem] pb-8 md:pb-0">
+            <section className="sticky top-20 px-4 md:px-0">
+              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-8 md:pb-6">
+                <h3 className="col-span-2 hidden md:flex">Контекст</h3>
+                <h3 className="col-span-2 !text-xl md:hidden pb-3">Контекст</h3>
+                <ul className="col-span-2 subtitle md:list-disc flex flex-col gap-2">
                   <li>
                     Примыкает к 14 объектам культурного наследия (ОКН), включая
                     храмы, музеи, Митрополичьи палаты
@@ -136,8 +145,9 @@ export default function Page() {
               </div>
 
               <div className="md:grid md:grid-cols-4 md:gap-x-6">
-                <h3 className="col-span-2">Нюансы</h3>
-                <ul className="col-span-2 subtitle list-disc flex flex-col gap-2">
+                <h3 className="col-span-2 hidden md:flex">Нюансы</h3>
+                <h3 className="col-span-2 !text-xl md:hidden pb-3">Нюансы</h3>
+                <ul className="col-span-2 subtitle md:list-disc flex flex-col gap-2">
                   <li>Подтопляемость нижнего яруса</li>
                   <li>{"Однообразное благоустройство на участке >1 км"}</li>
                   <li>
@@ -149,41 +159,48 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+        <div className="order-6 md:order-5 col-span-4 flex flex-col gap-2 mb-8 md:mb-[12.5rem]">
           <Image
             src={Volzhskaya7}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya8}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya9}
             alt=""
             sizes="auto"
-            className="h-[30rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[30rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya10}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
-        <div className="col-span-4">
-          <div className="min-h-[189rem]">
+        <div className="order-5 md:order-6 col-span-4">
+          <div className="md:min-h-[189rem] pb-8 md:pb-0 px-4 md:px-0">
             <section className="sticky top-20">
-              <h2 className="!text-[var(--color-gray)] pb-10 ">Ограничения</h2>
+              <h2 className="!text-[var(--color-gray)] pb-8 md:pb-10 ">
+                Ограничения
+              </h2>
 
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-6">
-                <h3 className="col-span-2">Историко-культурные</h3>
-                <ul className="col-span-2 subtitle list-disc flex flex-col gap-2">
+              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-8 md:pb-6">
+                <h3 className="col-span-2 hidden md:flex">
+                  Историко-культурные
+                </h3>
+                <h3 className="col-span-2 !text-xl md:hidden pb-3">
+                  Историко-культурные
+                </h3>
+                <ul className="col-span-2 subtitle md:list-disc flex flex-col gap-2">
                   <li>
                     Территория в охранной зоне ЮНЕСКО с запретом на новое
                     строительство, вырубку зеленых насаждений, изменение
@@ -198,7 +215,10 @@ export default function Page() {
               </div>
 
               <div className="md:grid md:grid-cols-4 md:gap-x-6 ">
-                <h3 className="col-span-2">Инфраструктурные</h3>
+                <h3 className="col-span-2  hidden md:flex">Инфраструктурные</h3>
+                <h3 className="col-span-2 !text-xl md:hidden pb-3">
+                  Историко-культурные
+                </h3>
                 <p className="col-span-2 subtitle">
                   Необходимость реорганизации парковок и транспортных потоков
                 </p>
@@ -207,57 +227,62 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+        <div className="order-8 md:order-7 col-span-4 flex flex-col gap-2 mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Volzhskaya11}
             alt=""
             sizes="auto"
-            className="h-[28.75rem]  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[28.75rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya12}
             alt=""
             sizes="auto"
-            className="h-[27.5rem]  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[27.5rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya13}
             alt=""
             sizes="auto"
-            className="h-[26.5rem]  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[26.5rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya14}
             alt=""
             sizes="auto"
-            className="h-[35rem]  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[328px] md:h-[35rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya15}
             alt=""
             sizes="auto"
-            className="h-[29.75rem]  w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[29.75rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
-        <div className="col-span-4">
-          <div className="min-h-[149.5rem]">
+        <div className="order-7 md:order-8 col-span-4">
+          <div className="md:min-h-[149.5rem] pb-8 md:pb-0">
             <section className="sticky top-20">
-              <h2 className="!text-[var(--color-gray)] pb-10 ">
+              <h2 className="!text-[var(--color-gray)] pb-8 md:pb-10 px-4 md:px-0">
                 Проектные предложения
               </h2>
 
-              <h3 className="col-span-2 pb-4">
+              <h3 className="col-span-2 pb-4 hidden md:flex ">
                 Зеленое ожерелье Ярославля» – создание сада ощущений» с акцентом
                 на сенсорный опыт
               </h3>
 
-              <div className="flex gap-2 pb-10">
+              <h3 className="col-span-2 !text-xl md:hidden pb-3 px-4 md:px-0">
+                Зеленое ожерелье Ярославля» – создание сада ощущений» с акцентом
+                на сенсорный опыт
+              </h3>
+
+              <div className="flex gap-2 pb-8 md:pb-10 px-4 md:px-0 flex-nowrap md:pr-[9.375rem]  md:flex-wrap overflow-x-auto md:overflow-visible hide-scrollbar">
                 {["Звуки колоколов", "Пение птиц", "Тактильные элементы"].map(
                   (item, index) => (
                     <p
                       key={index}
-                      className="subtitle text-[var(--color-gray)] p-2 bg-[var(--color-border-gray)] rounded-xs w-fit "
+                      className="subtitle text-[var(--color-gray)] md:py-2 md:px-2 py-5 px-4 bg-[var(--color-border-gray)] rounded-xs w-fit whitespace-nowrap"
                     >
                       {item}
                     </p>
@@ -265,46 +290,61 @@ export default function Page() {
                 )}
               </div>
 
-              <h3 className="col-span-2 pb-6">Ключевые решения</h3>
+              <h3 className="col-span-2 pb-6 hidden md:flex">
+                Ключевые решения
+              </h3>
+              <h3 className="col-span-2 !text-xl md:hidden pb-3 px-4 md:px-0">
+                Ключевые решения
+              </h3>
 
-              <p className="subtitle-bold px-2 py-4 bg-[var(--color-border-gray)] rounded-xs">
+              <p className="subtitle-bold px-4 md:px-2 py-4 bg-[var(--color-border-gray)] rounded-xs">
                 Функциональное зонирование по темам
               </p>
 
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] box-border">
-                <p className="col-span-2">Каменное кружево</p>
-                <p className="col-span-2 text-[var(--color-gray)]">
+                <p className="col-span-2 px-4 md:px-0 pb-2 md:pb-0">
+                  Каменное кружево
+                </p>
+                <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
                   Музыкальные площадки, амфитеатр
                 </p>
               </div>
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] box-border">
-                <p className="col-span-2 my-auto">Липовый цвет</p>
-                <p className="col-span-2 text-[var(--color-gray)]">
+                <p className="col-span-2 my-auto px-4 md:px-0 pb-2 md:pb-0">
+                  Липовый цвет
+                </p>
+                <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
                   Тихий отдых, «беседки для птиц», игровые зоны
                 </p>
               </div>
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)] box-border">
-                <p className="col-span-2">Изумруды храмов</p>
-                <p className="col-span-2 text-[var(--color-gray)]">
+                <p className="col-span-2 px-4 md:px-0 pb-2 md:pb-0">
+                  Изумруды храмов
+                </p>
+                <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
                   Арт-объекты, сухие фонтаны, маркеты
                 </p>
               </div>
 
-              <p className="subtitle-bold pt-6 pb-4">Инклюзивность</p>
-              <div className="flex gap-2">
+              <p className="subtitle-bold pt-5 md:pt-6 pb-3 md:pb-4 px-4 md:px-0">
+                Инклюзивность
+              </p>
+              <div className="flex gap-2  px-4 md:px-0 flex-nowrap md:pr-[9.375rem]  md:flex-wrap overflow-x-auto md:overflow-visible hide-scrollbar">
                 {["Пандусы", "Оборудование для МГН", "Ладкое мощение"].map(
                   (item, index) => (
                     <p
                       key={index}
-                      className="subtitle text-[var(--color-gray)] p-2 bg-[var(--color-border-gray)] rounded-xs w-fit"
+                      className="subtitle text-[var(--color-gray)] md:py-2 md:px-2 py-5 px-4 bg-[var(--color-border-gray)] rounded-xs w-fit whitespace-nowrap"
                     >
                       {item}
                     </p>
                   )
                 )}
               </div>
-              <p className="subtitle-bold pt-6 pb-4">Умные технологии</p>
-              <div className="flex gap-2">
+              <p className="subtitle-bold pt-5 md:pt-6 pb-3 md:pb-4 px-4 md:px-0">
+                Умные технологии
+              </p>
+              <div className="flex gap-2   px-4 md:px-0 flex-nowrap md:pr-[9.375rem]  md:flex-wrap overflow-x-auto md:overflow-visible hide-scrollbar">
                 {[
                   "Системы видеонаблюдения",
                   "Говорящий город",
@@ -312,14 +352,16 @@ export default function Page() {
                 ].map((item, index) => (
                   <p
                     key={index}
-                    className="subtitle text-[var(--color-gray)] p-2 bg-[var(--color-border-gray)] rounded-xs w-fit"
+                    className="subtitle text-[var(--color-gray)] md:py-2 md:px-2 py-5 px-4 bg-[var(--color-border-gray)] rounded-xs w-fit whitespace-nowrap"
                   >
                     {item}
                   </p>
                 ))}
               </div>
-              <p className="subtitle-bold pt-6 pb-4">Экология</p>
-              <div className="flex gap-2">
+              <p className="subtitle-bold pt-5 md:pt-6 pb-3 md:pb-4 px-4 md:px-0">
+                Экология
+              </p>
+              <div className="flex gap-2 px-4 md:px-0 flex-nowrap md:pr-[9.375rem]  md:flex-wrap overflow-x-auto md:overflow-visible hide-scrollbar">
                 {[
                   "Бизиборды",
                   "«Беседки для птиц» с поилками",
@@ -327,7 +369,7 @@ export default function Page() {
                 ].map((item, index) => (
                   <p
                     key={index}
-                    className="subtitle text-[var(--color-gray)] p-2 bg-[var(--color-border-gray)] rounded-xs w-fit"
+                    className="subtitle text-[var(--color-gray)] md:py-2 md:px-2 py-5 px-4 bg-[var(--color-border-gray)] rounded-xs w-fit whitespace-nowrap"
                   >
                     {item}
                   </p>
@@ -337,44 +379,45 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col gap-2 mb-[12.5rem]">
+        <div className="order-10 md:order-9 col-span-4 flex flex-col gap-2 mb-2 md:mb-[12.5rem]">
           <Image
             src={Volzhskaya16}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya17}
             alt=""
             sizes="auto"
-            className="h-[30rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[30rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya18}
             alt=""
             sizes="auto"
-            className="h-[29.75rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya19}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
-        <div className="col-span-4">
-          <div className="min-h-[166.25rem]">
+        <div className="order-9 md:order-10 col-span-4">
+          <div className="md:min-h-[166.25rem] pb-8 md:pb-0 px-4 md:px-0">
             <section className="sticky top-20">
-              <h2 className="!text-[var(--color-gray)] pb-10 ">
+              <h2 className="!text-[var(--color-gray)] pb-8 md:pb-10 ">
                 Дизайн-решения
               </h2>
 
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-6">
-                <h3 className="col-span-2">Ландшафт</h3>
+              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-8 md:pb-6">
+                <h3 className="col-span-2 hidden md:flex">Ландшафт</h3>
+                <h3 className="col-span-2 !text-xl pb-3 md:hidden">Ландшафт</h3>
                 <div className="col-span-2 ">
-                  <ul className="col-span-2 subtitle list-disc flex flex-col gap-2 pb-6">
+                  <ul className="col-span-2 subtitle md:list-disc flex flex-col gap-2">
                     <li>
                       Геопластика для организации террас и смотровых площадок
                     </li>
@@ -388,25 +431,30 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-6">
-                <h3 className="col-span-2">Материалы и МАФ</h3>
+              <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-8 md:pb-6">
+                <h3 className="col-span-2 hidden md:flex">Материалы и МАФ</h3>
+                <h3 className="col-span-2 !text-xl pb-3 md:hidden">
+                  Материалы и МАФ
+                </h3>
                 <div className="col-span-2">
-                  <p className="subtitle-bold pb-1">Покрытия</p>
-                  <p className="subtitle pb-2">
+                  <p className="subtitle-bold pb-2 md:pb-1">Покрытия</p>
+                  <p className="subtitle pb-3 md:pb-2">
                     Гранитная брусчатка, плитка с узорами (отсылка к храмовой
                     архитектуре), деревянный декинг
                   </p>
-                  <p className="subtitle-bold pb-1">Дизайн-код</p>
-                  <p className="subtitle pb-2">
+                  <p className="subtitle-bold pb-2 md:pb-1">Дизайн-код</p>
+                  <p className="subtitle pb-3 md:pb-2">
                     Паттерны «каменного кружева» в перфорации скамеек, качелей;
                     формы храмовых куполов в беседках
                   </p>
-                  <p className="subtitle-bold pb-1">Арт-объекты</p>
-                  <p className="subtitle pb-2">
+                  <p className="subtitle-bold pb-2 md:pb-1">Арт-объекты</p>
+                  <p className="subtitle pb-3 md:pb-2">
                     «Нуклон»-подобные инсталляции, музыкальные МАФ (ксилофоны,
                     литофоны), световые арки
                   </p>
-                  <p className="subtitle-bold pb-1">Инклюзивное оборудование</p>
+                  <p className="subtitle-bold pb-2 md:pb-1">
+                    Инклюзивное оборудование
+                  </p>
                   <p className="subtitle">
                     Качели для колясочников, уличные тренажеры для МГН,
                     тактильные бизиборды
@@ -415,7 +463,8 @@ export default function Page() {
               </div>
 
               <div className="md:grid md:grid-cols-4 md:gap-x-6">
-                <h3 className="col-span-2">Свет</h3>
+                <h3 className="col-span-2 hidden md:flex">Свет</h3>
+                <h3 className="col-span-2 !text-xl pb-3 md:hidden">Свет</h3>
                 <div className="col-span-2">
                   <p className="subtitle">
                     Акцентная подсветка МАФ, встроенное освещение в мощение,
@@ -427,19 +476,19 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col gap-2 ">
+        <div className="order-11 col-span-4 flex flex-col gap-2 mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Volzhskaya20}
             alt=""
             sizes="auto"
-            className="h-[52.5rem] mb-[12.5rem] w-full object-cover rounded-[var(--radius-sm)]"
+            className="h-[480px] md:h-[52.5rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
-        <div className="col-span-4 mb-[12.5rem]">
-          <section className="flex flex-col justify-between h-full">
-            <div className="md:grid md:grid-cols-4 md:gap-x-6">
-              <h2 className="col-span-2 ">
+        <div className="order-12 col-span-4 md:mb-[12.5rem]">
+          <section className="flex flex-col justify-between h-full ">
+            <div className="md:grid md:grid-cols-4 md:gap-x-6 px-4 md:px-0 pb-[52px] md:pb-0">
+              <h2 className="col-span-2 pb-8 md:pb-0">
                 Проектная группа{" "}
                 <span className="text-[var(--color-primary)]">Double U</span>
               </h2>
@@ -463,9 +512,9 @@ export default function Page() {
                 </p>
               </div>
             </div>
-            <div className="bg-[var(--color-black)] p-10 col-span-4 rounded-[var(--radius-sm)]">
-              <h2 className="!text-white pb-4">Итог</h2>
-              <ul className="!text-white flex flex-col gap-2 list-disc subtitle">
+            <div className="bg-[var(--color-black)] md:px-10 md:py-10 py-[52px] px-4 col-span-4 md:rounded-[var(--radius-sm)]">
+              <h2 className="!text-white pb-5 md:pb-4">Итог</h2>
+              <ul className="!text-white flex flex-col gap-2 list-disc subtitle pl-5 md:pl-0">
                 <li>
                   Создание многофункционального пространства, сочетающего
                   историческую идентичность с современными технологиями
@@ -487,7 +536,7 @@ export default function Page() {
           src={Volzhskaya14}
           alt=""
           sizes="auto"
-          className="h-[43rem] w-full object-cover col-span-8 mb-6 rounded-[var(--radius-sm)]"
+          className="order-13 h-[43rem] w-full object-cover col-span-8 mb-[52px] md:mb-6 rounded-[var(--radius-sm)]"
         />
       </PageSection>
 
