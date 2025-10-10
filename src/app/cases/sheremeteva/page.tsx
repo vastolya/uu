@@ -688,12 +688,14 @@ export default function Page() {
           </section>
         </div>
 
-        <Image
-          src={Sheremeteva29}
-          alt=""
-          sizes="auto"
-          className="h-[568px] md:h-[48rem] w-full object-cover col-span-8 mb-6 md:rounded-[var(--radius-sm)] order-17"
-        />
+        <div className="relative w-full overflow-hidden rounded-xl pb-[56.25%] order-17 col-span-8 mb-6 md:rounded-[var(--radius-sm)]">
+          <iframe
+            src="https://www.youtube.com/embed/yPdnkprv6yQ?autoplay=1&mute=1&loop=1&playlist=yPdnkprv6yQ&controls=0&modestbranding=1&rel=0"
+            title="YouTube video"
+            allow="autoplay; fullscreen"
+            className="absolute left-0 top-0 h-full w-full"
+          ></iframe>
+        </div>
       </PageSection>
 
       <div className="flex justify-between md:max-w-[90rem] mx-auto px-5">

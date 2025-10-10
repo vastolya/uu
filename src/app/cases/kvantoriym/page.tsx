@@ -33,11 +33,9 @@ export default function Page() {
         <p className="order-2 md:order-1 pt-10 pb-2 col-span-8 text-[var(--color-gray)] subtitle hidden md:flex">
           (Санкт-Петербург)
         </p>
-
         <h1 className="order-1 md:order-2 md:pb-10 py-5 md:py-0 px-4 md:px-0 col-span-8 *:">
           Кванториум-Сити
         </h1>
-
         <div className="order-4 md:order-3 col-span-4 flex flex-col gap-2 mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Kvantoriym1}
@@ -46,7 +44,6 @@ export default function Page() {
             className="h-[220px] md:h-[37.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
-
         <div className="order-3 md:order-4 col-span-4">
           <div className="md:min-h-[37.5rem] md:pb-[12.5rem] h-full">
             <section className="sticky top-20 flex flex-col justify-between h-full">
@@ -97,7 +94,6 @@ export default function Page() {
             </section>
           </div>
         </div>
-
         <div className="order-6 md:order-5 col-span-4 flex flex-col gap-2  mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Kvantoriym2}
@@ -118,7 +114,6 @@ export default function Page() {
             className="h-[380px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
-
         <div className="order-5 md:order-6 col-span-4">
           <div className="md:min-h-[111.75rem] md:mb-[12.5rem]">
             <section className="sticky top-20">
@@ -165,7 +160,6 @@ export default function Page() {
             </section>
           </div>
         </div>
-
         <div className="order-8 md:order-7 col-span-4 flex flex-col gap-2  mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Kvantoriym5}
@@ -186,7 +180,6 @@ export default function Page() {
             className="h-[380px] md:h-[50rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
-
         <div className="order-7 md:order-8 col-span-4">
           <div className="md:min-h-[139.75rem] mb-8 md:mb-[12.5rem] ">
             <section className="sticky top-20 ">
@@ -272,7 +265,6 @@ export default function Page() {
             </section>
           </div>
         </div>
-
         <div className="order-10 md:order-9 col-span-4 flex flex-col gap-2  mb-2 md:mb-[12.5rem]">
           <Image
             src={Kvantoriym8}
@@ -293,7 +285,6 @@ export default function Page() {
             className="h-[380px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
-
         <div className="order-9 md:order-10 col-span-4">
           <div className="md:min-h-[132rem] mb-8 md:mb-[12.5rem] ">
             <section className="sticky top-20 ">
@@ -368,7 +359,6 @@ export default function Page() {
             </section>
           </div>
         </div>
-
         <div className="order-11 col-span-4 flex flex-col gap-2  mb-[52px] md:mb-[12.5rem]">
           <Image
             src={Kvantoriym11}
@@ -377,7 +367,6 @@ export default function Page() {
             className="h-[380px] md:h-[58.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
-
         <div className="order-12 col-span-4 md:mb-[12.5rem]">
           <section className="flex flex-col justify-between h-full">
             <div className="md:grid md:grid-cols-4 md:gap-x-6 px-4 md:px-0">
@@ -469,13 +458,14 @@ export default function Page() {
             </div>
           </section>
         </div>
-
-        <Image
-          src={imageNews3}
-          alt=""
-          sizes="auto"
-          className="order-13 h-[372px] md:h-[48rem] w-full object-cover col-span-8 mb-6 md:rounded-[var(--radius-sm)]"
-        />
+        <div className="relative w-full overflow-hidden rounded-xl pb-[56.25%] order-17 col-span-8 mb-6 md:rounded-[var(--radius-sm)]">
+          <iframe
+            src="https://www.youtube.com/embed/lJfzvlezt_4?autoplay=1&mute=1&loop=1&playlist=lJfzvlezt_4&controls=0&modestbranding=1&rel=0"
+            title="YouTube video"
+            allow="autoplay; fullscreen"
+            className="absolute left-0 top-0 h-full w-full"
+          ></iframe>
+        </div>
       </PageSection>
 
       <div className="flex justify-between md:max-w-[90rem] mx-auto px-5">
