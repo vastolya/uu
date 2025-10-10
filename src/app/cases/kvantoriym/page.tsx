@@ -12,7 +12,6 @@ import Kvantoriym8 from "@public/kvantoriym8.webp";
 import Kvantoriym9 from "@public/kvantoriym9.webp";
 import Kvantoriym10 from "@public/kvantoriym10.webp";
 import Kvantoriym11 from "@public/kvantoriym11.webp";
-import imageNews3 from "@public/imageNews3.webp";
 import ImageArrow from "@public/imageArrow.webp";
 import Image from "next/image";
 import Link from "next/link";

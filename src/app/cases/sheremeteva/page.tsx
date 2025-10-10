@@ -29,7 +29,6 @@ import Sheremeteva25 from "@public/sheremeteva25.webp";
 import Sheremeteva26 from "@public/sheremeteva26.webp";
 import Sheremeteva27 from "@public/sheremeteva27.webp";
 import Sheremeteva28 from "@public/sheremeteva28.webp";
-import Sheremeteva29 from "@public/sheremeteva29.webp";
 
 import ImageArrow from "@public/imageArrow.webp";
 import Image from "next/image";
