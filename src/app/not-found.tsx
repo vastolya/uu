@@ -1,5 +1,19 @@
 import IconArrowRight from "@/components/icons/IconArrowRight";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "404 ДАБЛ-Ю | Архитектурное бюро в Санкт-Петербурге",
+  description:
+    "Свежие новости архитектурного бюро ДАБЛ-Ю: проекты, события, публикации и достижения команды. Архитектура, дизайн интерьеров, идеи и вдохновение.",
+  alternates: {
+    canonical: "/news",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (

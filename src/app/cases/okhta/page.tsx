@@ -1,5 +1,3 @@
-"use client";
-
 import { PageSection } from "@/components/layout/PageSection";
 import Okhta1 from "@public/okhta1.webp";
 import Okhta2 from "@public/okhta2.webp";
@@ -19,6 +17,20 @@ import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Благоустройство набережной реки Охты, Санкт-Петербург (2020)",
+  description:
+    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Page() {
   return (

@@ -1,8 +1,9 @@
 // app/news/page.tsx (серверный компонент)
 import { client } from "@/sanity/client";
 import { notFound } from "next/navigation";
-import NewsContent from "./NewsContent";
+
 import type { Metadata } from "next";
+import NewsContent from "@components/sections/NewsContent";
 
 export const metadata: Metadata = {
   title: "Новости ДАБЛ-Ю | Архитектурное бюро в Санкт-Петербурге",

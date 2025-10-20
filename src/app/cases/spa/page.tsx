@@ -1,5 +1,3 @@
-"use client";
-
 import { PageSection } from "@/components/layout/PageSection";
 import Spa1 from "@public/spa1.webp";
 import Spa2 from "@public/spa2.webp";
@@ -26,6 +24,20 @@ import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: " Концепция спа-центра на тему времени и моря",
+  description:
+    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Page() {
   return (

@@ -1,5 +1,3 @@
-"use client";
-
 import { PageSection } from "@/components/layout/PageSection";
 import Samsonovskaya1 from "@public/samsonovskaya1.webp";
 import Samsonovskaya2 from "@public/samsonovskaya2.webp";
@@ -21,6 +19,20 @@ import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Благоустройство Самсоновской площади, Петергоф",
+  description:
+    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Page() {
   return (

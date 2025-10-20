@@ -1,5 +1,3 @@
-"use client";
-
 import { PageSection } from "@/components/layout/PageSection";
 import Corpus1 from "@public/corpus1.webp";
 import Corpus2 from "@public/corpus2.webp";
@@ -29,6 +27,20 @@ import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ресторан «Corpus Societas» (Meat House)",
+  description:
+    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Page() {
   return (

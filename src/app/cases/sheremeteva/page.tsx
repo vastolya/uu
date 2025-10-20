@@ -1,5 +1,3 @@
-"use client";
-
 import { PageSection } from "@/components/layout/PageSection";
 import Sheremeteva1 from "@public/sheremeteva1.webp";
 import Sheremeteva2 from "@public/sheremeteva2.webp";
@@ -36,6 +34,20 @@ import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Реконструкция парка Шереметева (Юрино, Марий Эл)",
+  description:
+    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Page() {
   return (
