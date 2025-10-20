@@ -545,10 +545,10 @@ export default function Page() {
           <button className="cursor-pointer">Предыдущий проект</button>
         </Link>
         <Link
-          href={`/cases`}
+          href={`/cases/spa`}
           className="flex items-center gap-2 cursor-pointer hover:text-[var(--color-primary)] transition-all duration-200 py-5"
         >
-          <button className="cursor-pointer">К портфолио</button>
+          <button className="cursor-pointer">Следующий проект</button>
           <IconChevron className="rotate-90 h-[1rem]" />
         </Link>
       </div>

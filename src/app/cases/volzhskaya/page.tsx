@@ -21,6 +21,13 @@ import Volzhskaya17 from "@public/volzhskaya17.webp";
 import Volzhskaya18 from "@public/volzhskaya18.webp";
 import Volzhskaya19 from "@public/volzhskaya19.webp";
 import Volzhskaya20 from "@public/volzhskaya20.webp";
+import Volzhskaya21 from "@public/volzhskaya21.webp";
+import Volzhskaya22 from "@public/volzhskaya22.webp";
+import Volzhskaya23 from "@public/volzhskaya23.webp";
+import Volzhskaya24 from "@public/volzhskaya24.webp";
+import Volzhskaya25 from "@public/volzhskaya25.webp";
+import Volzhskaya26 from "@public/volzhskaya26.webp";
+import Volzhskaya27 from "@public/volzhskaya27.webp";
 import ImageArrow from "@public/imageArrow.webp";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,24 +58,18 @@ export default function Page() {
             src={Volzhskaya1}
             alt=""
             sizes="auto"
-            className="h-[258px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya2}
             alt=""
             sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Volzhskaya3}
-            alt=""
-            sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[30rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="order-1 md:order-2 col-span-4">
-          <div className="md:min-h-[135.75rem] ">
+          <div className="md:min-h-[60.25rem] ">
             <section className="sticky top-20">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
                 <p className="col-span-2 my-auto pb-1 md:pb-0 px-4 md:px-0">
@@ -103,27 +104,21 @@ export default function Page() {
 
         <div className="order-4 md:order-3 col-span-4 flex flex-col gap-2 mb-[52px] md:mb-[12.5rem]">
           <Image
+            src={Volzhskaya3}
+            alt=""
+            sizes="auto"
+            className="h-[460px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
             src={Volzhskaya4}
             alt=""
             sizes="auto"
-            className="h-[424px] md:h-[26.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Volzhskaya5}
-            alt=""
-            sizes="auto"
-            className="h-[480px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
-          />
-          <Image
-            src={Volzhskaya6}
-            alt=""
-            sizes="auto"
-            className="h-[480px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[240px] md:h-[27.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="order-3 md:order-4 col-span-4">
-          <div className="md:min-h-[129.75rem] pb-8 md:pb-0">
+          <div className="md:min-h-[80.5rem] pb-8 md:pb-0">
             <section className="sticky top-20 px-4 md:px-0">
               <div className="md:grid md:grid-cols-4 md:gap-x-6 pb-8 md:pb-6">
                 <h3 className="col-span-2 hidden md:flex">Контекст</h3>
@@ -161,33 +156,45 @@ export default function Page() {
 
         <div className="order-6 md:order-5 col-span-4 flex flex-col gap-2 mb-8 md:mb-[12.5rem]">
           <Image
+            src={Volzhskaya5}
+            alt=""
+            sizes="auto"
+            className="h-[424px] md:h-[26.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya6}
+            alt=""
+            sizes="auto"
+            className="h-[252px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
             src={Volzhskaya7}
             alt=""
             sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[448px] md:h-[26.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya8}
             alt=""
             sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[228px] md:h-[28.875rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya9}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[30rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[252px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya10}
             alt=""
             sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[446px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="order-5 md:order-6 col-span-4">
-          <div className="md:min-h-[189rem] pb-8 md:pb-0 px-4 md:px-0">
+          <div className="md:min-h-[216.125rem] pb-8 md:pb-0 px-4 md:px-0">
             <section className="sticky top-20">
               <h2 className="!text-[var(--color-gray)] pb-8 md:pb-10 ">
                 Ограничения
@@ -232,36 +239,60 @@ export default function Page() {
             src={Volzhskaya11}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[28.75rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[260px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya12}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[27.5rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[252px] md:h-[28.875rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya13}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[26.5rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[448px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya14}
             alt=""
             sizes="auto"
-            className="h-[328px] md:h-[35rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[268px] md:h-[30.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
             src={Volzhskaya15}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[29.75rem]  w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[252px] md:h-[28.875rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya16}
+            alt=""
+            sizes="auto"
+            className="h-[448px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya17}
+            alt=""
+            sizes="auto"
+            className="h-[448px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya18}
+            alt=""
+            sizes="auto"
+            className="h-[252px] md:h-[28.875rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya19}
+            alt=""
+            sizes="auto"
+            className="h-[488px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="order-7 md:order-8 col-span-4">
-          <div className="md:min-h-[149.5rem] pb-8 md:pb-0">
+          <div className="md:min-h-[356.25rem] pb-8 md:pb-0">
             <section className="sticky top-20">
               <h2 className="!text-[var(--color-gray)] pb-8 md:pb-10 px-4 md:px-0">
                 Проектные предложения
@@ -381,33 +412,57 @@ export default function Page() {
 
         <div className="order-10 md:order-9 col-span-4 flex flex-col gap-2 mb-2 md:mb-[12.5rem]">
           <Image
-            src={Volzhskaya16}
+            src={Volzhskaya20}
             alt=""
             sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[268px] md:h-[30.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
-            src={Volzhskaya17}
+            src={Volzhskaya21}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[30rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[268px] md:h-[30.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
-            src={Volzhskaya18}
+            src={Volzhskaya22}
             alt=""
             sizes="auto"
-            className="h-[260px] md:h-[29.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[448px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
           <Image
-            src={Volzhskaya19}
+            src={Volzhskaya23}
             alt=""
             sizes="auto"
-            className="h-[480px] md:h-[52.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+            className="h-[268px] md:h-[30.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya24}
+            alt=""
+            sizes="auto"
+            className="h-[448px] md:h-[51.25rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya25}
+            alt=""
+            sizes="auto"
+            className="h-[268px] md:h-[30.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya26}
+            alt=""
+            sizes="auto"
+            className="h-[268px] md:h-[30.5rem] w-full object-cover md:rounded-[var(--radius-sm)]"
+          />
+          <Image
+            src={Volzhskaya27}
+            alt=""
+            sizes="auto"
+            className="h-[252px] md:h-[28.75rem] w-full object-cover md:rounded-[var(--radius-sm)]"
           />
         </div>
 
         <div className="order-9 md:order-10 col-span-4">
-          <div className="md:min-h-[166.25rem] pb-8 md:pb-0 px-4 md:px-0">
+          <div className="md:min-h-[287.25rem] pb-8 md:pb-0 px-[0.25rem] md:px-0">
             <section className="sticky top-20">
               <h2 className="!text-[var(--color-gray)] pb-8 md:pb-10 ">
                 Дизайн-решения
@@ -532,12 +587,14 @@ export default function Page() {
           </section>
         </div>
 
-        <Image
-          src={Volzhskaya14}
-          alt=""
-          sizes="auto"
-          className="order-13 h-[43rem] w-full object-cover col-span-8 mb-[52px] md:mb-6 rounded-[var(--radius-sm)]"
-        />
+        <div className="relative w-full overflow-hidden pb-[56.25%] order-17 col-span-8 mb-6 md:rounded-[var(--radius-sm)]">
+          <iframe
+            src="https://www.youtube.com/embed/pZ0JFxWmjdY?autoplay=1&mute=1&loop=1&playlist=pZ0JFxWmjdY&controls=0&modestbranding=1&rel=0"
+            title="YouTube video"
+            allow="autoplay; fullscreen"
+            className="absolute left-0 top-0 h-full w-full"
+          ></iframe>
+        </div>
       </PageSection>
 
       <div className="flex justify-between md:max-w-[90rem] mx-auto px-5">

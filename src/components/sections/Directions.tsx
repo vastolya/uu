@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ImageDirection1 from "@public/imageDirection1.webp";
@@ -11,8 +11,10 @@ import ImageDirection5 from "@public/imageDirection5.webp";
 import ImageDirection6 from "@public/imageDirection6.webp";
 import ImageDirection7 from "@public/imageDirection7.webp";
 import ImageDirection8 from "@public/imageDirection8.webp";
-import ImageDirection9 from "@public/imageDirection9.webp";
-import ImageDirection10 from "@public/imageDirection10.webp";
+
+import ImageAbout3 from "@public/imageAbout3.webp";
+import ImageAbout4 from "@public/imageAbout4.webp";
+
 import ImageDirectionAbout01 from "@public/imageDirectionAbout01.webp";
 import ImageDirectionAbout02 from "@public/imageDirectionAbout02.webp";
 import ImageDirectionAbout03 from "@public/imageDirectionAbout03.webp";
@@ -62,8 +64,8 @@ const cards = [
   },
   {
     title: "Строим сами: авторский надзор и подряд",
-    topImage: ImageDirection9,
-    bottomImage: ImageDirection10,
+    topImage: ImageAbout4,
+    bottomImage: ImageAbout3,
   },
 ];
 
@@ -102,8 +104,61 @@ const cardsAbout = [
 
 export default function Directions({ variant = "home" }: DirectionsProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const hoverTimeout = useRef<number | null>(null);
 
   const { open } = useModalStore();
+
+  // при первом рендере и при смене variant — показываем первую карточку, если есть
+  useEffect(() => {
+    const hasHome =
+      variant === "home" && Array.isArray(cards) && cards.length > 0;
+    const hasAbout =
+      variant === "about" && Array.isArray(cardsAbout) && cardsAbout.length > 0;
+
+    if (hasHome || hasAbout) setHoveredIndex(0);
+    else setHoveredIndex(null);
+  }, [variant]);
+
+  // очистка таймера на размонтирование
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout.current) {
+        clearTimeout(hoverTimeout.current);
+        hoverTimeout.current = null;
+      }
+    };
+  }, []);
+
+  const setIndexDebounced = (index: number, delay = 40) => {
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    hoverTimeout.current = window.setTimeout(
+      () => setHoveredIndex(index),
+      delay
+    );
+  };
+
+  const clearDebounceOnly = () => {
+    if (hoverTimeout.current) {
+      clearTimeout(hoverTimeout.current);
+      hoverTimeout.current = null;
+    }
+  };
+
+  const hasHome =
+    variant === "home" && Array.isArray(cards) && cards.length > 0;
+  const hasAbout =
+    variant === "about" && Array.isArray(cardsAbout) && cardsAbout.length > 0;
+
+  const validHomeIndex =
+    hasHome &&
+    hoveredIndex !== null &&
+    hoveredIndex >= 0 &&
+    hoveredIndex < cards.length;
+  const validAboutIndex =
+    hasAbout &&
+    hoveredIndex !== null &&
+    hoveredIndex >= 0 &&
+    hoveredIndex < cardsAbout.length;
 
   return (
     <section className="bg-[var(--color-black)]">
@@ -111,6 +166,8 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
         <p className="subtitle text-[var(--color-gray)] col-span-8 pb-8 md:pb-10 px-4 md:px-0">
           {variant === "home" ? "Направления" : "Философия"}
         </p>
+
+        {/* ЛЕВАЯ КОЛОНКА С КАРТИНКАМИ */}
         <div
           className={`hidden md:flex ${variant === "home" ? "col-span-3" : "col-span-4"}`}
         >
@@ -119,7 +176,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
               className={`flex flex-col gap-6 items-end min-h-[calc(20.75rem+22rem+1.5rem)]`}
             >
               <AnimatePresence mode="wait">
-                {hoveredIndex !== null && (
+                {validHomeIndex && (
                   <>
                     <motion.div
                       key={`image-left-${hoveredIndex}`}
@@ -130,7 +187,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
                       className="h-[20.75rem] "
                     >
                       <Image
-                        src={cards[hoveredIndex].topImage}
+                        src={cards[hoveredIndex!].topImage}
                         alt=""
                         loading="lazy"
                         className="h-[20.75rem] w-[20.75rem] object-cover rounded-[var(--radius-sm)]"
@@ -146,7 +203,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
                       className="h-[22rem] min-w-[31.875rem] "
                     >
                       <Image
-                        src={cards[hoveredIndex].bottomImage}
+                        src={cards[hoveredIndex!].bottomImage}
                         alt=""
                         className="h-[22rem] w-full object-cover items-end rounded-[var(--radius-sm)]"
                       />
@@ -160,7 +217,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
           {variant === "about" && (
             <div className={`flex flex-row gap-6 min-h-[720px]`}>
               <AnimatePresence mode="wait">
-                {hoveredIndex !== null && cardsAbout?.[hoveredIndex] && (
+                {validAboutIndex && (
                   <>
                     <motion.div
                       key={`image-left-${hoveredIndex}`}
@@ -171,7 +228,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
                       className="h-[332px] w-[332px]"
                     >
                       <Image
-                        src={cardsAbout[hoveredIndex].topImage}
+                        src={cardsAbout[hoveredIndex!].topImage}
                         alt=""
                         loading="lazy"
                         className="h-[20.75rem] w-[20.75rem] object-cover rounded-[var(--radius-sm)]"
@@ -187,7 +244,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
                       className="h-[720px] w-[332px]"
                     >
                       <Image
-                        src={cardsAbout[hoveredIndex].bottomImage}
+                        src={cardsAbout[hoveredIndex!].bottomImage}
                         alt=""
                         className="h-[45rem] w-[20.75rem] object-cover items-end rounded-[var(--radius-sm)]"
                       />
@@ -199,31 +256,19 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
           )}
         </div>
 
+        {/* ПРАВАЯ КОЛОНКА — СПИСОК */}
         <div className="hidden md:flex  col-span-4 col-start-5 flex-col justify-end gap-2.5 overflow-hidden">
-          {variant === "home" && (
+          {variant === "home" && hasHome && (
             <>
               {cards.map((card, index) => (
                 <motion.p
                   key={index}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transformOrigin = "left";
-
-                    clearTimeout(window.__hoverTimeout);
-                    window.__hoverTimeout = setTimeout(() => {
-                      setHoveredIndex(index);
-                    }, 40);
+                    setIndexDebounced(index, 40);
                   }}
-                  onMouseLeave={() => {
-                    clearTimeout(window.__hoverTimeout);
-
-                    window.__hoverTimeout = setTimeout(() => {
-                      setHoveredIndex(null);
-                    }, 200);
-                  }}
-                  whileHover={{
-                    scale: 1.15,
-                    color: "var(--color-primary)",
-                  }}
+                  onMouseLeave={clearDebounceOnly} // ничего не скрываем, только гасим дебаунс
+                  whileHover={{ scale: 1.15, color: "var(--color-primary)" }}
                   className="subtitle-bold text-white py-4 border-b-2 border-[var(--color-gray)] cursor-pointer"
                   style={{ originX: 0 }}
                   layout
@@ -235,30 +280,17 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
             </>
           )}
 
-          {variant === "about" && (
+          {variant === "about" && hasAbout && (
             <>
               {cardsAbout.map((card, index) => (
                 <motion.p
                   key={index}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transformOrigin = "left";
-
-                    clearTimeout(window.__hoverTimeout);
-                    window.__hoverTimeout = setTimeout(() => {
-                      setHoveredIndex(index);
-                    }, 40);
+                    setIndexDebounced(index, 40);
                   }}
-                  onMouseLeave={() => {
-                    clearTimeout(window.__hoverTimeout);
-
-                    window.__hoverTimeout = setTimeout(() => {
-                      setHoveredIndex(null);
-                    }, 200);
-                  }}
-                  whileHover={{
-                    scale: 1.15,
-                    color: "var(--color-primary)",
-                  }}
+                  onMouseLeave={clearDebounceOnly}
+                  whileHover={{ scale: 1.15, color: "var(--color-primary)" }}
                   className="subtitle-bold text-white py-4 border-b-2 border-[var(--color-gray)] cursor-pointer"
                   style={{ originX: 0 }}
                   layout
@@ -284,14 +316,12 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
                 реализации, каждый этап проходит под нашим пристальным вниманием
                 и контролем
               </p>
-              <Button
-                text="Начать проект"
-                onClick={() => open("form")}
-              ></Button>
+              <Button text="Начать проект" onClick={() => open("form")} />
             </>
           )}
         </div>
 
+        {/* МОБИЛЬНАЯ ВЕРСИЯ */}
         <div className="flex md:hidden">
           {variant === "home" ? (
             <div className="flex flex-col">
@@ -306,7 +336,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
             <div className="flex flex-col">
               <Accordion items={cardsAbout} variant="image" />
               <div className="px-4 ">
-                <p className="subtitle text-white pt-[52px]">
+                <p className="subtitle text:white pt-[52px]">
                   Наша философия строится на принципах целостности и
                   взаимосвязанности всех элементов проекта. От концепции до
                   реализации, каждый этап проходит под нашим пристальным
@@ -315,8 +345,8 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
                 <Button
                   text="Начать проект"
                   onClick={() => open("form")}
-                  className="mt-3 "
-                ></Button>
+                  className="mt-3"
+                />
               </div>
             </div>
           )}
