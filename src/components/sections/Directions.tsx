@@ -336,7 +336,7 @@ export default function Directions({ variant = "home" }: DirectionsProps) {
             <div className="flex flex-col">
               <Accordion items={cardsAbout} variant="image" />
               <div className="px-4 ">
-                <p className="subtitle text:white pt-[52px]">
+                <p className="subtitle text-white pt-[52px]">
                   Наша философия строится на принципах целостности и
                   взаимосвязанности всех элементов проекта. От концепции до
                   реализации, каждый этап проходит под нашим пристальным
