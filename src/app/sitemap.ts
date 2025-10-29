@@ -8,7 +8,7 @@ type SanityDocument = {
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const host = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.uu-bereau.ru/";
+  const host = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.uu-bereau.ru";
 
   const staticPages: MetadataRoute.Sitemap = [
     "",
