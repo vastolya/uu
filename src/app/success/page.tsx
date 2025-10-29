@@ -8,16 +8,6 @@ import UULogo from "@public/logoBigUU.webp";
 import IconArrowRight from "@/components/icons/IconArrowRight";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Metadata } from "next";
-import { canonical } from "@/lib/seo";
-
-export const metadata: Metadata = {
-  title: "Спасибо! Заявка отправлена — ДАБЛ-Ю",
-  description:
-    "Спасибо! Мы получили ваш номер и свяжемся с вами в ближайшее время.",
-  robots: { index: false, follow: true },
-  alternates: { canonical: canonical("/success") },
-};
 
 export default function Success() {
   const router = useRouter();
