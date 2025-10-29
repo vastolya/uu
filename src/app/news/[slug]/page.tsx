@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import IconChevron from "@/components/icons/IconChevron";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const revalidate = 60;
 
@@ -53,7 +54,7 @@ export default async function NewsPage({
           </div>
           {post.image && (
             <Image
-              src={urlFor(post.image).url()} // Увеличиваем качество до максимального
+              src={urlFor(post.image).url()}
               alt={post.title || "Изображение"}
               sizes="auto"
               className="col-span-2 h-full w-full object-cover hidden md:block"
@@ -153,8 +154,6 @@ export default async function NewsPage({
   );
 }
 
-/* ===== Динамическая мета  ===== */
-
 type PostForMeta = {
   _id: string;
   title?: string;
@@ -162,12 +161,6 @@ type PostForMeta = {
   publishedAt?: string;
   body?: unknown;
 };
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.NODE_ENV === "production"
-    ? "https://your-domain.ru"
-    : "http://localhost:3000");
 
 async function getPost(slug: string): Promise<PostForMeta | null> {
   return client.fetch(
@@ -216,7 +209,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params; // ← await один раз
+  const { slug } = await params;
   const post = await getPost(slug);
 
   if (!post) {
@@ -224,7 +217,7 @@ export async function generateMetadata({
       title: "Новость — ДАБЛ-Ю",
       description: "Новости и статьи архитектурного бюро ДАБЛ-Ю.",
       robots: { index: false, follow: false },
-      alternates: { canonical: `${siteUrl}/news/${slug}` },
+      alternates: { canonical: canonical(`/news/${slug}`) },
     };
   }
 
@@ -241,10 +234,11 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${siteUrl}/news/${post.slug.current}` },
+    alternates: { canonical: canonical(`/news/${post.slug.current}`) },
     robots: { index: !isFuture, follow: !isFuture },
   };
 }
+
 /* ===== /динамическая мета ===== */
 
 export async function generateStaticParams() {

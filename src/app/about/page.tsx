@@ -13,14 +13,13 @@ import Form from "@/components/ui/Form";
 import Directions from "@/components/sections/Directions";
 import AboutCases from "@/components/sections/AboutCases";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "О нас ДАБЛ-Ю | Архитектурное бюро в Санкт-Петербурге",
   description:
-    "Свежие новости архитектурного бюро ДАБЛ-Ю: проекты, события, публикации и достижения команды. Архитектура, дизайн интерьеров, идеи и вдохновение.",
-  alternates: {
-    canonical: "/news",
-  },
+    "О бюро ДАБЛ-Ю: философия, подход к проектированию, команда и компетенции в области архитектуры и дизайна.",
+  alternates: { canonical: canonical("/about") },
   robots: {
     index: true,
     follow: true,

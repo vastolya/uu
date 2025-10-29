@@ -17,13 +17,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Благоустройство территории «Кванториум-Сити» Центра",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Проект благоустройства территории «Кванториум-Сити» Центра от архитектурного бюро ДАБЛ-Ю. Ландшафт, проектирование, навигация и дизайн общественных пространств.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/kvantoriym"),
   },
   robots: {
     index: true,

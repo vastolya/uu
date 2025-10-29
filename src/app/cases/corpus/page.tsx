@@ -28,13 +28,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Ресторан «Corpus Societas» (Meat House)",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Архитектурный проект ресторана «Corpus Societas» (Meat House) от бюро ДАБЛ-Ю: полное проектирование, интерьер, зонирование и брендинг. Архитектурное бюро полного цикла в Санкт-Петербурге.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/corpus"),
   },
   robots: {
     index: true,

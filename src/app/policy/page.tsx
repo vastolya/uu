@@ -1,14 +1,13 @@
 import PolicyContent from "@/components/sections/PolicyContent";
+import { canonical } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
     "Политика Конфиденциальности ДАБЛ-Ю | Архитектурное бюро в Санкт-Петербурге",
   description:
-    "Свежие новости архитектурного бюро ДАБЛ-Ю: проекты, события, публикации и достижения команды. Архитектура, дизайн интерьеров, идеи и вдохновение.",
-  alternates: {
-    canonical: "/news",
-  },
+    "Политика обработки персональных данных архитектурного бюро ДАБЛ-Ю.",
+  alternates: { canonical: canonical("/policy") },
   robots: {
     index: true,
     follow: true,

@@ -35,13 +35,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Реконструкция парка Шереметева (Юрино, Марий Эл)",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Проект реконструкции парка Шереметева в селе Юрино, Республика Марий Эл, от архитектурного бюро ДАБЛ-Ю. Ландшафт, благоустройство, навигация и реставрация исторической среды.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/sheremeteva"),
   },
   robots: {
     index: true,

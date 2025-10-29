@@ -20,13 +20,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Благоустройство Самсоновской площади, Петергоф",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Проект благоустройства Самсоновской площади в Петергофе от архитектурного бюро ДАБЛ-Ю. Ландшафт, благоустройство, проектирование общественных пространств и архитектура среды.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/samsonovskaya"),
   },
   robots: {
     index: true,

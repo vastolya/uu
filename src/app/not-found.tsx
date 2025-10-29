@@ -3,15 +3,12 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "404 ДАБЛ-Ю | Архитектурное бюро в Санкт-Петербурге",
+  title: "404 — страница не найдена | ДАБЛ-Ю",
   description:
-    "Свежие новости архитектурного бюро ДАБЛ-Ю: проекты, события, публикации и достижения команды. Архитектура, дизайн интерьеров, идеи и вдохновение.",
-  alternates: {
-    canonical: "/news",
-  },
+    "Страница не найдена. Вернитесь на главную архитектурного бюро ДАБЛ-Ю или просмотрите наши проекты и новости.",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 

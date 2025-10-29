@@ -5,14 +5,15 @@ import IconTg from "@/components/icons/IconTg";
 import IconIn from "@/components/icons/IconIn";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title:
     "Контакты ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге",
   description:
-    "Получите консультацию по архитектурным и интерьерным проектам у ДАБЛ-Ю. Полный цикл услуг: от концепции до реализации жилых, коммерческих и общественных пространств в Санкт-Петербурге",
+    "Получите консультацию по архитектурным и интерьерным проектам у ДАБЛ-Ю. Полный цикл услуг: от концепции до реализации жилых, коммерческих и общественных пространств в Санкт-Петербурге.",
   alternates: {
-    canonical: "/map",
+    canonical: canonical("/map"),
   },
   robots: {
     index: true,

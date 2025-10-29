@@ -15,14 +15,13 @@ import LogoBigUU from "@public/logoBigUU.webp";
 import ImageArrow from "@public/imageArrow.webp";
 import type { Metadata } from "next";
 import CasesHorizontal from "@/components/sections/CasesHorizontal";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "ДАБЛ-Ю — мультидисциплинарное архитектурное бюро в Санкт-Петербурге",
   description:
     "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: canonical("/") },
   robots: {
     index: true,
     follow: true,

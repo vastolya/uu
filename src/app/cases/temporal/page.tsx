@@ -19,13 +19,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Концепция отеля «Temporal» в Санкт-Петербурге",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Проект концепции отеля «Temporal» в Санкт-Петербурге от архитектурного бюро ДАБЛ-Ю. Архитектурное проектирование, дизайн интерьеров и брендинг в рамках единой концепции.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/temporal"),
   },
   robots: {
     index: true,

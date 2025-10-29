@@ -33,13 +33,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Благоустройство Волжской набережной, Ярославль",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Проект благоустройства Волжской набережной в Ярославле от архитектурного бюро ДАБЛ-Ю. Ландшафтная архитектура, общественные пространства и комплексное проектирование.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/volzhskaya"),
   },
   robots: {
     index: true,

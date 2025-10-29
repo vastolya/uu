@@ -4,12 +4,15 @@ import ImageCases from "@public/imageCases.webp";
 import { PageSection } from "@/components/layout/PageSection";
 import CasesPage from "@/components/sections/CasesPage";
 import type { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Портфолио ДАБЛ-Ю | Архитектурное бюро в Санкт-Петербурге",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
-  alternates: { canonical: "/" },
+    "Проекты архитектурного бюро ДАБЛ-Ю: жилые и коммерческие объекты, дизайн интерьеров, благоустройство и брендинг. Архитектура полного цикла — от идеи до реализации.",
+  alternates: {
+    canonical: canonical("/cases"),
+  },
   robots: { index: true, follow: true },
 };
 

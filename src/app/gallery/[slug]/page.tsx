@@ -11,6 +11,7 @@ import IconTg from "@/components/icons/IconTg";
 import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const revalidate = 60;
 
@@ -174,12 +175,6 @@ type ArtForMeta = {
   body?: unknown;
 };
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.NODE_ENV === "production"
-    ? "https://your-domain.ru" // заменить после деплоя
-    : "http://localhost:3000");
-
 async function getArt(slug: string): Promise<ArtForMeta | null> {
   return client.fetch(
     `*[_type=="art" && slug.current==$slug][0]{ _id, title, slug, _createdAt, body }`,
@@ -214,9 +209,9 @@ export async function generateMetadata({
   if (!art) {
     return {
       title: "Галерея — ДАБЛ-Ю",
-      description: "Картины и арт‑проекты бюро ДАБЛ-Ю.",
+      description: "Картины и арт-проекты бюро ДАБЛ-Ю.",
       robots: { index: false, follow: false },
-      alternates: { canonical: `${siteUrl}/gallery/${slug}` }, // ← здесь slug
+      alternates: { canonical: canonical(`/gallery/${slug}`) },
     };
   }
 
@@ -224,7 +219,7 @@ export async function generateMetadata({
   const bodyText = extractPlainText(art.body);
   const description =
     (bodyText && bodyText.slice(0, 160)) ||
-    "Картины и арт‑проекты бюро ДАБЛ-Ю.";
+    "Картины и арт-проекты бюро ДАБЛ-Ю.";
   const isFuture = art._createdAt
     ? new Date(art._createdAt) > new Date()
     : false;
@@ -232,11 +227,10 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `${siteUrl}/gallery/${art.slug.current}` },
+    alternates: { canonical: canonical(`/gallery/${art.slug.current}`) },
     robots: { index: !isFuture, follow: !isFuture },
   };
 }
-/* ===== /динамическая мета ===== */
 
 export async function generateStaticParams() {
   const slugs: string[] = await client.fetch(

@@ -28,13 +28,14 @@ import IconChevron from "@/components/icons/IconChevron";
 import Form from "@/components/ui/Form";
 import CaseTitle from "@/components/layout/CaseTitle";
 import { Metadata } from "next";
+import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Жилая квартира, Санкт-Петербург ",
   description:
-    "ДАБЛ-Ю — архитектурное бюро полного цикла в Санкт-Петербурге. Архитектурное проектирование, дизайн интерьеров, ландшафт, брендинг. Полный спектр услуг для вашего проекта — от идеи до реализации.",
+    "Архитектурное и интерьерное решение жилой квартиры в Санкт-Петербурге от бюро ДАБЛ-Ю. Полный цикл: проектирование, дизайн, авторский надзор и реализация.",
   alternates: {
-    canonical: "/",
+    canonical: canonical("/cases/flat"),
   },
   robots: {
     index: true,
