@@ -601,8 +601,8 @@ export default function Page() {
 
         <div className="relative w-full overflow-hidden pb-[56.25%] order-17 col-span-8 mb-6 md:rounded-[var(--radius-sm)]">
           <iframe
-            src="https://www.youtube.com/embed/pZ0JFxWmjdY?autoplay=1&mute=1&loop=1&playlist=pZ0JFxWmjdY&controls=0&modestbranding=1&rel=0"
-            title="YouTube video"
+            src="https://dzen.ru/embed/oEUZlaWcKAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0"
+            title="Волжская набережная — (Ярославль)"
             allow="autoplay; fullscreen"
             className="absolute left-0 top-0 h-full w-full"
           ></iframe>

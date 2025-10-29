@@ -699,12 +699,13 @@ export default function Page() {
           </section>
         </div>
 
-        <div className="relative w-full overflow-hidden rounded-xl pb-[56.25%] order-17 col-span-8 mb-6 md:rounded-[var(--radius-sm)]">
+        <div className="relative w-full overflow-hidden pb-[56.25%] order-17 col-span-8 mb-6 md:rounded-[var(--radius-sm)]">
           <iframe
-            src="https://www.youtube.com/embed/yPdnkprv6yQ?autoplay=1&mute=1&loop=1&playlist=yPdnkprv6yQ&controls=0&modestbranding=1&rel=0"
-            title="YouTube video"
-            allow="autoplay; fullscreen"
+            src="https://dzen.ru/embed/oEUaaZ2cKAAA?from_block=partner&from=zen&mute=1&autoplay=1&tv=0"
+            title="Yandex Zen video"
+            allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media"
             className="absolute left-0 top-0 h-full w-full"
+            allowFullScreen
           ></iframe>
         </div>
       </PageSection>
