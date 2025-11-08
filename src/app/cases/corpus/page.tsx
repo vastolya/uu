@@ -512,13 +512,7 @@ export default function Page() {
                   Дизайнер
                 </p>
                 <p className="subtitle pb-1">Нечаева Валерия</p>
-                <p className="subtitle-sm pb-3 md:pb-4 text-[var(--color-gray)]">
-                  Дизайнер
-                </p>
-                <p className="subtitle pb-1">Снежазов Ростислав</p>
-                <p className="subtitle-sm text-[var(--color-gray)]">
-                  Автор концепции
-                </p>
+                <p className="subtitle-sm text-[var(--color-gray)]">Дизайнер</p>
               </div>
             </div>
             <div className="bg-[var(--color-black)] md:py-10 md:px-10 py-[52px] px-4 col-span-4 md:rounded-[var(--radius-sm)]">

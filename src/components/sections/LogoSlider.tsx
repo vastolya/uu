@@ -9,7 +9,6 @@ const logos = [
   { name: "Temporal", src: "/logoClient4.webp" },
   { name: "Adler", src: "/logoClient5.webp" },
   { name: "RosAtom", src: "/logoClient6.webp" },
-  { name: "Yandex", src: "/logoClient7.webp" },
 ];
 
 export default function LogoSlider() {

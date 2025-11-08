@@ -51,7 +51,7 @@ export default async function ArtsPage({
   return (
     <div className="">
       <div className="h-14 md:h-20" />
-      <PageSection className="md:px-5 md:pt-10 pb-[60px] md:pb-20 flex flex-col md:flex-row">
+      <PageSection className="md:px-5 pt-[18px] md:pt-10 pb-[60px] md:pb-20 flex flex-col md:flex-row">
         <div className="h-[220px] md:h-[29.75rem] w-ful relative col-span-4  mb-[18px] md:mb-0">
           <Image
             src={urlFor(arts.image).url()}

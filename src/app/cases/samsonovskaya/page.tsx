@@ -415,10 +415,6 @@ export default function Page() {
                 <p className="subtitle-sm pb-3 md:pb-4 text-[var(--color-gray)]">
                   Дизайнер
                 </p>
-                <p className="subtitle pb-1">Александр Козлов</p>
-                <p className="subtitle-sm pb-3 md:pb-4 text-[var(--color-gray)]">
-                  Дизайнер
-                </p>
                 <p className="subtitle pb-1">Участие историков-консультантов</p>
                 <p className="subtitle-sm  text-[var(--color-gray)]">
                   Для адаптации наследия Петра I

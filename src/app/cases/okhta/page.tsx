@@ -94,7 +94,7 @@ export default function Page() {
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">
                 <p className="col-span-2 px-4 md:px-0 pb-1 md:pb-0">Локация</p>
                 <p className="col-span-2 text-[var(--color-gray)] px-4 md:px-0">
-                  Помещение бывших конюшен
+                  Территория Центра Брянцева
                 </p>
               </div>
               <div className="md:grid md:grid-cols-4 md:gap-x-6 py-4 border-b-2 subtitle border-[var(--color-border-gray)]">

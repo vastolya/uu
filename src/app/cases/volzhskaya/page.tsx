@@ -569,10 +569,6 @@ export default function Page() {
                 <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
                   Дизайнер
                 </p>
-                <p className="subtitle pb-1">Александр Козлов</p>
-                <p className="subtitle-sm pb-4 text-[var(--color-gray)]">
-                  Дизайнер
-                </p>
                 <p className="subtitle pb-1">Участники согласований</p>
                 <p className="subtitle-sm  text-[var(--color-gray)]">
                   Комитет по градостроительству, администрация Ярославля,

@@ -357,8 +357,13 @@ export default function Page() {
                 <span className="text-[var(--color-primary)]">концепции:</span>
               </h2>
               <div className="col-span-2">
-                <p className="subtitle pb-[52px] md:pb-0">
-                  Студия: <span className="subtitle-bold">KUMORIZZ TEAM</span>
+                <p className="subtitle pb-1">Валерия Нечаева</p>
+                <p className="subtitle-sm pb-3 md:pb-4 text-[var(--color-gray)]">
+                  Архитектор
+                </p>
+                <p className="subtitle pb-1">Kumorizz Team</p>
+                <p className="subtitle-sm pb-8 md:pb-4 text-[var(--color-gray)]">
+                  Брендинг
                 </p>
               </div>
             </div>

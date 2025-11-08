@@ -392,10 +392,6 @@ export default function Page() {
                   Архитектор
                 </p>
                 <p className="subtitle pb-1">Анна Ефимова</p>
-                <p className="subtitle-sm pb-3 md:pb-4 text-[var(--color-gray)]">
-                  Дизайнер
-                </p>
-                <p className="subtitle pb-1">Александр Козлов</p>
                 <p className="subtitle-sm pb-8 md:pb-4 text-[var(--color-gray)]">
                   Дизайнер
                 </p>
