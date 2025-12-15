@@ -254,7 +254,7 @@ const CasesPage = () => {
 
       <PageSection className="pt-5 pb-5 md:pt-10 md:pb-20 gap-y-5 flex flex-col px-4 md:!px-0">
         <AnimatePresence mode="popLayout">
-          <motion.div
+          {/* <motion.div
             key="case-corpus"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -283,7 +283,7 @@ const CasesPage = () => {
                 <p className="subtitle text-[var(--color-gray)]"></p>
               </div>
             </Link>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             key="case-spa"
